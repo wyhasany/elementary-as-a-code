@@ -1,0 +1,32 @@
+- name:
+  hosts: 127.0.0.1
+  connection: local
+  vars:
+    user: $USER
+  tasks:
+  - name: Install wireshark
+    apt: name=wireshark state=present
+  - name: Ensure group "wireshark" exists
+    group:
+      name: wireshark
+      state: present
+  - name: Adding user to wireshark group
+    user:
+      name: "{{ ansible_user_id }}"
+      groups: wireshark
+      append: yes
+      state: present
+    become: true
+  - name: Set group and permissions for dumpcap
+    file:
+      path: /usr/bin/dumpcap
+      owner: root
+      group: wireshark
+      mode: 0754
+    become: true
+  - name: Set network capabilities for dumpcap
+    capabilities:
+      path: /usr/bin/dumpcap
+      capability: cap_net_admin,cap_net_raw+eip
+      state: present
+    become: true

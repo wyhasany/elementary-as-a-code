@@ -1,0 +1,19 @@
+- name:
+  hosts: 127.0.0.1
+  connection: local
+  tasks:
+
+  #Based on: https://bendews.com/posts/implement-dns-over-https/
+  #https://galaxy.ansible.com/bendews/cloudflared
+  - name: Install and Configure cloudflared - dns over https
+    include_role:
+      name: bendews.cloudflared
+    vars:
+      cloudflared_allow_firewall: false
+      cloudflared_enable_service: true
+      cloudflared_port: 53
+    become: true
+
+  #to set dns check:
+  #https://askubuntu.com/questions/1033292/ubuntu-18-04-using-netplan-with-dhcp-and-static-dns-settings-seems-totally-broke
+

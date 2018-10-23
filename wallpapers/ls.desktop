@@ -1,0 +1,10 @@
+[Desktop Entry]
+Type=Application
+Exec=/home/hasan/bin/lock.sh
+Hidden=false
+NoDisplay=false
+X-GNOME-Autostart-enabled=true
+Name[en_GB]=Lock Wallpaper
+Name=Lock Wallpaper
+Comment[en_GB]=
+Comment=

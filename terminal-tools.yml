@@ -1,0 +1,161 @@
+- name:
+  hosts: 127.0.0.1
+  connection: local
+  tasks:
+
+  - name: Install packages
+    apt: name={{item}} state=present
+    with_items:
+    - tree
+    - httpie
+    # https://httpie.org/
+    - screen
+    - yakuake
+    - git-core
+    - powerline
+    - zsh
+    become: true
+
+  - name: Install sdkman (https://sdkman.io/)
+    command: curl -s http://get.sdkman.io | bash
+
+  - name: ensure the ~/src-hub directory is present
+    file:
+      path: /home/{{ ansible_user_id }}/src-hub
+      state: directory
+
+  - name: clone oh-my-zsh
+    git:
+      repo: https://github.com/robbyrussell/oh-my-zsh.git
+      dest: /home/{{ ansible_user_id }}/src-hub/oh-my-zsh
+      update: no
+
+  - name: create symlink to oh-my-zsh
+    file:
+      path: /home/{{ ansible_user_id }}/.oh-my-zsh
+      src: /home/{{ ansible_user_id }}/src-hub/oh-my-zsh
+      state: link
+
+  - name: check if .zshrc exists
+    stat:
+      path: /home/{{ ansible_user_id }}/.zshrc
+    register: zshrc
+
+  - name: back up existing .zshrc file if it exists
+    when: zshrc.stat.exists
+    copy:
+      src: /home/{{ ansible_user_id }}/.zshrc
+      dest: /home/{{ ansible_user_id }}/.zshrc-orig
+
+  - name: copy zshrc to user home
+    copy:
+      src: zsh_files/zshrc
+      dest: /home/{{ ansible_user_id }}/.zshrc
+      force: yes
+
+  - name: change user shell to zsh
+    become: yes
+    become_user: root
+    command: chsh -s /bin/zsh "{{ ansible_user_id }}"
+
+  - name: ensure the fonts directory is present
+    file:
+      path: /home/{{ ansible_user_id }}/.local/share/fonts
+      mode: 0755
+      state: directory
+      recurse: true
+
+  - name: copy fonts
+    synchronize:
+      src: zsh_files/fonts
+      dest: /home/{{ ansible_user_id }}/.local/share/
+
+  - name: scan for new fonts
+    command: fc-cache -fv ~/.local/share/fonts/
+
+  - name: clone powerlevel9k theme
+    git:
+      repo: https://github.com/bhilburn/powerlevel9k.git
+      dest:  ~/.oh-my-zsh/custom/themes/powerlevel9k
+      update: no
+
+  - name: clone docker-machine completion
+    git:
+      repo: https://github.com/leonhartX/docker-machine-zsh-completion.git
+      dest: ~/.oh-my-zsh/custom/plugins/docker-machine
+      update: no
+
+  - name: clone fuzzy finder
+    git:
+      repo: https://github.com/junegunn/fzf.git
+      dest: ~/.oh-my-zsh/custom/plugins/fzf
+      update: no
+
+  - name: install fuzzy finder
+    command: /home/{{ ansible_user_id }}/.oh-my-zsh/custom/plugins/fzf/install --bin
+
+  - name: clone fzf-zsh wrapper
+    git:
+      repo: https://github.com/Treri/fzf-zsh.git
+      dest: ~/.oh-my-zsh/custom/plugins/fzf-zsh
+      update: no
+
+  - name: clone sdkman zsh plugin
+    git:
+      repo: https://github.com/nobeans/zsh-sdkman.git
+      dest: ~/.oh-my-zsh/custom/plugins/sdkman
+      update: no
+
+  - name: clone zsh-autosuggestions
+    git:
+      repo: https://github.com/zsh-users/zsh-autosuggestions
+      dest: ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions
+
+  - name: create folder for flatpak plugin
+    file:
+      path: /home/{{ ansible_user_id }}/.oh-my-zsh/custom/plugins/flatpak/
+      state: directory
+      mode: 0755
+
+  - name: copy flatpak plugin
+    get_url:
+      url: https://raw.githubusercontent.com/bilelmoussaoui/flatpak-zsh-completion/master/flatpak/flatpak.plugin.zsh
+      dest: /home/{{ ansible_user_id }}/.oh-my-zsh/custom/plugins/flatpak/
+
+  - name: clone zsh-syntax-highlighting
+    git:
+      repo: https://github.com/zsh-users/zsh-syntax-highlighting.git
+      dest: ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting
+      update: no
+
+  - name: ensure the ~/.local/share/konsole directory is present
+    file:
+      path: /home/{{ ansible_user_id }}/.local/share/konsole
+      state: directory
+
+  - name: copy konsole profiles
+    synchronize:
+      src: zsh_files/konsole_profiles/konsole
+      dest: /home/{{ ansible_user_id }}/.local/share/
+
+  - name: ensure the /usr/share/yakuake/skins/ directory is present
+    file:
+      path: /usr/share/yakuake/skins/
+      state: directory
+    become: true
+
+  - name: copy yakuake skins
+    synchronize:
+      src: zsh_files/yakuake_skins/
+      dest: /usr/share/yakuake/
+    become: true
+
+  - name: copy yakuakerc
+    copy:
+      src: zsh_files/yakuakerc
+      dest: /home/{{ ansible_user_id }}/.config/
+
+  - name: copy yakuake skins
+    synchronize:
+      src: zsh_files/konsoleprofile
+      dest: /home/{{ ansible_user_id }}/.local/bin/

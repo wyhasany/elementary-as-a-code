@@ -1,0 +1,8 @@
+- name:
+  hosts: 127.0.0.1
+  connection: local
+- import_playbook: wireshark-installation.yml
+- import_playbook: terminal-tools.yml
+- import_playbook: utilities.yml
+- import_playbook: vivaldi.yml
+- import_playbook: autops-development-environment.yml

@@ -1,0 +1,19 @@
+- name:
+  hosts: 127.0.0.1
+  connection: local
+  tasks:
+  - name: Add KeepassXC Repository
+  - apt_repository:
+    repo: ppa:phoerious/keepassxc
+    tags:
+    - keepassxc
+    become: true
+  - name: Install KeepassXC
+    apt:
+      name: keepassxc
+      update_cache: yes
+      state: latest
+    tags:
+    - keepassxc
+    become: true
+

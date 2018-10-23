@@ -1,0 +1,29 @@
+- name:
+  hosts: 127.0.0.1
+  connection: local
+  tasks:
+  - name: Add Vivaldi Repository
+    apt_repository:
+      repo: "deb https://repo.vivaldi.com/stable/deb/ stable main"
+      state: present
+      filename: vivaldi.list
+    tags:
+    - vivaldi
+    become: true
+  - name: Add the Vivaldi APT key
+    apt_key:
+      url: https://repo.vivaldi.com/stable/linux_signing_key.pub
+      id: 6D3789EDC3401E12
+      state: present
+    tags:
+    - vivaldi
+    become: true
+  - name: Install Vivaldi
+    apt:
+      name: vivaldi-stable
+      update_cache: yes
+      state: latest
+    tags:
+    - vivaldi
+    become: true
+
