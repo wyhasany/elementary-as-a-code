@@ -2,32 +2,78 @@
   hosts: 127.0.0.1
   connection: local
   tasks:
-  - name: Add Chrome Repository
-    apt_repository:
-      repo: "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main"
-      state: present
-      filename: google.list
-    tags:
-    - chrome
-    become: true
-  - name: Add the Chrome APT key
-    apt_key:
-      url: https://dl-ssl.google.com/linux/linux_signing_key.pub
-      #to check id of key
-      #gpg linux_signing_key.pub
-      #pub  1024D/0xA040830F7FAC5991 2007-03-08 Google, Inc. Linux Package Signing Key...
-      #--> A040830F7FAC5991
-      id: A040830F7FAC5991
-      state: present
-    tags:
-    - chrome
-    become: true
-  - name: Install Chrome
+  - name: Install variety
     apt:
-      name: google-chrome-stable
+      name: variety
       update_cache: yes
       state: latest
     tags:
-    - chrome
+    - wallpapers
     become: true
 
+  - name: ensure the ~/.config/variety directory is present
+    file:
+      path: /home/{{ ansible_user_id }}/.config/variety
+      state: directory
+
+  - name: check if variety.conf exists
+    stat:
+      path: /home/{{ ansible_user_id }}/.config/variety/variety.conf
+    register: variety_conf
+
+  - name: back up existing variety.conf file if it exists
+    when: variety_conf.stat.exists
+    copy:
+      src: /home/{{ ansible_user_id }}/.config/variety/variety.conf
+      dest: /home/{{ ansible_user_id }}/.config/variety/variety.conf-orig
+
+  - name: copy variety.conf to user home
+    copy:
+      src: wallpapers/variety.conf
+      dest: /home/{{ ansible_user_id }}/.config/variety/variety.conf
+      force: yes
+
+  - name: ensure the ~/.config/autostart directory is present
+    file:
+      path: /home/{{ ansible_user_id }}/.config/autostart
+      state: directory
+
+  - name: check if variety.desktop has been added to autostart
+    stat:
+      path: /home/{{ ansible_user_id }}/.config/autostart/variety.desktop
+    register: variety_desktop
+
+  - name: copy variety.desktop to autostart
+    when: not variety_desktop.stat.exists
+    copy:
+      src: wallpapers/variety.desktop
+      dest: /home/{{ ansible_user_id }}/.config/autostart/variety.desktop
+      force: yes
+
+  - name: ensure the ~/bin directory is present
+    file:
+      path: /home/{{ ansible_user_id }}/bin
+      state: directory
+
+  - name: check if lock.sh has been added to bin
+    stat:
+      path: /home/{{ ansible_user_id }}/bin/lock.sh
+    register: lock_sh
+
+  - name: copy variety.desktop to autostart
+    copy:
+      src: wallpapers/lock.sh
+      dest: /home/{{ ansible_user_id }}/bin/lock.sh
+      force: yes
+
+  - name: check if ls.desktop has been added to autostart
+    stat:
+      path: /home/{{ ansible_user_id }}/.config/autostart/ls.desktop
+    register: ls_desktop
+
+  - name: copy ls.desktop to autostart
+    when: not ls_desktop.stat.exists
+    copy:
+      src: wallpapers/ls.desktop
+      dest: /home/{{ ansible_user_id }}/.config/autostart/ls.desktop
+      force: yes

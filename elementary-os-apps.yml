@@ -1,0 +1,20 @@
+- name:
+  hosts: 127.0.0.1
+  connection: local
+  tasks:
+
+    - name: Install Elementary OS apps
+      apt: name={{item}} state=present
+      with_items:
+        - com.github.artemanufrij.screencast
+        - com.github.davidmhewitt.torrential
+        - com.github.mdh34.quickdocs
+        - com.github.babluboy.bookworm
+        - com.github.djaler.formatter
+        - com.github.philip-scott.spice-up
+        - com.github.bharatkalluri.gifup
+        - com.github.lainsce.palaura
+        - com.github.robertsanseries.ciano
+        - com.github.davidmhewitt.clipped
+        - com.github.lainsce.quilter
+      become: true

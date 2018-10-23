@@ -1,12 +1,12 @@
 [Appearance]
 AntiAliasFonts=true
 BoldIntense=true
-ColorScheme=shell
+ColorScheme=shell-transparent
 Font=DejaVu Sans Mono for Powerline,11,-1,5,50,0,0,0,0,0
 
 [General]
 LocalTabTitleFormat=%d : %n
-Name=shell
+Name=shell-transparent
 Parent=FALLBACK/
 
 [Scrolling]

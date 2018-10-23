@@ -2,15 +2,15 @@
   hosts: 127.0.0.1
   connection: local
   tasks:
-  - name: Add KeepassXC Repository
-  - apt_repository:
-    repo: ppa:phoerious/keepassxc
+  - name: Add flatpak Repository
+    apt_repository:
+    repo: ppa:alexlarsson/flatpak
     tags:
-    - keepassxc
+    - flatpak
     become: true
-  - name: Install KeepassXC
+  - name: Install flatpak
     apt:
-      name: keepassxc
+      name: flatpak
       update_cache: yes
       state: latest
     tags:

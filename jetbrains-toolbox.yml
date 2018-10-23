@@ -2,6 +2,12 @@
   hosts: 127.0.0.1
   connection: local
   tasks:
-  - name: Install Caprine using snap
+  - name: Download Jetbrains Toolbox using shell script
     command: snap install caprine --classic  # waiting for snap module to get rid of command
+  - name: Install Jetbrains Toolbox
+    command: /home/{{ ansible_user_id }}/jetbrains-toolbox/jetbrains-toolbox
     become: true
+  - name: Clean Jetbrains Toolbox
+    file:
+      state: absent
+      path: "/home/{{ ansible_user_id }}/jetbrains-toolbox/"

@@ -2,32 +2,18 @@
   hosts: 127.0.0.1
   connection: local
   tasks:
-  - name: Add Chrome Repository
-    apt_repository:
-      repo: "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main"
-      state: present
-      filename: google.list
+  - name: Add KeepassXC Repository
+  - apt_repository:
+    repo: ppa:phoerious/keepassxc
     tags:
-    - chrome
+    - keepassxc
     become: true
-  - name: Add the Chrome APT key
-    apt_key:
-      url: https://dl-ssl.google.com/linux/linux_signing_key.pub
-      #to check id of key
-      #gpg linux_signing_key.pub
-      #pub  1024D/0xA040830F7FAC5991 2007-03-08 Google, Inc. Linux Package Signing Key...
-      #--> A040830F7FAC5991
-      id: A040830F7FAC5991
-      state: present
-    tags:
-    - chrome
-    become: true
-  - name: Install Chrome
+  - name: Install KeepassXC
     apt:
-      name: google-chrome-stable
+      name: keepassxc
       update_cache: yes
       state: latest
     tags:
-    - chrome
+    - keepassxc
     become: true
 

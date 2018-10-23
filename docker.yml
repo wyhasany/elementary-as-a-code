@@ -3,17 +3,55 @@
   connection: local
   tasks:
 
-  #Based on: https://bendews.com/posts/implement-dns-over-https/
-  #https://galaxy.ansible.com/bendews/cloudflared
-  - name: Install and Configure cloudflared - dns over https
-    include_role:
-      name: bendews.cloudflared
-    vars:
-      cloudflared_allow_firewall: false
-      cloudflared_enable_service: true
-      cloudflared_port: 53
+  - name: Install Docker dependencies
+    apt: name={{item}} state=present
+    with_items:
+      - apt-transport-https
+      - ca-certificates
+      - curl
+      - software-properties-common
+      - python3-pip
     become: true
 
-  #to set dns check:
-  #https://askubuntu.com/questions/1033292/ubuntu-18-04-using-netplan-with-dhcp-and-static-dns-settings-seems-totally-broke
+  - name: Remove legacy Docker packages
+    apt:
+      name: "{{item}}"
+      purge: yes
+      state: absent
+    with_items:
+      - lxc-docker
+      - docker
+      - docker-engine
 
+  - name: Add Docker APT repository key
+    apt_key:
+      url: "https://download.docker.com/linux/ubuntu/gpg"
+      state: present
+
+  - name: Add Docker APT repository
+    apt_repository:
+      repo: "deb https://download.docker.com/linux/ubuntu bionic stable"
+      state: present
+      update_cache: yes
+
+  - name: Install Docker
+    apt:
+      name: "{{ item }}"
+      state: present
+    with_items:
+      - docker-ce
+
+  - name: Ensure group "docker" exists
+    group:
+      name: docker
+      state: present
+
+  - name: Adding existing user '{{ user }}' to group docker (to run docker without sudo)
+    user:
+      name: '{{ user }}'
+      groups: docker
+      append: yes
+
+  - name: Install docker-compose
+    pip:
+      name: docker-compose

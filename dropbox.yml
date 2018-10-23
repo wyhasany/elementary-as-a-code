@@ -1,7 +1,7 @@
-- name:
+- name: to check how to properly install it
   hosts: 127.0.0.1
   connection: local
   tasks:
-  - name: Install Caprine using snap
-    command: snap install caprine --classic  # waiting for snap module to get rid of command
-    become: true
+#  - name: Install Caprine using snap
+#    command: snap install caprine --classic  # waiting for snap module to get rid of command
+#    become: true

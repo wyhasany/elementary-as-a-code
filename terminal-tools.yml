@@ -6,9 +6,6 @@
   - name: Install packages
     apt: name={{item}} state=present
     with_items:
-    - tree
-    - httpie
-    # https://httpie.org/
     - screen
     - yakuake
     - git-core

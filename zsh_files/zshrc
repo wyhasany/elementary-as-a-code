@@ -10,6 +10,7 @@ plugins=(
   docker-compose
   docker-machine
   flatpak
+  fzf-zsh
   git
   git-flow-avh
   gitignore
@@ -67,15 +68,15 @@ t() {
 }
 
 theme-normal() {
-  switch-term-color "colors=grzegorz"
+  switch-term-color "colors=shell"
   TRANSPARENCY=false
 }
 theme-transparent() {
-  switch-term-color "colors=grzegorz-transparent"
+  switch-term-color "colors=shell-transparent"
   TRANSPARENCY=true
 }
 switch-term-color() {
-  arg="${1:-colors=grzegorz-transparent}"
+  arg="${1:-colors=shell-transparent}"
   if [[ -z "$TMUX" ]]
   then
     konsoleprofile "$arg"
@@ -215,3 +216,7 @@ POWERLEVEL9K_WINDOWS_ICON=" "
 
 source ~/.local/share/fonts/*.sh
 source ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR="/home/$USER/.sdkman"
+[[ -s "/home/$USER/.sdkman/bin/sdkman-init.sh" ]] && source "/home/$USER/.sdkman/bin/sdkman-init.sh"
