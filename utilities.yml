@@ -4,7 +4,7 @@
   tasks:
 
   - name: Add UNetbootin Repository
-      apt_repository:
+    apt_repository:
       repo: ppa:gezakovacs/ppa
       tags:
         - unetbootin
