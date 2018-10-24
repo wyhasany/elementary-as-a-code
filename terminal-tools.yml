@@ -44,6 +44,13 @@
       src: /home/{{ ansible_user_id }}/.zshrc
       dest: /home/{{ ansible_user_id }}/.zshrc-orig
 
+  - name: Use your username in zshrc config
+    replace:
+      path: wallpapers/zshrc
+      regexp: 'yourusername'
+      replace: {{ ansible_user_id }}
+      backup: yes
+
   - name: copy zshrc to user home
     copy:
       src: zsh_files/zshrc

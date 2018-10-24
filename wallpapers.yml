@@ -71,6 +71,14 @@
       path: /home/{{ ansible_user_id }}/.config/autostart/ls.desktop
     register: ls_desktop
 
+  - name: Use your username in zshrc config
+    when: not ls_desktop.stat.exists
+    replace:
+      path: wallpapers/ls.desktop
+      regexp: 'yourusername'
+      replace: {{ ansible_user_id }}
+      backup: yes
+
   - name: copy ls.desktop to autostart
     when: not ls_desktop.stat.exists
     copy:

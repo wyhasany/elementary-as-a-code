@@ -1,6 +1,6 @@
 export TERM="xterm-256color"
-export DEFAULT_USER="$USER"
-export ZSH=/home/$USER/.oh-my-zsh
+export DEFAULT_USER=yourusername
+export ZSH=/home/yourusername/.oh-my-zsh
 
 POWERLEVEL9K_MODE='awesome-fontconfig'
 ZSH_THEME="powerlevel9k/powerlevel9k"
@@ -218,5 +218,5 @@ source ~/.local/share/fonts/*.sh
 source ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
-export SDKMAN_DIR="/home/$USER/.sdkman"
-[[ -s "/home/$USER/.sdkman/bin/sdkman-init.sh" ]] && source "/home/$USER/.sdkman/bin/sdkman-init.sh"
+export SDKMAN_DIR="/home/yourusername/.sdkman"
+[[ -s "/home/yourusername/.sdkman/bin/sdkman-init.sh" ]] && source "/home/yourusername/.sdkman/bin/sdkman-init.sh"

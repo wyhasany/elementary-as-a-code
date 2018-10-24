@@ -1,6 +1,6 @@
 [Desktop Entry]
 Type=Application
-Exec=/home/hasan/bin/lock.sh
+Exec=/home/yourusername/bin/lock.sh
 Hidden=false
 NoDisplay=false
 X-GNOME-Autostart-enabled=true
