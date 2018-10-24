@@ -6,7 +6,7 @@
     apt_repository:
       repo: ppa:yubico/stable
       tags:
-      - keepassxc
+      - yubico
       become: true
   - name: Install Yubico Tools
     apt: name={{item}} state=latest update_cache=yes
