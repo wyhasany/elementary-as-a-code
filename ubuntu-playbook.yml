@@ -5,4 +5,3 @@
 - import_playbook: terminal-tools.yml
 - import_playbook: utilities.yml
 - import_playbook: vivaldi.yml
-- import_playbook: autops-development-environment.yml
