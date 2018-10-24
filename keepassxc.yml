@@ -3,11 +3,11 @@
   connection: local
   tasks:
   - name: Add KeepassXC Repository
-  - apt_repository:
-    repo: ppa:phoerious/keepassxc
-    tags:
-    - keepassxc
-    become: true
+    apt_repository:
+      repo: ppa:phoerious/keepassxc
+      tags:
+      - keepassxc
+      become: true
   - name: Install KeepassXC
     apt:
       name: keepassxc

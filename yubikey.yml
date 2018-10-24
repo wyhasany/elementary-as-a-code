@@ -3,18 +3,16 @@
   connection: local
   tasks:
   - name: Add Yubico Repository
-  - apt_repository:
-    repo: ppa:yubico/stable
-    tags:
-    - keepassxc
-    become: true
+    apt_repository:
+      repo: ppa:yubico/stable
+      tags:
+      - keepassxc
+      become: true
   - name: Install Yubico Tools
-    apt: name={{item}} state=latest
+    apt: name={{item}} state=latest update_cache=yes
     with_items:
       - yubikey-manager-qt
       - yubioath-desktop
       - yubikey-personalization-gui
       - yubikey-piv-manager
-    update_cache: yes
     become: true
-

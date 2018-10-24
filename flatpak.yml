@@ -4,10 +4,10 @@
   tasks:
   - name: Add flatpak Repository
     apt_repository:
-    repo: ppa:alexlarsson/flatpak
-    tags:
-    - flatpak
-    become: true
+      repo: ppa:alexlarsson/flatpak
+      tags:
+      - flatpak
+      become: true
   - name: Install flatpak
     apt:
       name: flatpak
