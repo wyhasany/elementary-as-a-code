@@ -41,6 +41,7 @@
     - remmina
     - transmission
     - vlc
+    - unetbootin
     become: true
 
 
