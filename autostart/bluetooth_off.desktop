@@ -1,0 +1,7 @@
+[Desktop Entry]
+Name[en_US]=Custom Command
+Comment[en_US]=bluetooth off
+Exec=bluetooth off
+Icon=application-default-icon
+X-GNOME-Autostart-enabled=true
+Type=Application

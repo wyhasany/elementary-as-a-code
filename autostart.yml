@@ -1,0 +1,19 @@
+- name:
+  hosts: 127.0.0.1
+  connection: local
+  tasks:
+
+  - name: Use your username autostart.desktop files
+    replace:
+      path: autostart/{{ item }}
+      regexp: 'yourusername'
+      replace: {{ ansible_user_id }}
+    with_fileglob: autostart/*
+
+  - name: Copy all *.desktop to local autostart
+    when: not ls_desktop.stat.exists
+    copy:
+      src: wallpapers/{{item}}
+      dest: /home/{{ ansible_user_id }}/.config/autostart/{{item}}
+      force: yes
+    with_fileglob: autostart/*
