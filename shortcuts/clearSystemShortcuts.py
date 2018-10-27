@@ -29,7 +29,10 @@ for child in root_child:
 tree_parent.write("merged.xml")
 
 #Load all idea shortcuts to array
-idea_key_strokes = [ks.attrib['first-keystroke'] for ks in tree_parent.findall('.//keyboard-shortcut')]
+idea_key_strokes = [
+    ks.attrib['first-keystroke']
+    for ks in tree_parent.findall('.//keyboard-shortcut')
+]
 
 #Dict to map IntellIJ keys to Linux
 keys_regex_mapping = {
@@ -77,7 +80,12 @@ keys_regex_mapping = {
 }
 
 #Load your system configuration
-gsettings_output = subprocess.run("gsettings list-recursively", shell=True, stdout=subprocess.PIPE, universal_newlines=True).stdout
+gsettings_output = subprocess.run(
+    "gsettings list-recursively",
+    shell=True,
+    stdout=subprocess.PIPE,
+    universal_newlines=True
+).stdout
 
 #Remove affected system shortcuts
 for key_stroke in idea_key_strokes:
