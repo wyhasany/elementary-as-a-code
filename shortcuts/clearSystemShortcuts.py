@@ -38,48 +38,48 @@ idea_key_strokes = [ks.attrib.get('first-keystroke') for ks in tree_parent.finda
 
 
 #Dict to map IntellIJ keys to Linux
-dict = {
-"MINUS": "minus|underscore",
-"EQUALS": "equal|plus",
-"PAGE_UP": "Page_Up",
-"PAGE_DOWN": "Page_Down",
-"HOME": "Home",
-"TAB": "Tab",
-"SPACE": "space",
-"ENTER": "Return|Enter",
-"SLASH": "slash|question",
-"BACK_SLASH": "backslash|bar",
-"PERIOD": "period|greater",
-"INSERT": "Insert",
-"CONTROL": "Ctrl|Control|Primary",
-"DIVIDE": "KP_Divide",
-"ADD": "KP_Add",
-"SUBSTRACT": "KP_Substract",
-"MULTIPLY": "KP_Multiply",
-"BACK_QUOTE": "grave|Above_Tab|asciitilde", # => `,
-"1": "1|exclam",
-"2": "2|exclam",
-"3": "3|numbersign",
-"4": "4|dollar",
-"5": "5|percent",
-"6": "6|asciicircum",
-"7": "7|ampersand",
-"8": "8|asterisk",
-"9": "9|parenleft",
-"0": "0|parenright",
-"BACK_SPACE": "BackSpace",
-"DELETE": "Delete",
-"UP": "Up",
-"DOWN": "Down",
-"LEFT": "Left",
-"RIGHT": "Right",
-"CLOSE_BRACKET": "bracketright|braceright", # => ],
-"OPEN_BRACKET": "bracketleft|braceleft", # => [,
-"SEMICOLON": "semicolon|colon",
-"COMMA": "comma|less",
-"QUOTE": "quotedbl|apostrophe", # => ",
-"ESCAPE": "Escape",
-"WINDOWS": "Super",
+keys_regex_mapping = {
+    "MINUS": "minus|underscore",
+    "EQUALS": "equal|plus",
+    "PAGE_UP": "Page_Up",
+    "PAGE_DOWN": "Page_Down",
+    "HOME": "Home",
+    "TAB": "Tab",
+    "SPACE": "space",
+    "ENTER": "Return|Enter",
+    "SLASH": "slash|question",
+    "BACK_SLASH": "backslash|bar",
+    "PERIOD": "period|greater",
+    "INSERT": "Insert",
+    "CONTROL": "Ctrl|Control|Primary",
+    "DIVIDE": "KP_Divide",
+    "ADD": "KP_Add",
+    "SUBSTRACT": "KP_Substract",
+    "MULTIPLY": "KP_Multiply",
+    "BACK_QUOTE": "grave|Above_Tab|asciitilde", # => `,
+    "1": "1|exclam",
+    "2": "2|exclam",
+    "3": "3|numbersign",
+    "4": "4|dollar",
+    "5": "5|percent",
+    "6": "6|asciicircum",
+    "7": "7|ampersand",
+    "8": "8|asterisk",
+    "9": "9|parenleft",
+    "0": "0|parenright",
+    "BACK_SPACE": "BackSpace",
+    "DELETE": "Delete",
+    "UP": "Up",
+    "DOWN": "Down",
+    "LEFT": "Left",
+    "RIGHT": "Right",
+    "CLOSE_BRACKET": "bracketright|braceright", # => ],
+    "OPEN_BRACKET": "bracketleft|braceleft", # => [,
+    "SEMICOLON": "semicolon|colon",
+    "COMMA": "comma|less",
+    "QUOTE": "quotedbl|apostrophe", # => ",
+    "ESCAPE": "Escape",
+    "WINDOWS": "Super",
 }
 
 #Load your system configuration
@@ -98,8 +98,8 @@ for key_stroke in idea_key_strokes:
     #Map IntellIJ keystrokes to Gnome shortcuts
     mapped_key_stroke = []
     for key in key_stroke_split:
-        if key.upper() in dict.keys():
-            mapped_key_stroke.append(dict[key.upper()])
+        if key.upper() in keys_regex_mapping.keys():
+            mapped_key_stroke.append(keys_regex_mapping[key.upper()])
         else:
             mapped_key_stroke.append(key.upper())
 
