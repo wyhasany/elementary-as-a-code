@@ -96,7 +96,7 @@ def map_intellij_keystrokes_to_gnome_shortcuts():
     ]
 
 
-def regexp_to_get_affected_system_shortcuts():
+def regexp_to_get_affected_system_shortcuts(mapped_key_stroke):
     """
     Create regexp to get affected system shortcuts
     like this one:
@@ -110,10 +110,7 @@ def regexp_to_get_affected_system_shortcuts():
     regexp += "'"
     for key in mapped_key_stroke:
         regexp += "<?("
-        for value in mapped_key_stroke:
-            regexp += value + "|"
-        # Remove last pipe '|' sign
-        regexp = regexp[:-1]
+        regexp += "|".join(mapped_key_stroke)
         regexp += ")\>?\s*"
     regexp += "'"
     return regexp
@@ -147,7 +144,7 @@ for key_stroke in idea_key_strokes:
         continue
 
     mapped_key_stroke = map_intellij_keystrokes_to_gnome_shortcuts()
-    regexp = regexp_to_get_affected_system_shortcuts()
+    regexp = regexp_to_get_affected_system_shortcuts(mapped_key_stroke)
     find_matching_lines()
 
 
