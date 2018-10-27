@@ -1,36 +1,17 @@
 #!/usr/bin/python3
-
 import urllib.request
 import xml.etree.ElementTree as ET
 import subprocess
 import re
 
-url = 'https://raw.githubusercontent.com/JetBrains/intellij-community/282253b8ee888b51c0e8f63f44d9d4ecae9c19d2/platform/platform-resources/src/keymaps/%24default.xml'
-default_keymappings = urllib.request.urlopen(url).read().decode("utf-8")
-url = 'https://raw.githubusercontent.com/JetBrains/intellij-community/282253b8ee888b51c0e8f63f44d9d4ecae9c19d2/platform/platform-resources/src/keymaps/Default%20for%20XWin.xml'
-xwin_mappings = urllib.request.urlopen(url).read().decode("utf-8")
-
-# Merge keymaps
-tree_parent = ET.ElementTree(ET.fromstring(default_keymappings))
-root_parent = tree_parent.getroot()
-tree_child = ET.ElementTree(ET.fromstring(xwin_mappings))
-root_child = tree_child.getroot()
-
-for child in root_child:
-    # creates xpath to find parent xml element to overwrite
-    chs = root_parent.findall('.//' + child.tag + '[@id=\'' + child.attrib['id'] + '\']')
-    for x in chs:
-        root_parent.remove(x)
-    root_parent.append(child)
-
-#Load all idea shortcuts to array
-idea_key_strokes = [
-    ks.attrib['first-keystroke']
-    for ks in tree_parent.findall('.//keyboard-shortcut')
+WHITELIST = [
+    "org.gnome.desktop.wm.keybindings",
+    "org.gnome.settings-daemon.plugins.media-keys",
+    "org.cinnamon.desktop.keybindings",
 ]
 
-#Dict to map IntellIJ keys to Linux
-keys_regex_mapping = {
+# Dict to map IntellIJ keys to Linux
+KEYS_REGEX_MAPPING = {
     "MINUS": "minus|underscore",
     "EQUALS": "equal|plus",
     "PAGE_UP": "Page_Up",
@@ -48,7 +29,7 @@ keys_regex_mapping = {
     "ADD": "KP_Add",
     "SUBSTRACT": "KP_Substract",
     "MULTIPLY": "KP_Multiply",
-    "BACK_QUOTE": "grave|Above_Tab|asciitilde", # => `,
+    "BACK_QUOTE": "grave|Above_Tab|asciitilde",  # => `,
     "1": "1|exclam",
     "2": "2|exclam",
     "3": "3|numbersign",
@@ -65,41 +46,78 @@ keys_regex_mapping = {
     "DOWN": "Down",
     "LEFT": "Left",
     "RIGHT": "Right",
-    "CLOSE_BRACKET": "bracketright|braceright", # => ],
-    "OPEN_BRACKET": "bracketleft|braceleft", # => [,
+    "CLOSE_BRACKET": "bracketright|braceright",  # => ],
+    "OPEN_BRACKET": "bracketleft|braceleft",  # => [,
     "SEMICOLON": "semicolon|colon",
     "COMMA": "comma|less",
-    "QUOTE": "quotedbl|apostrophe", # => ",
+    "QUOTE": "quotedbl|apostrophe",  # => ",
     "ESCAPE": "Escape",
     "WINDOWS": "Super",
 }
 
-whitelist = [
-    "org.gnome.desktop.wm.keybindings",
-    "org.gnome.settings-daemon.plugins.media-keys",
-    "org.cinnamon.desktop.keybindings",
-]
 
-# Load your system configuration
-gsettings_output = subprocess.run(
-    "gsettings list-recursively",
-    shell=True,
-    stdout=subprocess.PIPE,
-    universal_newlines=True
-).stdout
+def main():
+    idea_key_strokes = get_idea_key_strokes()
+    gsettings_output_lines = get_system_config_from_gsettings()
+    for key_stroke in idea_key_strokes:
+        key_stroke_split = key_stroke.split()
 
-gsettings_output_lines = [
-    line for line in gsettings_output.splitlines()
-    if any([
-        suspected_string in line
-        for suspected_string in whitelist
-    ])
-]
+        # System do not implement one key shortcuts in dconf
+        if len(key_stroke_split) <= 1:
+            continue
+
+        mapped_key_stroke = map_intellij_keystrokes_to_gnome_shortcuts(key_stroke_split)
+        regexp = regexp_to_get_affected_system_shortcuts(mapped_key_stroke)
+        find_and_display_matching_lines(gsettings_output_lines, regexp, key_stroke)
 
 
-def map_intellij_keystrokes_to_gnome_shortcuts():
+def get_idea_key_strokes():
+    url = 'https://raw.githubusercontent.com/JetBrains/intellij-community/282253b8ee888b51c0e8f63f44d9d4ecae9c19d2/platform/platform-resources/src/keymaps/%24default.xml'
+    default_keymappings = urllib.request.urlopen(url).read().decode("utf-8")
+    url = 'https://raw.githubusercontent.com/JetBrains/intellij-community/282253b8ee888b51c0e8f63f44d9d4ecae9c19d2/platform/platform-resources/src/keymaps/Default%20for%20XWin.xml'
+    xwin_mappings = urllib.request.urlopen(url).read().decode("utf-8")
+
+    # Merge keymaps
+    tree_parent = ET.ElementTree(ET.fromstring(default_keymappings))
+    root_parent = tree_parent.getroot()
+    tree_child = ET.ElementTree(ET.fromstring(xwin_mappings))
+    root_child = tree_child.getroot()
+
+    for child in root_child:
+        # creates xpath to find parent xml element to overwrite
+        chs = root_parent.findall('.//' + child.tag + '[@id=\'' + child.attrib['id'] + '\']')
+        for x in chs:
+            root_parent.remove(x)
+        root_parent.append(child)
+
+    # Load all idea shortcuts to array
+    idea_key_strokes = [
+        ks.attrib['first-keystroke']
+        for ks in tree_parent.findall('.//keyboard-shortcut')
+    ]
+    return idea_key_strokes
+
+
+def get_system_config_from_gsettings():
+    gsettings_output = subprocess.run(
+        "gsettings list-recursively",
+        shell=True,
+        stdout=subprocess.PIPE,
+        universal_newlines=True
+    ).stdout
+    lines_filtered_using_whitelist = [
+        line for line in gsettings_output.splitlines()
+        if any([
+            suspected_string in line
+            for suspected_string in WHITELIST
+        ])
+    ]
+    return lines_filtered_using_whitelist
+
+
+def map_intellij_keystrokes_to_gnome_shortcuts(key_stroke_split):
     return [
-        keys_regex_mapping[key.upper()] if key.upper() in keys_regex_mapping
+        KEYS_REGEX_MAPPING[key.upper()] if key.upper() in KEYS_REGEX_MAPPING
         else key.upper()
         for key in key_stroke_split
     ]
@@ -125,7 +143,7 @@ def regexp_to_get_affected_system_shortcuts(mapped_key_stroke):
     return regexp
 
 
-def find_matching_lines(gsettings_output_lines):
+def find_and_display_matching_lines(gsettings_output_lines, regexp, key_stroke):
     lines = gsettings_output_lines
     for line in lines:
         matches = re.finditer(regexp, line, re.IGNORECASE)
@@ -144,14 +162,5 @@ def find_matching_lines(gsettings_output_lines):
                 print('gsettings set', line.replace(group, ''))
 
 
-#Remove affected system shortcuts
-for key_stroke in idea_key_strokes:
-    key_stroke_split = key_stroke.split()
-
-    #System do not implement one key shortcuts in dconf
-    if len(key_stroke_split) <= 1:
-        continue
-
-    mapped_key_stroke = map_intellij_keystrokes_to_gnome_shortcuts()
-    regexp = regexp_to_get_affected_system_shortcuts(mapped_key_stroke)
-    find_matching_lines(gsettings_output_lines)
+if __name__ == '__main__':
+    main()
