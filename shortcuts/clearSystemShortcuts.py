@@ -121,7 +121,7 @@ def get_idea_key_strokes():
 
 def get_system_config_from_gsettings():
     gsettings_output = subprocess.run(
-        "gsettings list-recursively",
+        'gsettings list-recursively | grep -v -E "\[\s*\]"',
         shell=True,
         stdout=subprocess.PIPE,
         universal_newlines=True
