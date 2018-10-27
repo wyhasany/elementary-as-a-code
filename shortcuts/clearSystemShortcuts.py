@@ -29,8 +29,7 @@ for child in root_child:
 tree_parent.write("merged.xml")
 
 #Load all idea shortcuts to array
-idea_key_strokes = [ks.attrib.get('first-keystroke') for ks in tree_parent.findall('.//keyboard-shortcut')]
-
+idea_key_strokes = [ks.attrib['first-keystroke'] for ks in tree_parent.findall('.//keyboard-shortcut')]
 
 #Dict to map IntellIJ keys to Linux
 keys_regex_mapping = {
