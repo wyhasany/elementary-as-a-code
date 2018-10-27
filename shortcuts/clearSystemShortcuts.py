@@ -1,4 +1,6 @@
 #!/usr/bin/python3
+import argparse
+
 import urllib.request
 import xml.etree.ElementTree as ET
 import subprocess
@@ -57,6 +59,7 @@ KEYS_REGEX_MAPPING = {
 
 
 def main():
+    args = get_parsed_args()
     idea_key_strokes = get_idea_key_strokes()
     gsettings_output_lines = get_system_config_from_gsettings()
     for key_stroke in idea_key_strokes:
@@ -68,7 +71,25 @@ def main():
 
         mapped_key_stroke = map_intellij_keystrokes_to_gnome_shortcuts(key_stroke_split)
         regexp = regexp_to_get_affected_system_shortcuts(mapped_key_stroke)
-        find_and_display_matching_lines(gsettings_output_lines, regexp, key_stroke)
+        find_and_display_matching_lines(
+            gsettings_output_lines, regexp, key_stroke,
+            verbose=args.verbose, execute=args.execute
+        )
+
+
+def get_parsed_args():
+    parser = argparse.ArgumentParser()
+    parser.add_argument(
+        "-v", "--verbose",
+        help="print more information",
+        action="store_true"
+    )
+    parser.add_argument(
+        "-e", "--execute",
+        help="remove/replace shortcuts conflicting to IntellIJ IDEA",
+        action="store_true"
+    )
+    return parser.parse_args()
 
 
 def get_idea_key_strokes():
@@ -143,23 +164,35 @@ def regexp_to_get_affected_system_shortcuts(mapped_key_stroke):
     return regexp
 
 
-def find_and_display_matching_lines(gsettings_output_lines, regexp, key_stroke):
+def find_and_display_matching_lines(gsettings_output_lines, regexp, key_stroke, verbose=False, execute=False):
     lines = gsettings_output_lines
     for line in lines:
         matches = re.finditer(regexp, line, re.IGNORECASE)
         for matchNum, match in enumerate(matches):
-            print("Original IntellIJ shortcut: ", key_stroke)
-            print(line)
-            print ("Match was found at {start}-{end}: {match}".format(start=match.start(), end=match.end(),
-                                                                      match=match.group()))
-
+            if verbose:
+                print("Original IntellIJ shortcut: ", key_stroke)
+                print(line)
+                print ("Match was found at {start}-{end}: {match}".format(start=match.start(), end=match.end(),
+                                                                          match=match.group()))
             group = match.group()
             if "alt" in group.lower():
                 pattern = re.compile("alt", re.IGNORECASE)
                 end_shortcut = pattern.sub("Super", group)
-                print('gsettings set', line.replace(group, end_shortcut))
+                command = " ".join(['gsettings set', line.replace(group, end_shortcut)])
             else:
-                print('gsettings set', line.replace(group, ''))
+                command = " ".join(['gsettings set', line.replace(group, '')])
+            command = command.replace("[", '"[')
+            command = command.replace("]", ']"')
+
+            print(command)
+            if execute:
+                result = subprocess.run(command, shell=True, stdout=subprocess.PIPE, universal_newlines=True)
+                if result.returncode != 0:
+                    messege = "{} enexpectedly failed. \n" \
+                              "exitcode: {} \n" \
+                              "stdout: {} \n" \
+                              "stderr: {}".format(command, result.returncode, result.stdout, result.stderr)
+                    raise RuntimeError(messege)
 
 
 if __name__ == '__main__':
