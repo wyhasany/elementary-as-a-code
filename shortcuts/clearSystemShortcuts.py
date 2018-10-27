@@ -28,11 +28,6 @@ for child in root_child:
 
 tree_parent.write("merged.xml")
 
-
-# #for debug
-# tree_parent = ET.parse('merged.xml')
-# root_parent = tree_parent.getroot()
-
 #Load all idea shortcuts to array
 idea_key_strokes = [ks.attrib.get('first-keystroke') for ks in tree_parent.findall('.//keyboard-shortcut')]
 
@@ -87,8 +82,6 @@ gsettings_output = subprocess.run("gsettings list-recursively", shell=True, stdo
 
 #Remove affected system shortcuts
 for key_stroke in idea_key_strokes:
-    #print(key_stroke)
-
     key_stroke_split = key_stroke.split()
 
     #System do not implement one key shortcuts in dconf
@@ -101,8 +94,6 @@ for key_stroke in idea_key_strokes:
         else key.upper()
         for key in key_stroke_split
     ]
-    #print(mapped_key_stroke)
-
 
     #Create regexp to get affected system shortcuts
     #like this one:
@@ -121,9 +112,6 @@ for key_stroke in idea_key_strokes:
         regexp = regexp[:-1]
         regexp += ")\>?\s*"
     regexp += "'"
-
-    # print("Regexp is ready:")
-    # print(regexp)
 
     #Find matching lines
     lines = gsettings_output.splitlines()
