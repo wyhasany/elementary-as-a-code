@@ -74,13 +74,27 @@ keys_regex_mapping = {
     "WINDOWS": "Super",
 }
 
-#Load your system configuration
+whitelist = [
+    "org.gnome.desktop.wm.keybindings",
+    "org.gnome.settings-daemon.plugins.media-keys",
+    "org.cinnamon.desktop.keybindings",
+]
+
+# Load your system configuration
 gsettings_output = subprocess.run(
     "gsettings list-recursively",
     shell=True,
     stdout=subprocess.PIPE,
     universal_newlines=True
 ).stdout
+
+gsettings_output_lines = [
+    line for line in gsettings_output.splitlines()
+    if any([
+        suspected_string in line
+        for suspected_string in whitelist
+    ])
+]
 
 
 def map_intellij_keystrokes_to_gnome_shortcuts():
@@ -111,8 +125,8 @@ def regexp_to_get_affected_system_shortcuts(mapped_key_stroke):
     return regexp
 
 
-def find_matching_lines():
-    lines = gsettings_output.splitlines()
+def find_matching_lines(gsettings_output_lines):
+    lines = gsettings_output_lines
     for line in lines:
         matches = re.finditer(regexp, line, re.IGNORECASE)
         for matchNum, match in enumerate(matches):
@@ -140,6 +154,4 @@ for key_stroke in idea_key_strokes:
 
     mapped_key_stroke = map_intellij_keystrokes_to_gnome_shortcuts()
     regexp = regexp_to_get_affected_system_shortcuts(mapped_key_stroke)
-    find_matching_lines()
-
-
+    find_matching_lines(gsettings_output_lines)
