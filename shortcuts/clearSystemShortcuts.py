@@ -92,7 +92,7 @@ for key_stroke in idea_key_strokes:
     key_stroke_split = key_stroke.split()
 
     #System do not implement one key shortcuts in dconf
-    if len(key_stroke_split) == 1 or len(key_stroke_split) == 0:
+    if len(key_stroke_split) <= 0:
         continue
 
     #Map IntellIJ keystrokes to Gnome shortcuts
