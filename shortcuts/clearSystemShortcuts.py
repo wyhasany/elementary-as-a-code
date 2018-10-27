@@ -2,6 +2,8 @@
 
 import urllib.request
 import xml.etree.ElementTree as ET
+import subprocess
+import re
 
 #Download default root keymap
 url = 'https://raw.githubusercontent.com/JetBrains/intellij-community/282253b8ee888b51c0e8f63f44d9d4ecae9c19d2/platform/platform-resources/src/keymaps/%24default.xml'
@@ -26,11 +28,120 @@ for child in root_child:
 
 tree_parent.write("merged.xml")
 
+
+# #for debug
+# tree_parent = ET.parse('merged.xml')
+# root_parent = tree_parent.getroot()
+
 #Load all idea shortcuts to array
 idea_key_strokes = [ks.attrib.get('first-keystroke') for ks in tree_parent.findall('.//keyboard-shortcut')]
 
-#For debug
+
+#Dict to map IntellIJ keys to Linux
+dict = {
+"MINUS": "minus|underscore",
+"EQUALS": "equal|plus",
+"PAGE_UP": "Page_Up",
+"PAGE_DOWN": "Page_Down",
+"HOME": "Home",
+"TAB": "Tab",
+"SPACE": "space",
+"ENTER": "Return|Enter",
+"SLASH": "slash|question",
+"BACK_SLASH": "backslash|bar",
+"PERIOD": "period|greater",
+"INSERT": "Insert",
+"CONTROL": "Ctrl|Control|Primary",
+"DIVIDE": "KP_Divide",
+"ADD": "KP_Add",
+"SUBSTRACT": "KP_Substract",
+"MULTIPLY": "KP_Multiply",
+"BACK_QUOTE": "grave|Above_Tab|asciitilde", # => `,
+"1": "1|exclam",
+"2": "2|exclam",
+"3": "3|numbersign",
+"4": "4|dollar",
+"5": "5|percent",
+"6": "6|asciicircum",
+"7": "7|ampersand",
+"8": "8|asterisk",
+"9": "9|parenleft",
+"0": "0|parenright",
+"BACK_SPACE": "BackSpace",
+"DELETE": "Delete",
+"UP": "Up",
+"DOWN": "Down",
+"LEFT": "Left",
+"RIGHT": "Right",
+"CLOSE_BRACKET": "bracketright|braceright", # => ],
+"OPEN_BRACKET": "bracketleft|braceleft", # => [,
+"SEMICOLON": "semicolon|colon",
+"COMMA": "comma|less",
+"QUOTE": "quotedbl|apostrophe", # => ",
+"ESCAPE": "Escape",
+"WINDOWS": "Super",
+}
+
+#Load your system configuration
+gsettings_output = subprocess.run("gsettings list-recursively", shell=True, stdout=subprocess.PIPE, universal_newlines=True).stdout
+
+#Remove affected system shortcuts
 for key_stroke in idea_key_strokes:
-    print(key_stroke)
-    # ADD -> plus
-    #
+    #print(key_stroke)
+
+    key_stroke_split = key_stroke.split()
+
+    #System do not implement one key shortcuts in dconf
+    if len(key_stroke_split) == 1 or len(key_stroke_split) == 0:
+        continue
+
+    #Map IntellIJ keystrokes to Gnome shortcuts
+    mapped_key_stroke = []
+    for key in key_stroke_split:
+        if key.upper() in dict.keys():
+            mapped_key_stroke.append(dict[key.upper()])
+        else:
+            mapped_key_stroke.append(key.upper())
+
+    #print(mapped_key_stroke)
+
+
+    #Create regexp to get affected system shortcuts
+    #like this one:
+    #(?=.*?(control|ctrl))(?=.*?shift)'<?(shift|control|ctrl)\>?\s*<?(shift|control|ctrl)\>?\s*'
+    #for better understanding that regexp, check:
+    #https://regex101.com/r/pC8vD4/46
+    regexp = ""
+    for key in mapped_key_stroke:
+        regexp += "(?=.*?(" + key + "))"
+    regexp += "'"
+    for key in mapped_key_stroke:
+        regexp += "<?("
+        for value in mapped_key_stroke:
+            regexp += value + "|"
+        #Remove last pipe '|' sign
+        regexp = regexp[:-1]
+        regexp += ")\>?\s*"
+    regexp += "'"
+
+    # print("Regexp is ready:")
+    # print(regexp)
+
+    #Find matching lines
+    lines = gsettings_output.splitlines()
+    for line in lines:
+        matches = re.finditer(regexp, line, re.IGNORECASE)
+        for matchNum, match in enumerate(matches):
+            print("Original IntellIJ shortcut: ", key_stroke)
+            print(line)
+            print ("Match was found at {start}-{end}: {match}".format(start = match.start(), end = match.end(), match = match.group()))
+
+            group = match.group()
+            if "alt" in group.lower():
+                pattern = re.compile("alt", re.IGNORECASE)
+                end_shortcut = pattern.sub("Super", group)
+                print('gsettings set', line.replace(group, end_shortcut))
+            else:
+                print('gsettings set', line.replace(group, ''))
+
+
