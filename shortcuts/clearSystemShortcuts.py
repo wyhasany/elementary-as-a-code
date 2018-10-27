@@ -96,13 +96,11 @@ for key_stroke in idea_key_strokes:
         continue
 
     #Map IntellIJ keystrokes to Gnome shortcuts
-    mapped_key_stroke = []
-    for key in key_stroke_split:
-        if key.upper() in keys_regex_mapping.keys():
-            mapped_key_stroke.append(keys_regex_mapping[key.upper()])
-        else:
-            mapped_key_stroke.append(key.upper())
-
+    mapped_key_stroke = [
+        keys_regex_mapping[key.upper()] if key.upper() in keys_regex_mapping
+        else key.upper()
+        for key in key_stroke_split
+    ]
     #print(mapped_key_stroke)
 
 
