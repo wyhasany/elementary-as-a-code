@@ -87,26 +87,23 @@ gsettings_output = subprocess.run(
     universal_newlines=True
 ).stdout
 
-#Remove affected system shortcuts
-for key_stroke in idea_key_strokes:
-    key_stroke_split = key_stroke.split()
 
-    #System do not implement one key shortcuts in dconf
-    if len(key_stroke_split) <= 1:
-        continue
-
-    #Map IntellIJ keystrokes to Gnome shortcuts
-    mapped_key_stroke = [
+def map_intellij_keystrokes_to_gnome_shortcuts():
+    return [
         keys_regex_mapping[key.upper()] if key.upper() in keys_regex_mapping
         else key.upper()
         for key in key_stroke_split
     ]
 
-    #Create regexp to get affected system shortcuts
-    #like this one:
-    #(?=.*?(control|ctrl))(?=.*?shift)'<?(shift|control|ctrl)\>?\s*<?(shift|control|ctrl)\>?\s*'
-    #for better understanding that regexp, check:
-    #https://regex101.com/r/pC8vD4/46
+
+def regexp_to_get_affected_system_shortcuts():
+    """
+    Create regexp to get affected system shortcuts
+    like this one:
+    (?=.*?(control|ctrl))(?=.*?shift)'<?(shift|control|ctrl)\>?\s*<?(shift|control|ctrl)\>?\s*'
+    for better understanding that regexp, check:
+    https://regex101.com/r/pC8vD4/46
+    """
     regexp = ""
     for key in mapped_key_stroke:
         regexp += "(?=.*?(" + key + "))"
@@ -115,19 +112,22 @@ for key_stroke in idea_key_strokes:
         regexp += "<?("
         for value in mapped_key_stroke:
             regexp += value + "|"
-        #Remove last pipe '|' sign
+        # Remove last pipe '|' sign
         regexp = regexp[:-1]
         regexp += ")\>?\s*"
     regexp += "'"
+    return regexp
 
-    #Find matching lines
+
+def find_matching_lines():
     lines = gsettings_output.splitlines()
     for line in lines:
         matches = re.finditer(regexp, line, re.IGNORECASE)
         for matchNum, match in enumerate(matches):
             print("Original IntellIJ shortcut: ", key_stroke)
             print(line)
-            print ("Match was found at {start}-{end}: {match}".format(start = match.start(), end = match.end(), match = match.group()))
+            print ("Match was found at {start}-{end}: {match}".format(start=match.start(), end=match.end(),
+                                                                      match=match.group()))
 
             group = match.group()
             if "alt" in group.lower():
@@ -136,5 +136,18 @@ for key_stroke in idea_key_strokes:
                 print('gsettings set', line.replace(group, end_shortcut))
             else:
                 print('gsettings set', line.replace(group, ''))
+
+
+#Remove affected system shortcuts
+for key_stroke in idea_key_strokes:
+    key_stroke_split = key_stroke.split()
+
+    #System do not implement one key shortcuts in dconf
+    if len(key_stroke_split) <= 1:
+        continue
+
+    mapped_key_stroke = map_intellij_keystrokes_to_gnome_shortcuts()
+    regexp = regexp_to_get_affected_system_shortcuts()
+    find_matching_lines()
 
 
