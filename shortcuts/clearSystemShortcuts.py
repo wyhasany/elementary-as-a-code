@@ -14,49 +14,48 @@ WHITELIST = [
 
 # Dict to map IntellIJ keys to Linux
 KEYS_REGEX_MAPPING = {
-    "MINUS": "minus|underscore",
-    "EQUALS": "equal|plus",
-    "PAGE_UP": "Page_Up",
-    "PAGE_DOWN": "Page_Down",
-    "HOME": "Home",
-    "TAB": "Tab",
-    "SPACE": "space",
-    "ENTER": "Return|Enter",
-    "SLASH": "slash|question",
-    "BACK_SLASH": "backslash|bar",
-    "PERIOD": "period|greater",
-    "INSERT": "Insert",
-    "CONTROL": "Ctrl|Control|Primary",
-    "DIVIDE": "KP_Divide",
-    "ADD": "KP_Add",
-    "SUBSTRACT": "KP_Substract",
-    "MULTIPLY": "KP_Multiply",
-    "BACK_QUOTE": "grave|Above_Tab|asciitilde",  # => `,
-    "1": "1|exclam",
-    "2": "2|exclam",
-    "3": "3|numbersign",
-    "4": "4|dollar",
-    "5": "5|percent",
-    "6": "6|asciicircum",
-    "7": "7|ampersand",
-    "8": "8|asterisk",
-    "9": "9|parenleft",
-    "0": "0|parenright",
-    "BACK_SPACE": "BackSpace",
-    "DELETE": "Delete",
-    "UP": "Up",
-    "DOWN": "Down",
-    "LEFT": "Left",
-    "RIGHT": "Right",
-    "CLOSE_BRACKET": "bracketright|braceright",  # => ],
-    "OPEN_BRACKET": "bracketleft|braceleft",  # => [,
-    "SEMICOLON": "semicolon|colon",
-    "COMMA": "comma|less",
-    "QUOTE": "quotedbl|apostrophe",  # => ",
-    "ESCAPE": "Escape",
-    "WINDOWS": "Super",
+    "MINUS": ["MINUS", "UNDERSCORE"],
+    "EQUALS": ["EQUAL", "PLUS"],
+    "PAGE_UP": ["PAGE_UP"],
+    "PAGE_DOWN": ["PAGE_DOWN"],
+    "HOME": ["HOME"],
+    "TAB": ["TAB"],
+    "SPACE": ["SPACE"],
+    "ENTER": ["RETURN", "ENTER"],
+    "SLASH": ["SLASH","QUESTION"],
+    "BACK_SLASH": ["BACKSLASH","BAR"],
+    "PERIOD": ["PERIOD","GREATER"],
+    "INSERT": ["INSERT"],
+    "CONTROL": ["CTRL","CONTROL","PRIMARY"],
+    "DIVIDE": ["KP_DIVIDE"],
+    "ADD": ["KP_ADD"],
+    "SUBSTRACT": ["KP_SUBSTRACT"],
+    "MULTIPLY": ["KP_MULTIPLY"],
+    "BACK_QUOTE": ["GRAVE","ABOVE_TAB","ASCIITILDE"], # => `,
+    "1": ["1","EXCLAM"],
+    "2": ["2","EXCLAM"],
+    "3": ["3","NUMBERSIGN"],
+    "4": ["4","DOLLAR"],
+    "5": ["5","PERCENT"],
+    "6": ["6","ASCIICIRCUM"],
+    "7": ["7","AMPERSAND"],
+    "8": ["8","ASTERISK"],
+    "9": ["9","PARENLEFT"],
+    "0": ["0","PARENRIGHT"],
+    "BACK_SPACE": ["BACKSPACE"],
+    "DELETE": ["DELETE"],
+    "UP": ["UP"],
+    "DOWN": ["DOWN"],
+    "LEFT": ["LEFT"],
+    "RIGHT": ["RIGHT"],
+    "CLOSE_BRACKET": ["BRACKETRIGHT","BRACERIGHT"],  # => ],
+    "OPEN_BRACKET": ["BRACKETLEFT","BRACELEFT"],  # => [,
+    "SEMICOLON": ["SEMICOLON","COLON"],
+    "COMMA": ["COMMA","LESS"],
+    "QUOTE": ["QUOTEDBL","APOSTROPHE"],  # => ",
+    "ESCAPE": ["ESCAPE"],
+    "WINDOWS": ["SUPER"],
 }
-
 
 def main():
     args = get_parsed_args()
@@ -72,7 +71,7 @@ def main():
         mapped_key_stroke = map_intellij_keystrokes_to_gnome_shortcuts(key_stroke_split)
         regexp = regexp_to_get_affected_system_shortcuts(mapped_key_stroke)
         find_and_display_matching_lines(
-            gsettings_output_lines, regexp, key_stroke,
+            gsettings_output_lines, mapped_key_stroke, key_stroke,
             verbose=args.verbose, execute=args.execute
         )
 
@@ -138,10 +137,14 @@ def get_system_config_from_gsettings():
 
 def map_intellij_keystrokes_to_gnome_shortcuts(key_stroke_split):
     return [
-        KEYS_REGEX_MAPPING[key.upper()] if key.upper() in KEYS_REGEX_MAPPING
-        else key.upper()
+        KEYS_REGEX_MAPPING.setdefault(key.upper(), [key.upper()])
         for key in key_stroke_split
     ]
+
+    # return [
+    #     "|".join())
+    #     for key in key_stroke_split
+    # ]
 
 
 def regexp_to_get_affected_system_shortcuts(mapped_key_stroke):
@@ -153,29 +156,42 @@ def regexp_to_get_affected_system_shortcuts(mapped_key_stroke):
     https://regex101.com/r/pC8vD4/46
     """
     regexp = ""
-    for key in mapped_key_stroke:
-        regexp += "(?=.*?(" + key + "))"
-    regexp += "'"
-    for key in mapped_key_stroke:
-        regexp += "<?("
-        regexp += "|".join(mapped_key_stroke)
-        regexp += ")\>?\s*"
-    regexp += "'"
+    # for key in mapped_key_stroke:
+    #     regexp += "(?=.*?(" + key + "))"
+    # regexp += "'"
+    # for key in mapped_key_stroke:
+    #     regexp += "<?("
+    #     regexp += "|".join(mapped_key_stroke)
+    #     regexp += ")\>?\s*"
+    # regexp += "'"
     return regexp
 
 
-def find_and_display_matching_lines(gsettings_output_lines, regexp, key_stroke, verbose=False, execute=False):
+def find_and_display_matching_lines(gsettings_output_lines, mapped_key_stroke, key_stroke, verbose=False, execute=False):
     lines = gsettings_output_lines
     for line in lines:
-        matches = re.finditer(regexp, line, re.IGNORECASE)
+        upper_line = line.upper()
+        matches = re.finditer('\'.+\'', upper_line)
         for matchNum, match in enumerate(matches):
+            group = match.group()
+            group = group.replace("<"," ")
+            group = group.replace(">"," ")
+            group_split = group.split()
+            if not all([
+                any([
+                    key_expression in group_split for key_expression in key_expressions
+                ])
+                for key_expressions in mapped_key_stroke
+            ]):
+                continue
             if verbose:
                 print("Original IntellIJ shortcut: ", key_stroke)
                 print(line)
                 print ("Match was found at {start}-{end}: {match}".format(start=match.start(), end=match.end(),
-                                                                          match=match.group()))
-            group = match.group()
-            if "alt" in group.lower():
+
+                                                                         match=match.group()))
+
+            if "ALT" in group.upper():
                 pattern = re.compile("alt", re.IGNORECASE)
                 end_shortcut = pattern.sub("Super", group)
                 command = " ".join(['gsettings set', line.replace(group, end_shortcut)])
