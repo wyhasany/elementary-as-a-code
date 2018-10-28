@@ -1,0 +1,45 @@
+- name:
+  hosts: 127.0.0.1
+  connection: local
+  tasks:
+
+  - name: Add UNetbootin Repository
+    apt_repository:
+      repo: ppa:ricotz/docky
+      become: true
+
+  - name: Configure plank
+    user:
+      name: "{{ item.name }}"
+      value: "{{ item.value }}"
+      state: present
+    loop:
+      - { name: "/net/launchpad/plank/dock/settings/icon-size", value: "50" }
+      - { name: "/net/launchpad/plank/dock/settings/show-dock-item", value: "false" }
+      - { name: "/net/launchpad/plank/dock/settings/position", value: "bottom" }
+      - { name: "/net/launchpad/plank/dock/settings/unhide-delay", value: "0" }
+      - { name: "/net/launchpad/plank/dock/settings/items-alignment", value: "center" }
+      - { name: "/net/launchpad/plank/dock/settings/theme", value: "Transparent" }
+      - { name: "/net/launchpad/plank/dock/settings/hide-mode", value: "Intellihide" }
+      - { name: "/net/launchpad/plank/dock/settings/pinned-only", value: "false" }
+      - { name: "/net/launchpad/plank/dock/settings/auto-pinning", value: "true" }
+      - { name: "/net/launchpad/plank/dock/settings/alignment", value: "center" }
+      - { name: "/net/launchpad/plank/dock/settings/zoom-percent", value: "150" }
+      - { name: "/net/launchpad/plank/dock/settings/hide-delay", value: "0" }
+      - { name: "/net/launchpad/plank/dock/settings/zoom-enabled", value: "true" }
+      - { name: "/net/launchpad/plank/dock/settings/monitor", value: "" }
+      - { name: "/net/launchpad/plank/dock/settings/lock-items", value: "false" }
+      - { name: "/net/launchpad/plank/dock/settings/tooltips-enabled", value: "true" }
+      - { name: "/net/launchpad/plank/dock/settings/pressure-reveal", value: "false" }
+      - { name: "/net/launchpad/plank/dock/settings/offset", value: "0" }
+      - { name: "/net/launchpad/plank/dock/settings/current-workspace-only", value: "false" }
+
+  - name: Install plank
+    apt:
+      name: plank
+      update_cache: yes
+      state: latest
+    become: true
+
+  - name: Restart plank
+    shell: "killall -9 plank"
