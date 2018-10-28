@@ -62,14 +62,16 @@ def main():
     args = get_parsed_args()
     idea_key_strokes = get_idea_key_strokes()
     gsettings_output_lines = get_system_config_from_gsettings()
+    all_commands = []
     for key_stroke in idea_key_strokes:
         if len(key_stroke.split()) <= 1:  # System do not implement one key shortcuts in dconf
             continue
-        matching_line_keystroke_pairs = find_matching_line_keystroke_pairs(gsettings_output_lines, key_stroke,
-                                                                           verbose=args.verbose)
-        commands = generate_clearing_commands(matching_line_keystroke_pairs)
-        if args.execute:
-            execute_commands(commands)
+        pairs = find_matching_line_keystroke_pairs(gsettings_output_lines, key_stroke, verbose=args.verbose)
+        commands = generate_clearing_commands(pairs)
+        all_commands.extend(commands)
+    display(all_commands)
+    if args.execute:
+        execute_commands(all_commands)
 
 
 def get_parsed_args():
@@ -85,6 +87,12 @@ def get_parsed_args():
         action="store_true"
     )
     return parser.parse_args()
+
+
+def display(commands):
+    print("Commands for clearing system shortcuts: ")
+    for command in commands:
+        print(command)
 
 
 def get_idea_key_strokes():
@@ -172,16 +180,21 @@ def mapped_keystroke_in_system_keystroke(mapped_key_stroke, system_keystroke):
     return condition
 
 
-def generate_clearing_command(keystroke, line):
+def generate_clearing_command(line, keystroke):
     if "ALT" in keystroke.upper():
         pattern = re.compile("alt", re.IGNORECASE)
         end_shortcut = pattern.sub("Super", keystroke)
-        command = " ".join(['gsettings set', line.replace(keystroke, end_shortcut)])
+        setting = replace_case_insensitive(line, keystroke, end_shortcut)
+        command = " ".join(['gsettings set', setting])
     else:
-        command = " ".join(['gsettings set', line.replace(keystroke, '')])
+        command = " ".join(['gsettings set', replace_case_insensitive(line, keystroke, '')])
     command = command.replace("[", '"[')
     command = command.replace("]", ']"')
     return command
+
+
+def replace_case_insensitive(line, what, to):
+    return re.compile(re.escape(what), re.IGNORECASE).sub(to, line)
 
 
 def generate_clearing_commands(matching_line_keystroke_pairs):
