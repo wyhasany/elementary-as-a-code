@@ -1,0 +1,49 @@
+- name:
+  hosts: 127.0.0.1
+  connection: local
+  tasks:
+  - name: Adding user to input group
+    user:
+      name: "{{ ansible_user_id }}"
+      groups: input
+      append: yes
+      state: present
+    become: true
+
+  - name: Install packages for Fusuma
+    apt: name={{item}} state=present
+    with_items:
+      - xdotool
+      - libinput-tools
+      - ruby
+    become: true
+
+  - name: Configure Gnome to send info about touchpad events
+    user:
+      name: "/org/gnome/desktop/peripherals/touchpad/send-events"
+      value: "enabled"
+      state: present
+
+  - name: Install newest package Fusuma
+    gem:
+      name: fusuma
+      state: latest
+    become: true
+
+  - name: ensure the ~/.config/fusuma directory is present
+    file:
+      path: /home/{{ ansible_user_id }}/.config/fusuma
+      state: directory
+
+  - name: copy fusuma.yml to local user configuration
+    copy:
+      src: gestures/fusuma.yml
+      dest: /home/{{ ansible_user_id }}/.config/fusuma/fusuma.yml
+      force: yes
+
+  - name: Add fusuma to autostart
+    copy:
+      src: gestures/fusuma.desktop
+      dest: /home/{{ ansible_user_id }}/.config/autostart/fusuma.desktop
+      force: yes
+
