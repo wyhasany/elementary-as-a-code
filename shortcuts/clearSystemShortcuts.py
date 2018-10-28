@@ -182,8 +182,9 @@ def mapped_keystroke_in_system_keystroke(mapped_key_stroke, system_keystroke):
 
 def generate_clearing_command(line, keystroke):
     if "ALT" in keystroke.upper():
+        original_keystroke = re.findall(keystroke, line, re.IGNORECASE)[0]
         pattern = re.compile("alt", re.IGNORECASE)
-        end_shortcut = pattern.sub("Super", keystroke)
+        end_shortcut = pattern.sub("Super", original_keystroke)
         setting = replace_case_insensitive(line, keystroke, end_shortcut)
         command = " ".join(['gsettings set', setting])
     else:
