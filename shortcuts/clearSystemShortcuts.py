@@ -164,10 +164,10 @@ def mapped_keystroke_in_system_keystroke(mapped_key_stroke, system_keystroke):
     keys_list = system_keystroke.split()
     condition = all([
         any([
-            key_expression in keys_list
-            for key_expression in key_expressions
+            key in key_expression
+            for key_expression in mapped_key_stroke
         ])
-        for key_expressions in mapped_key_stroke
+        for key in keys_list
     ])
     return condition
 
