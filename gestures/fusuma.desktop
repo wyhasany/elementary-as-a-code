@@ -1,0 +1,10 @@
+[Desktop Entry]
+Type=Application
+Exec=/usr/local/bin/fusuma -d
+Hidden=false
+NoDisplay=false
+X-GNOME-Autostart-enabled=true
+Name[en_US]=Fusuma
+Name=Fusuma
+Comment[en_US]=Gestures application
+Comment=Gestures application
