@@ -22,58 +22,54 @@ KEYS_REGEX_MAPPING = {
     "TAB": ["TAB"],
     "SPACE": ["SPACE"],
     "ENTER": ["RETURN", "ENTER"],
-    "SLASH": ["SLASH","QUESTION"],
-    "BACK_SLASH": ["BACKSLASH","BAR"],
-    "PERIOD": ["PERIOD","GREATER"],
+    "SLASH": ["SLASH", "QUESTION"],
+    "BACK_SLASH": ["BACKSLASH", "BAR"],
+    "PERIOD": ["PERIOD", "GREATER"],
     "INSERT": ["INSERT"],
-    "CONTROL": ["CTRL","CONTROL","PRIMARY"],
+    "CONTROL": ["CTRL", "CONTROL", "PRIMARY"],
     "DIVIDE": ["KP_DIVIDE"],
     "ADD": ["KP_ADD"],
     "SUBSTRACT": ["KP_SUBSTRACT"],
     "MULTIPLY": ["KP_MULTIPLY"],
-    "BACK_QUOTE": ["GRAVE","ABOVE_TAB","ASCIITILDE"], # => `,
-    "1": ["1","EXCLAM"],
-    "2": ["2","EXCLAM"],
-    "3": ["3","NUMBERSIGN"],
-    "4": ["4","DOLLAR"],
-    "5": ["5","PERCENT"],
-    "6": ["6","ASCIICIRCUM"],
-    "7": ["7","AMPERSAND"],
-    "8": ["8","ASTERISK"],
-    "9": ["9","PARENLEFT"],
-    "0": ["0","PARENRIGHT"],
+    "BACK_QUOTE": ["GRAVE", "ABOVE_TAB", "ASCIITILDE"],  # => `,
+    "1": ["1", "EXCLAM"],
+    "2": ["2", "EXCLAM"],
+    "3": ["3", "NUMBERSIGN"],
+    "4": ["4", "DOLLAR"],
+    "5": ["5", "PERCENT"],
+    "6": ["6", "ASCIICIRCUM"],
+    "7": ["7", "AMPERSAND"],
+    "8": ["8", "ASTERISK"],
+    "9": ["9", "PARENLEFT"],
+    "0": ["0", "PARENRIGHT"],
     "BACK_SPACE": ["BACKSPACE"],
     "DELETE": ["DELETE"],
     "UP": ["UP"],
     "DOWN": ["DOWN"],
     "LEFT": ["LEFT"],
     "RIGHT": ["RIGHT"],
-    "CLOSE_BRACKET": ["BRACKETRIGHT","BRACERIGHT"],  # => ],
-    "OPEN_BRACKET": ["BRACKETLEFT","BRACELEFT"],  # => [,
-    "SEMICOLON": ["SEMICOLON","COLON"],
-    "COMMA": ["COMMA","LESS"],
-    "QUOTE": ["QUOTEDBL","APOSTROPHE"],  # => ",
+    "CLOSE_BRACKET": ["BRACKETRIGHT", "BRACERIGHT"],  # => ],
+    "OPEN_BRACKET": ["BRACKETLEFT", "BRACELEFT"],  # => [,
+    "SEMICOLON": ["SEMICOLON", "COLON"],
+    "COMMA": ["COMMA", "LESS"],
+    "QUOTE": ["QUOTEDBL", "APOSTROPHE"],  # => ",
     "ESCAPE": ["ESCAPE"],
     "WINDOWS": ["SUPER"],
 }
+
 
 def main():
     args = get_parsed_args()
     idea_key_strokes = get_idea_key_strokes()
     gsettings_output_lines = get_system_config_from_gsettings()
     for key_stroke in idea_key_strokes:
-        key_stroke_split = key_stroke.split()
-
-        # System do not implement one key shortcuts in dconf
-        if len(key_stroke_split) <= 1:
+        if len(key_stroke.split()) <= 1:  # System do not implement one key shortcuts in dconf
             continue
-
-        mapped_key_stroke = map_intellij_keystrokes_to_gnome_shortcuts(key_stroke_split)
-        regexp = regexp_to_get_affected_system_shortcuts(mapped_key_stroke)
-        find_and_display_matching_lines(
-            gsettings_output_lines, mapped_key_stroke, key_stroke,
-            verbose=args.verbose, execute=args.execute
-        )
+        matching_line_keystroke_pairs = find_matching_line_keystroke_pairs(gsettings_output_lines, key_stroke,
+                                                                           verbose=args.verbose)
+        commands = generate_clearing_commands(matching_line_keystroke_pairs)
+        if args.execute:
+            execute_commands(commands)
 
 
 def get_parsed_args():
@@ -135,80 +131,79 @@ def get_system_config_from_gsettings():
     return lines_filtered_using_whitelist
 
 
-def map_intellij_keystrokes_to_gnome_shortcuts(key_stroke_split):
+def map_intellij_keystrokes_to_gnome_shortcuts(key_stroke):
     return [
         KEYS_REGEX_MAPPING.setdefault(key.upper(), [key.upper()])
-        for key in key_stroke_split
+        for key in key_stroke.split()
     ]
 
-    # return [
-    #     "|".join())
-    #     for key in key_stroke_split
-    # ]
 
-
-def regexp_to_get_affected_system_shortcuts(mapped_key_stroke):
-    """
-    Create regexp to get affected system shortcuts
-    like this one:
-    (?=.*?(control|ctrl))(?=.*?shift)'<?(shift|control|ctrl)\>?\s*<?(shift|control|ctrl)\>?\s*'
-    for better understanding that regexp, check:
-    https://regex101.com/r/pC8vD4/46
-    """
-    regexp = ""
-    # for key in mapped_key_stroke:
-    #     regexp += "(?=.*?(" + key + "))"
-    # regexp += "'"
-    # for key in mapped_key_stroke:
-    #     regexp += "<?("
-    #     regexp += "|".join(mapped_key_stroke)
-    #     regexp += ")\>?\s*"
-    # regexp += "'"
-    return regexp
-
-
-def find_and_display_matching_lines(gsettings_output_lines, mapped_key_stroke, key_stroke, verbose=False, execute=False):
-    lines = gsettings_output_lines
+def find_matching_line_keystroke_pairs(lines, key_stroke, verbose=False):
+    result = []
+    mapped_key_stroke = map_intellij_keystrokes_to_gnome_shortcuts(key_stroke)
     for line in lines:
         upper_line = line.upper()
         matches = re.finditer('\'.+\'', upper_line)
         for matchNum, match in enumerate(matches):
-            group = match.group()
-            group = group.replace("<"," ")
-            group = group.replace(">"," ")
-            group_split = group.split()
-            if not all([
-                any([
-                    key_expression in group_split for key_expression in key_expressions
-                ])
-                for key_expressions in mapped_key_stroke
-            ]):
+            system_keystroke = match.group()
+            if not mapped_keystroke_in_system_keystroke(mapped_key_stroke, system_keystroke):
                 continue
             if verbose:
                 print("Original IntellIJ shortcut: ", key_stroke)
                 print(line)
-                print ("Match was found at {start}-{end}: {match}".format(start=match.start(), end=match.end(),
+                template = "Match was found at {start}-{end}: {match}"
+                print (template.format(start=match.start(), end=match.end(), match=system_keystroke))
+            result.append((line, system_keystroke))
+    return result
 
-                                                                         match=match.group()))
 
-            if "ALT" in group.upper():
-                pattern = re.compile("alt", re.IGNORECASE)
-                end_shortcut = pattern.sub("Super", group)
-                command = " ".join(['gsettings set', line.replace(group, end_shortcut)])
-            else:
-                command = " ".join(['gsettings set', line.replace(group, '')])
-            command = command.replace("[", '"[')
-            command = command.replace("]", ']"')
+def mapped_keystroke_in_system_keystroke(mapped_key_stroke, system_keystroke):
+    ignored_characters = "<>\\\'\""
+    for char in ignored_characters:
+        system_keystroke = system_keystroke.replace(char, " ")
+    keys_list = system_keystroke.split()
+    condition = all([
+        any([
+            key_expression in keys_list
+            for key_expression in key_expressions
+        ])
+        for key_expressions in mapped_key_stroke
+    ])
+    return condition
 
-            print(command)
-            if execute:
-                result = subprocess.run(command, shell=True, stdout=subprocess.PIPE, universal_newlines=True)
-                if result.returncode != 0:
-                    messege = "{} enexpectedly failed. \n" \
-                              "exitcode: {} \n" \
-                              "stdout: {} \n" \
-                              "stderr: {}".format(command, result.returncode, result.stdout, result.stderr)
-                    raise RuntimeError(messege)
+
+def generate_clearing_command(keystroke, line):
+    if "ALT" in keystroke.upper():
+        pattern = re.compile("alt", re.IGNORECASE)
+        end_shortcut = pattern.sub("Super", keystroke)
+        command = " ".join(['gsettings set', line.replace(keystroke, end_shortcut)])
+    else:
+        command = " ".join(['gsettings set', line.replace(keystroke, '')])
+    command = command.replace("[", '"[')
+    command = command.replace("]", ']"')
+    return command
+
+
+def generate_clearing_commands(matching_line_keystroke_pairs):
+    return [
+        generate_clearing_command(line, keystroke)
+        for line, keystroke in matching_line_keystroke_pairs
+    ]
+
+
+def execute_command(command):
+    result = subprocess.run(command, shell=True, stdout=subprocess.PIPE, universal_newlines=True)
+    if result.returncode != 0:
+        messege = "{} enexpectedly failed. \n" \
+                  "exitcode: {} \n" \
+                  "stdout: {} \n" \
+                  "stderr: {}".format(command, result.returncode, result.stdout, result.stderr)
+        raise RuntimeError(messege)
+
+
+def execute_commands(commands):
+    for command in commands:
+        execute_command(command)
 
 
 if __name__ == '__main__':
