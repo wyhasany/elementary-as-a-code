@@ -154,7 +154,7 @@ def find_matching_line_keystroke_pairs(lines, key_stroke, verbose=False):
         matches = re.finditer('\'.+?\'', upper_line)
         for match in matches:
             system_keystroke = match.group()
-            if not mapped_keystroke_in_system_keystroke(mapped_key_stroke, system_keystroke):
+            if not system_keystroke_in_mapped_keystroke(mapped_key_stroke, system_keystroke):
                 continue
             if verbose:
                 print("Original IntellIJ shortcut: ", key_stroke)
@@ -165,17 +165,25 @@ def find_matching_line_keystroke_pairs(lines, key_stroke, verbose=False):
     return result
 
 
-def mapped_keystroke_in_system_keystroke(mapped_key_stroke, system_keystroke):
+def system_keystroke_in_mapped_keystroke(mapped_key_stroke, system_keystroke):
+    """
+    :param mapped_key_stroke: List of possible expression for every key in IntellIJ IDEA keystroke.
+            Example: [['CTRL', 'CONTROL', 'PRIMARY], ['ALT'], ['S']]
+    :param system_keystroke: String representing keystroke returned by gsettings.
+            Example: '<CONTROL><ALT>S'
+    :return: True if system_keystroke is a part of IDEA keystroke, false otherwise.
+    """
     ignored_characters = "<>\\\'\""
     for char in ignored_characters:
-        system_keystroke = system_keystroke.replace(char, " ")
-    keys_list = system_keystroke.split()
-    condition = all([
+        system_keystroke = system_keystroke.replace(char, " ")  # after loop:  system_keystroke = ' CONTROL  ALT S'
+    keys_list = system_keystroke.split()                        # after split: keys_list = ['CONTROL', 'ALT', 'S']
+
+    condition = all([                                           # Read comments and lines following the numbers :)
         any([
-            key in key_expression
-            for key_expression in mapped_key_stroke
+            key in key_expressions                              # 2. key is a one of possible expressions ex. CTRL in ['CTRL', 'CONTROL', 'PRIMARY]
+            for key_expressions in mapped_key_stroke            # 3. of a some key in IDEA keystroke
         ])
-        for key in keys_list
+        for key in keys_list                                    # 1. for every key in system shortcut
     ])
     return condition
 
