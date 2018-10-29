@@ -151,8 +151,8 @@ def find_matching_line_keystroke_pairs(lines, key_stroke, verbose=False):
     mapped_key_stroke = map_intellij_keystrokes_to_gnome_shortcuts(key_stroke)
     for line in lines:
         upper_line = line.upper()
-        matches = re.finditer('\'.+\'', upper_line)
-        for matchNum, match in enumerate(matches):
+        matches = re.finditer('\'.+?\'', upper_line)
+        for match in matches:
             system_keystroke = match.group()
             if not mapped_keystroke_in_system_keystroke(mapped_key_stroke, system_keystroke):
                 continue
