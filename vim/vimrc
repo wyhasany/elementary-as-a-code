@@ -1,0 +1,7 @@
+" Show line numbers on startup
+set number
+" Save file with root permission by :wq!! (if you forget to run `sudo vim ...`)
+cnoremap w!! execute 'silent! write !sudo tee % >/dev/null' <bar> edit!
+" Persistent undo (make undo from another start fo vim)
+set undofile " Maintain undo history between sessions
+set undodir=~/.vim/undodir

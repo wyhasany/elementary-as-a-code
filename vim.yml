@@ -1,0 +1,22 @@
+- name:
+  hosts: 127.0.0.1
+  connection: local
+  tasks:
+
+  - name: Install packages for Fusuma
+    apt: name={{item}} state=present
+    with_items:
+      - vim
+    become: true
+
+  - name: ensure the ~/.vim/undodir directory is present
+    file:
+      path: /home/{{ ansible_user_id }}/.vim/undodir
+      state: directory
+
+  - name: copy .vimrc to local user configuration
+    copy:
+      src: vim/vimrc
+      dest: /home/{{ ansible_user_id }}/.vimrc
+      force: yes
+
