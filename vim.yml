@@ -4,9 +4,9 @@
   tasks:
 
   - name: Install packages for Fusuma
-    apt: name={{item}} state=present
-    with_items:
-      - vim
+    apt: 
+      name: vim 
+      state: present
     become: true
 
   - name: ensure the ~/.vim/undodir directory is present
