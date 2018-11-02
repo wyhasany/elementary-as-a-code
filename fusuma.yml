@@ -11,18 +11,21 @@
     become: true
 
   - name: Install packages for Fusuma
-    apt: name={{item}} state=present
-    with_items:
+    apt: name="{{packages}}" state=present
+    vars:
+      packages:
       - xdotool
       - libinput-tools
       - ruby
+      - python-psutil
+      - python3-psutil
     become: true
 
-  - name: Configure Gnome to send info about touchpad events
-    user:
-      name: "/org/gnome/desktop/peripherals/touchpad/send-events"
-      value: "enabled"
-      state: present
+#  - name: Configure Gnome to send info about touchpad events
+#    dconf:
+#      key: "/org/gnome/desktop/peripherals/touchpad/send-events"
+#      value: "enabled"
+#      state: present
 
   - name: Install newest package Fusuma
     gem:
