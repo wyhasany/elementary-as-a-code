@@ -2,6 +2,18 @@
   hosts: 127.0.0.1
   connection: local
   tasks:
-#  - name: Install Caprine using snap
-#    command: snap install caprine --classic  # waiting for snap module to get rid of command
-#    become: true
+
+  - name: Install git
+    apt:
+      name: git
+      state: present
+    become: true
+
+  - name: Clone git repository with script to install dropbox
+    git:
+      repo: https://github.com/zant95/elementary-dropbox
+      dest: /tmp/elementary-dropbox
+
+  - name: Install docker by script
+    shell: /tmp/elementary-dropbox/install.sh -y
+      
