@@ -66,7 +66,10 @@ def main():
     for key_stroke in idea_key_strokes:
         if len(key_stroke.split()) <= 1:  # System do not implement one key shortcuts in dconf
             continue
-        pairs = find_matching_line_keystroke_pairs(gsettings_output_lines, key_stroke, verbose=args.verbose)
+        pairs = find_matching_line_keystroke_pairs(
+            gsettings_output_lines, key_stroke,
+            partials=args.partials, verbose=args.verbose
+        )
         commands = generate_clearing_commands(pairs)
         all_commands.extend(commands)
     display(all_commands)
@@ -84,6 +87,12 @@ def get_parsed_args():
     parser.add_argument(
         "-e", "--execute",
         help="remove/replace shortcuts conflicting to IntellIJ IDEA",
+        action="store_true"
+    )
+    parser.add_argument(
+        "-p", "--partials",
+        help="consider system shortcuts partially covering IntellIJ IDEA as conflicting.\n"
+             "For example in case of flag added <alt><s> will be considered as covering <control><alt><s>.",
         action="store_true"
     )
     return parser.parse_args()
@@ -146,7 +155,7 @@ def map_intellij_keystrokes_to_gnome_shortcuts(key_stroke):
     ]
 
 
-def find_matching_line_keystroke_pairs(lines, key_stroke, verbose=False):
+def find_matching_line_keystroke_pairs(lines, key_stroke, partials=False, verbose=False):
     result = []
     mapped_key_stroke = map_intellij_keystrokes_to_gnome_shortcuts(key_stroke)
     for line in lines:
@@ -154,7 +163,7 @@ def find_matching_line_keystroke_pairs(lines, key_stroke, verbose=False):
         matches = re.finditer('\'.+?\'', upper_line)
         for match in matches:
             system_keystroke = match.group()
-            if not system_keystroke_in_mapped_keystroke(mapped_key_stroke, system_keystroke):
+            if not covers(mapped_key_stroke, system_keystroke, partial_coverage_checking=partials):
                 continue
             if verbose:
                 print("Original IntellIJ shortcut: ", key_stroke)
@@ -165,18 +174,24 @@ def find_matching_line_keystroke_pairs(lines, key_stroke, verbose=False):
     return result
 
 
-def system_keystroke_in_mapped_keystroke(mapped_key_stroke, system_keystroke):
+def covers(mapped_key_stroke, system_keystroke, partial_coverage_checking=False):
     """
+    Checks if system keystroke covers IDEA keystroke.
     :param mapped_key_stroke: List of possible expression for every key in IntellIJ IDEA keystroke.
             Example: [['CTRL', 'CONTROL', 'PRIMARY], ['ALT'], ['S']]
     :param system_keystroke: String representing keystroke returned by gsettings.
             Example: '<CONTROL><ALT>S'
-    :return: True if system_keystroke is a part of IDEA keystroke, false otherwise.
+    :param partial_coverage_checking: if true keystrokes shorter than IDEA keystrokes are also considered as covering.
+            For example in case of true <alt><s> will be considered as covering <control><alt><s>.
+    :return: True if system_keystroke covers IDEA keystroke, false otherwise.
     """
     ignored_characters = "<>\\\'\""
     for char in ignored_characters:
         system_keystroke = system_keystroke.replace(char, " ")  # after loop:  system_keystroke = ' CONTROL  ALT S'
     keys_list = system_keystroke.split()                        # after split: keys_list = ['CONTROL', 'ALT', 'S']
+
+    if not partial_coverage_checking and len(mapped_key_stroke) != len(keys_list):
+        return False
 
     condition = all([                                           # Read comments and lines following the numbers :)
         any([
