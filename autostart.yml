@@ -5,15 +5,14 @@
 
   - name: Use your username autostart.desktop files
     replace:
-      path: autostart/{{ item }}
+      path: "{{ item }}"
       regexp: 'yourusername'
-      replace: {{ ansible_user_id }}
+      replace: "{{ ansible_user_id }}"
     with_fileglob: autostart/*
 
-  - name: Copy all *.desktop to local autostart
-    when: not ls_desktop.stat.exists
+  - name: Copy all desktop files to local autostart
     copy:
-      src: wallpapers/{{item}}
-      dest: /home/{{ ansible_user_id }}/.config/autostart/{{item}}
+      src: "{{item}}"
+      dest: /home/{{ ansible_user_id }}/.config/autostart/
       force: yes
     with_fileglob: autostart/*
