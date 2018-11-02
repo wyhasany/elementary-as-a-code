@@ -6,10 +6,12 @@
   tasks:
   - name: Install wireshark
     apt: name=wireshark state=present
+    become: true
   - name: Ensure group "wireshark" exists
     group:
       name: wireshark
       state: present
+    become: true
   - name: Adding user to wireshark group
     user:
       name: "{{ ansible_user_id }}"
