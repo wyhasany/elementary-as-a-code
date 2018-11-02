@@ -1,0 +1,1417 @@
+org.gnome.nautilus.desktop trash-icon-name 'Trash'
+org.gnome.nautilus.desktop text-ellipsis-limit 3
+org.gnome.nautilus.desktop background-fade true
+org.gnome.nautilus.desktop home-icon-visible true
+org.gnome.nautilus.desktop trash-icon-visible false
+org.gnome.nautilus.desktop network-icon-visible false
+org.gnome.nautilus.desktop font ''
+org.gnome.nautilus.desktop network-icon-name 'Network Servers'
+org.gnome.nautilus.desktop home-icon-name 'Home'
+org.gnome.nautilus.desktop volumes-visible true
+org.onboard.theme-settings key-size 100.0
+org.onboard.theme-settings key-stroke-width 100.0
+org.onboard.theme-settings key-gradient-direction 0.0
+org.onboard.theme-settings color-scheme ''
+org.onboard.theme-settings key-fill-gradient 0.0
+org.onboard.theme-settings key-label-overrides @as []
+org.onboard.theme-settings key-style 'flat'
+org.onboard.theme-settings background-gradient 0.0
+org.onboard.theme-settings key-stroke-gradient 0.0
+org.onboard.theme-settings key-label-font ''
+org.onboard.theme-settings key-shadow-strength 0.0
+org.onboard.theme-settings key-shadow-size 0.0
+org.onboard.theme-settings roundrect-radius 0.0
+org.gnome.settings-daemon.plugins.keyboard active true
+org.gnome.settings-daemon.plugins.keyboard priority 0
+org.gtk.Settings.EmojiChooser recent-emoji @a((auss)u) []
+org.gnome.desktop.peripherals.trackball scroll-wheel-emulation-button 0
+org.gnome.desktop.peripherals.trackball accel-profile 'default'
+org.freedesktop.ibus.general dconf-preserve-name-prefixes ['/desktop/ibus/engine/pinyin', '/desktop/ibus/engine/bopomofo', '/desktop/ibus/engine/hangul']
+org.freedesktop.ibus.general use-system-keyboard-layout true
+org.freedesktop.ibus.general embed-preedit-text true
+org.freedesktop.ibus.general enable-by-default false
+org.freedesktop.ibus.general use-global-engine true
+org.freedesktop.ibus.general use-xmodmap true
+org.freedesktop.ibus.general switcher-delay-time 400
+org.freedesktop.ibus.general version ''
+org.freedesktop.ibus.general engines-order @as []
+org.freedesktop.ibus.general preload-engines @as []
+org.freedesktop.ibus.general xkb-latin-layouts ['ara', 'bg', 'cz', 'dev', 'gr', 'gur', 'in', 'jp(kana)', 'mal', 'mkd', 'ru', 'ua']
+io.elementary.photos.preferences.window direct-maximize false
+io.elementary.photos.preferences.window direct-height 680
+io.elementary.photos.preferences.window direct-width 1000
+io.elementary.photos.preferences.window library-height 680
+io.elementary.photos.preferences.window library-width 1000
+io.elementary.photos.preferences.window library-maximize false
+io.elementary.photos.video interpreter-state-cookie -1
+org.gnome.Evolution.DefaultSources default-task-list 'system'
+org.gnome.Evolution.DefaultSources default-calendar 'system'
+org.gnome.Evolution.DefaultSources default-address-book 'system'
+org.gnome.Evolution.DefaultSources default-mail-account 'system'
+org.gnome.Evolution.DefaultSources default-mail-identity ''
+org.gnome.Evolution.DefaultSources default-memo-list 'system'
+io.elementary.calendar.settings plugins-disabled @as []
+com.ubuntu.geoip geoip-url 'https://geoip.ubuntu.com/lookup'
+org.freedesktop.ibus.panel x -1
+org.freedesktop.ibus.panel property-icon-delay-time 500
+org.freedesktop.ibus.panel y -1
+org.freedesktop.ibus.panel show 0
+org.freedesktop.ibus.panel lookup-table-orientation 1
+org.freedesktop.ibus.panel xkb-icon-rgba '#415099'
+org.freedesktop.ibus.panel auto-hide-timeout 10000
+org.freedesktop.ibus.panel show-im-name false
+org.freedesktop.ibus.panel follow-input-cursor-when-always-shown false
+org.freedesktop.ibus.panel custom-font 'Sans 10'
+org.freedesktop.ibus.panel show-icon-on-systray true
+org.freedesktop.ibus.panel use-custom-font false
+io.elementary.switchboard.preferences mapping-override @a{s(ss)} {}
+org.gnome.evolution.shell.network-config authentication-user ''
+org.gnome.evolution.shell.network-config secure-host ''
+org.gnome.evolution.shell.network-config secure-port 0
+org.gnome.evolution.shell.network-config use-authentication false
+org.gnome.evolution.shell.network-config autoconfig-url ''
+org.gnome.evolution.shell.network-config http-host ''
+org.gnome.evolution.shell.network-config http-port 0
+org.gnome.evolution.shell.network-config proxy-type 0
+org.gnome.evolution.shell.network-config authentication-password ''
+org.gnome.evolution.shell.network-config socks-host ''
+org.gnome.evolution.shell.network-config ignore-hosts @as []
+org.gnome.evolution.shell.network-config use-http-proxy false
+org.gnome.evolution.shell.network-config socks-port 0
+io.elementary.files.column-view minimum-zoom-level 'smallest'
+io.elementary.files.column-view maximum-zoom-level 'normal'
+io.elementary.files.column-view default-zoom-level 'small'
+io.elementary.files.column-view preferred-column-width 180
+io.elementary.files.column-view zoom-level 'small'
+org.gnome.settings-daemon.plugins.a11y-keyboard active true
+org.gnome.settings-daemon.plugins.a11y-keyboard priority 0
+io.elementary.files.list-view minimum-zoom-level 'smaller'
+io.elementary.files.list-view maximum-zoom-level 'large'
+io.elementary.files.list-view default-zoom-level 'small'
+io.elementary.files.list-view zoom-level 'small'
+org.pantheon.desktop.gala.appearance button-layout 'close:maximize'
+org.pantheon.desktop.gala.appearance dim-parents false
+org.pantheon.desktop.gala.appearance workspace-switcher-background ''
+org.pantheon.desktop.gala.appearance alt-tab-window-opacity 0.0
+org.pantheon.desktop.gala.appearance attach-modal-dialogs false
+org.gnome.system.proxy.http host ''
+org.gnome.system.proxy.http port 8080
+org.gnome.system.proxy.http use-authentication false
+org.gnome.system.proxy.http authentication-password ''
+org.gnome.system.proxy.http authentication-user ''
+org.gnome.system.proxy.http enabled false
+org.gnome.desktop.screensaver picture-opacity 100
+org.gnome.desktop.screensaver logout-enabled false
+org.gnome.desktop.screensaver lock-enabled false
+org.gnome.desktop.screensaver logout-delay uint32 7200
+org.gnome.desktop.screensaver embedded-keyboard-enabled false
+org.gnome.desktop.screensaver primary-color '#023c88'
+org.gnome.desktop.screensaver idle-activation-enabled true
+org.gnome.desktop.screensaver secondary-color '#5789ca'
+org.gnome.desktop.screensaver logout-command ''
+org.gnome.desktop.screensaver color-shading-type 'solid'
+org.gnome.desktop.screensaver embedded-keyboard-command ''
+org.gnome.desktop.screensaver show-notifications false
+org.gnome.desktop.screensaver picture-options 'zoom'
+org.gnome.desktop.screensaver lock-delay uint32 0
+org.gnome.desktop.screensaver show-full-name-in-top-bar true
+org.gnome.desktop.screensaver picture-uri 'file:///usr/share/backgrounds/gnome/adwaita-lock.jpg'
+org.gnome.desktop.screensaver status-message-enabled true
+org.gnome.desktop.screensaver ubuntu-lock-on-suspend true
+org.gnome.desktop.screensaver user-switch-enabled true
+org.gnome.settings-daemon.plugins.xrandr active true
+org.gnome.settings-daemon.plugins.xrandr priority 0
+org.gnome.settings-daemon.plugins.xrandr default-monitors-setup 'follow-lid'
+org.gnome.settings-daemon.plugins.xrandr default-configuration-file '/etc/gnome-settings-daemon/xrandr/monitors.xml'
+org.gnome.Epiphany.sync sync-history-initial true
+org.gnome.Epiphany.sync sync-bookmarks-enabled false
+org.gnome.Epiphany.sync sync-passwords-initial true
+org.gnome.Epiphany.sync sync-open-tabs-time int64 0
+org.gnome.Epiphany.sync sync-bookmarks-time int64 0
+org.gnome.Epiphany.sync sync-user ''
+org.gnome.Epiphany.sync sync-frequency uint32 30
+org.gnome.Epiphany.sync sync-device-name ''
+org.gnome.Epiphany.sync sync-history-enabled false
+org.gnome.Epiphany.sync sync-open-tabs-enabled false
+org.gnome.Epiphany.sync sync-bookmarks-initial true
+org.gnome.Epiphany.sync sync-passwords-time int64 0
+org.gnome.Epiphany.sync sync-device-id ''
+org.gnome.Epiphany.sync sync-with-firefox true
+org.gnome.Epiphany.sync sync-passwords-enabled false
+org.gnome.Epiphany.sync sync-history-time int64 0
+org.gnome.Epiphany.sync sync-time int64 0
+io.elementary.music.equalizer custom-presets @as []
+io.elementary.music.equalizer selected-preset ''
+io.elementary.music.equalizer auto-switch-preset true
+io.elementary.music.equalizer equalizer-enabled false
+io.elementary.code.folder-manager opened-folders @as []
+io.elementary.code.services set-private false
+io.elementary.code.services expiry-time 'N'
+io.elementary.code.services paste-format-code 'None'
+org.gnome.settings-daemon.plugins.color night-light-schedule-automatic true
+org.gnome.settings-daemon.plugins.color priority 0
+org.gnome.settings-daemon.plugins.color recalibrate-display-threshold uint32 0
+org.gnome.settings-daemon.plugins.color night-light-last-coordinates (91.0, 181.0)
+org.gnome.settings-daemon.plugins.color night-light-enabled false
+org.gnome.settings-daemon.plugins.color night-light-schedule-from 20.0
+org.gnome.settings-daemon.plugins.color night-light-schedule-to 6.0
+org.gnome.settings-daemon.plugins.color night-light-temperature uint32 4500
+org.gnome.settings-daemon.plugins.color recalibrate-printer-threshold uint32 0
+org.gnome.settings-daemon.plugins.color active true
+org.gnome.settings-daemon.peripherals.input-devices hotplug-command ''
+io.elementary.desktop.cerbere max-crashes uint32 5
+io.elementary.desktop.cerbere crash-time-interval uint32 3500
+io.elementary.desktop.cerbere monitored-processes ['wingpanel', 'plank']
+io.elementary.code.plugins.spell language 'en_US'
+org.freedesktop.ColorHelper display-gamma 2.3999999999999999
+org.freedesktop.ColorHelper profile-upload-uri 'http://www.hughski.com/profile-store.php'
+org.freedesktop.ColorHelper display-whitepoint 6500
+org.freedesktop.ColorHelper sample-delay 400
+org.gnome.desktop.background picture-opacity 100
+org.gnome.desktop.background secondary-color '#5789ca'
+org.gnome.desktop.background show-desktop-icons false
+org.gnome.desktop.background primary-color '#000000'
+org.gnome.desktop.background color-shading-type 'solid'
+org.gnome.desktop.background picture-options 'zoom'
+org.gnome.desktop.background picture-uri 'file:///usr/share/backgrounds/elementaryos-default'
+org.gnome.desktop.background draw-background true
+org.gnome.settings-daemon.plugins.cursor active false
+org.gnome.settings-daemon.plugins.cursor priority 0
+org.gnome.desktop.file-sharing require-password 'never'
+io.elementary.photos.sharing.facebook strip-metadata false
+io.elementary.photos.sharing.facebook user-name ''
+io.elementary.photos.sharing.facebook access-token ''
+io.elementary.photos.sharing.facebook uid ''
+io.elementary.photos.sharing.facebook default-size 0
+com.canonical.Unity.Lenses home-lens-priority ['files.scope', 'music.scope']
+com.canonical.Unity.Lenses disabled-scopes @as []
+com.canonical.Unity.Lenses remote-content-search 'none'
+com.canonical.Unity.Lenses home-lens-default-view ['applications.scope', 'files.scope']
+com.canonical.Unity.Lenses hidden-scopes @as []
+com.canonical.Unity.Lenses always-search ['applications.scope', 'music.scope', 'videos.scope', 'files.scope']
+com.canonical.Unity.Lenses locked-scopes @as []
+io.elementary.terminal.settings encoding ''
+io.elementary.terminal.settings foreground '#94a3a5'
+io.elementary.terminal.settings palette '#073642:#dc322f:#859900:#b58900:#268bd2:#ec0048:#2aa198:#94a3a5:#586e75:#cb4b16:#859900:#b58900:#268bd2:#d33682:#2aa198:#6c71c4'
+io.elementary.terminal.settings unsafe-paste-alert true
+io.elementary.terminal.settings tab-bar-behavior 'Always Show Tabs'
+io.elementary.terminal.settings prefer-dark-style true
+io.elementary.terminal.settings cursor-shape 'Block'
+io.elementary.terminal.settings background 'rgba(37, 46, 50, 0.95)'
+io.elementary.terminal.settings natural-copy-paste true
+io.elementary.terminal.settings font ''
+io.elementary.terminal.settings allow-bold true
+io.elementary.terminal.settings remember-tabs true
+io.elementary.terminal.settings alt-changes-tab true
+io.elementary.terminal.settings cursor-color '#839496'
+io.elementary.terminal.settings save-exited-tabs true
+io.elementary.terminal.settings follow-last-tab false
+io.elementary.terminal.settings audible-bell false
+io.elementary.terminal.settings shell ''
+io.elementary.terminal.settings scrollback-lines -1
+org.gnome.desktop.default-applications.office.tasks exec 'evolution -c tasks'
+org.gnome.desktop.default-applications.office.tasks needs-term false
+org.gnome.FileRoller.Listing show-time true
+org.gnome.FileRoller.Listing sort-type 'ascending'
+org.gnome.FileRoller.Listing sort-method 'name'
+org.gnome.FileRoller.Listing list-mode 'as-folder'
+org.gnome.FileRoller.Listing show-type true
+org.gnome.FileRoller.Listing name-column-width 250
+org.gnome.FileRoller.Listing show-path true
+org.gnome.FileRoller.Listing show-size true
+net.launchpad.plank enabled-docks ['dock1']
+net.launchpad.plank.dock.settings icon-size 48
+net.launchpad.plank.dock.settings show-dock-item false
+net.launchpad.plank.dock.settings position 'bottom'
+net.launchpad.plank.dock.settings dock-items ['gala-multitaskingview.dockitem', 'org.gnome.Epiphany.dockitem', 'org.pantheon.mail.dockitem', 'io.elementary.calendar.dockitem', 'io.elementary.music.dockitem', 'io.elementary.videos.dockitem', 'io.elementary.photos.dockitem', 'io.elementary.switchboard.dockitem', 'io.elementary.appcenter.dockitem']
+net.launchpad.plank.dock.settings unhide-delay 0
+net.launchpad.plank.dock.settings items-alignment 'center'
+net.launchpad.plank.dock.settings theme 'Gtk+'
+net.launchpad.plank.dock.settings hide-mode 'window-dodge'
+net.launchpad.plank.dock.settings pinned-only false
+net.launchpad.plank.dock.settings auto-pinning true
+net.launchpad.plank.dock.settings alignment 'center'
+net.launchpad.plank.dock.settings zoom-percent 150
+net.launchpad.plank.dock.settings hide-delay 250
+net.launchpad.plank.dock.settings zoom-enabled false
+net.launchpad.plank.dock.settings monitor ''
+net.launchpad.plank.dock.settings lock-items false
+net.launchpad.plank.dock.settings tooltips-enabled true
+net.launchpad.plank.dock.settings pressure-reveal false
+net.launchpad.plank.dock.settings offset 0
+net.launchpad.plank.dock.settings current-workspace-only false
+io.elementary.photos.preferences.ui display-metadata-sidebar true
+io.elementary.photos.preferences.ui display-sidebar true
+io.elementary.photos.preferences.ui sidebar-position 180
+io.elementary.photos.preferences.ui photo-thumbnail-scale 256
+io.elementary.photos.preferences.ui event-photos-sort-by 2
+io.elementary.photos.preferences.ui display-photo-tags true
+io.elementary.photos.preferences.ui display-event-comments false
+io.elementary.photos.preferences.ui metadata-sidebar-position -1
+io.elementary.photos.preferences.ui display-photo-titles false
+io.elementary.photos.preferences.ui event-photos-sort-ascending true
+io.elementary.photos.preferences.ui modify-originals false
+io.elementary.photos.preferences.ui use-24-hour-time false
+io.elementary.photos.preferences.ui events-sort-ascending false
+io.elementary.photos.preferences.ui library-photos-sort-by 2
+io.elementary.photos.preferences.ui keep-relativity true
+io.elementary.photos.preferences.ui library-photos-sort-ascending false
+io.elementary.photos.preferences.ui hide-photos-already-imported false
+io.elementary.photos.preferences.ui display-photo-comments false
+io.elementary.switchboard.locale input-selections @a(ss) []
+org.gnome.nautilus.icon-view captions ['none', 'none', 'none']
+org.gnome.nautilus.icon-view thumbnail-size 64
+org.gnome.nautilus.icon-view default-zoom-level 'large'
+org.gnome.nautilus.icon-view text-ellipsis-limit ['3']
+org.gnome.desktop.a11y.applications screen-keyboard-enabled false
+org.gnome.desktop.a11y.applications screen-magnifier-enabled false
+org.gnome.desktop.a11y.applications screen-reader-enabled false
+org.gnome.nautilus.window-state sidebar-width 188
+org.gnome.nautilus.window-state start-with-sidebar true
+org.gnome.nautilus.window-state geometry ''
+org.gnome.nautilus.window-state maximized false
+org.gnome.nautilus.window-state start-with-location-bar true
+org.gnome.settings-daemon.peripherals.mouse drag-threshold 8
+org.gnome.settings-daemon.peripherals.mouse double-click 400
+org.gnome.settings-daemon.peripherals.mouse locate-pointer false
+org.gnome.libgnomekbd.indicator background-color ''
+org.gnome.libgnomekbd.indicator font-size 10
+org.gnome.libgnomekbd.indicator show-flags false
+org.gnome.libgnomekbd.indicator foreground-color ''
+org.gnome.libgnomekbd.indicator secondary 0
+org.gnome.libgnomekbd.indicator font-family ''
+org.gnome.settings-daemon.peripherals.smartcard removal-action 'none'
+org.gnome.desktop.wm.preferences disable-workarounds false
+org.gnome.desktop.wm.preferences focus-new-windows 'smart'
+org.gnome.desktop.wm.preferences action-right-click-titlebar 'menu'
+org.gnome.desktop.wm.preferences mouse-button-modifier '<Super>'
+org.gnome.desktop.wm.preferences action-middle-click-titlebar 'none'
+org.gnome.desktop.wm.preferences titlebar-uses-system-font false
+org.gnome.desktop.wm.preferences theme 'elementary'
+org.gnome.desktop.wm.preferences num-workspaces 4
+org.gnome.desktop.wm.preferences raise-on-click true
+org.gnome.desktop.wm.preferences auto-raise false
+org.gnome.desktop.wm.preferences visual-bell false
+org.gnome.desktop.wm.preferences focus-mode 'click'
+org.gnome.desktop.wm.preferences action-double-click-titlebar 'toggle-maximize'
+org.gnome.desktop.wm.preferences auto-raise-delay 500
+org.gnome.desktop.wm.preferences button-layout 'close:maximize'
+org.gnome.desktop.wm.preferences workspace-names @as []
+org.gnome.desktop.wm.preferences audible-bell true
+org.gnome.desktop.wm.preferences resize-with-right-button true
+org.gnome.desktop.wm.preferences titlebar-font 'Open Sans Bold 9'
+org.gnome.desktop.wm.preferences visual-bell-type 'fullscreen-flash'
+io.elementary.photos.crop-settings last-crop-height 1
+io.elementary.photos.crop-settings last-crop-width 1
+io.elementary.photos.crop-settings last-crop-menu-choice 1
+org.gnome.desktop.a11y.magnifier focus-tracking 'proportional'
+org.gnome.desktop.a11y.magnifier contrast-green 0.0
+org.gnome.desktop.a11y.magnifier caret-tracking 'centered'
+org.gnome.desktop.a11y.magnifier brightness-red 0.0
+org.gnome.desktop.a11y.magnifier cross-hairs-color '#ff0000'
+org.gnome.desktop.a11y.magnifier cross-hairs-clip false
+org.gnome.desktop.a11y.magnifier contrast-blue 0.0
+org.gnome.desktop.a11y.magnifier scroll-at-edges false
+org.gnome.desktop.a11y.magnifier cross-hairs-length 4096
+org.gnome.desktop.a11y.magnifier show-cross-hairs false
+org.gnome.desktop.a11y.magnifier screen-position 'full-screen'
+org.gnome.desktop.a11y.magnifier color-saturation 1.0
+org.gnome.desktop.a11y.magnifier brightness-green 0.0
+org.gnome.desktop.a11y.magnifier cross-hairs-thickness 8
+org.gnome.desktop.a11y.magnifier lens-mode false
+org.gnome.desktop.a11y.magnifier contrast-red 0.0
+org.gnome.desktop.a11y.magnifier invert-lightness false
+org.gnome.desktop.a11y.magnifier brightness-blue 0.0
+org.gnome.desktop.a11y.magnifier mouse-tracking 'proportional'
+org.gnome.desktop.a11y.magnifier cross-hairs-opacity 0.66000000000000003
+org.gnome.desktop.a11y.magnifier mag-factor 2.0
+io.elementary.photos.preferences.slideshow transition-effect-id ''
+io.elementary.photos.preferences.slideshow delay 3.0
+io.elementary.photos.preferences.slideshow show-title false
+org.gnome.desktop.session session-name 'gnome'
+org.gnome.desktop.session idle-delay uint32 300
+org.onboard.keyboard sticky-key-release-delay 0.0
+org.onboard.keyboard key-synth 'auto'
+org.onboard.keyboard input-event-source 'XInput'
+org.onboard.keyboard touch-feedback-enabled false
+org.onboard.keyboard touch-input 'multi'
+org.onboard.keyboard default-key-action 'delayed-stroke'
+org.onboard.keyboard inter-key-stroke-delay 0.0
+org.onboard.keyboard modifier-update-delay 1.0
+org.onboard.keyboard audio-feedback-place-in-space false
+org.onboard.keyboard audio-feedback-enabled false
+org.onboard.keyboard sticky-key-behavior {'all': 'cycle'}
+org.onboard.keyboard touch-feedback-size 0
+org.onboard.keyboard sticky-key-release-on-hide-delay 5.0
+org.onboard.keyboard key-press-modifiers {'button3': 'SHIFT'}
+org.onboard.keyboard show-click-buttons false
+org.onboard.keyboard show-secondary-labels false
+org.onboard.keyboard long-press-delay 0.5
+org.gnome.desktop.a11y.mouse dwell-time 1.2
+org.gnome.desktop.a11y.mouse secondary-click-time 1.2
+org.gnome.desktop.a11y.mouse click-type-window-visible true
+org.gnome.desktop.a11y.mouse secondary-click-enabled false
+org.gnome.desktop.a11y.mouse dwell-gesture-double 'up'
+org.gnome.desktop.a11y.mouse dwell-mode 'window'
+org.gnome.desktop.a11y.mouse dwell-gesture-single 'left'
+org.gnome.desktop.a11y.mouse dwell-click-enabled false
+org.gnome.desktop.a11y.mouse dwell-threshold 10
+org.gnome.desktop.a11y.mouse dwell-gesture-drag 'down'
+org.gnome.desktop.a11y.mouse dwell-gesture-secondary 'right'
+io.elementary.desktop.wingpanel.sound last-title-info @as []
+io.elementary.desktop.wingpanel.sound max-volume 100.0
+io.elementary.screenshot-tool mouse-pointer false
+io.elementary.screenshot-tool close-on-save false
+io.elementary.screenshot-tool format 'png'
+io.elementary.screenshot-tool delay 1
+io.elementary.screenshot-tool last-capture-mode 'screen'
+io.elementary.screenshot-tool folder-dir ''
+io.elementary.screenshot-tool redact false
+org.gnome.desktop.media-handling automount-open true
+org.gnome.desktop.media-handling automount true
+org.gnome.desktop.media-handling autorun-x-content-start-app ['x-content/unix-software']
+org.gnome.desktop.media-handling autorun-never false
+org.gnome.desktop.media-handling autorun-x-content-ignore @as []
+org.gnome.desktop.media-handling autorun-x-content-open-folder @as []
+org.gnome.system.proxy.https host ''
+org.gnome.system.proxy.https port 0
+org.gnome.settings-daemon.plugins.clipboard active true
+org.gnome.settings-daemon.plugins.clipboard priority 0
+org.gnome.nautilus.compression default-compression-format 'zip'
+io.elementary.desktop.wingpanel.datetime clock-show-date true
+io.elementary.desktop.wingpanel.datetime show-weeks false
+io.elementary.desktop.wingpanel.datetime clock-format '12h'
+io.elementary.desktop.wingpanel.datetime clock-show-seconds false
+io.elementary.desktop.wingpanel.datetime clock-show-weekday true
+org.gnome.settings-daemon.plugins.orientation active true
+org.gnome.settings-daemon.plugins.orientation priority 0
+io.elementary.code.plugins.terminal last-opened-path ''
+io.elementary.photos.sharing.org-pantheon-photos-publishing-tumblr default-blog 0
+io.elementary.photos.sharing.org-pantheon-photos-publishing-tumblr token ''
+io.elementary.photos.sharing.org-pantheon-photos-publishing-tumblr default-size 2
+io.elementary.photos.sharing.org-pantheon-photos-publishing-tumblr token-secret ''
+org.gnome.desktop.app-folders folder-children @as []
+org.gnome.system.dns_sd extra-domains ''
+org.gnome.system.dns_sd display-local 'merged'
+org.onboard.typing-assistance active-language ''
+org.onboard.typing-assistance auto-capitalization false
+org.onboard.typing-assistance spell-check-backend 'hunspell'
+org.onboard.typing-assistance auto-correction false
+org.onboard.typing-assistance recent-languages @as []
+org.onboard.typing-assistance max-recent-languages 5
+org.gnome.Evince.Default window-ratio (0.0, 0.0)
+org.gnome.Evince.Default continuous true
+org.gnome.Evince.Default fullscreen false
+org.gnome.Evince.Default show-toolbar true
+org.gnome.Evince.Default show-sidebar true
+org.gnome.Evince.Default dual-page-odd-left false
+org.gnome.Evince.Default inverted-colors false
+org.gnome.Evince.Default zoom 1.0
+org.gnome.Evince.Default sidebar-page 'links'
+org.gnome.Evince.Default sidebar-size 132
+org.gnome.Evince.Default dual-page false
+org.gnome.Evince.Default sizing-mode 'fit-width'
+org.gnome.system.locale region ''
+org.gnome.nm-applet stamp 0
+org.gnome.nm-applet disable-disconnected-notifications false
+org.gnome.nm-applet disable-vpn-notifications false
+org.gnome.nm-applet disable-connected-notifications true
+org.gnome.nm-applet suppress-wireless-networks-available false
+org.gnome.nm-applet show-applet false
+org.gnome.nm-applet disable-wifi-create false
+org.gnome.mutter.wayland xwayland-allow-grabs false
+org.gnome.mutter.wayland xwayland-grab-access-rules @as []
+org.gnome.evolution-data-server.calendar contacts-reminder-interval 15
+org.gnome.evolution-data-server.calendar contacts-reminder-units 'minutes'
+org.gnome.evolution-data-server.calendar contacts-reminder-enabled false
+io.elementary.code.settings indent-width 4
+io.elementary.code.settings opened-files-view2 @as []
+io.elementary.code.settings highlight-matching-brackets true
+io.elementary.code.settings plugins-enabled ['detect-indent', 'editorconfig', 'outline']
+io.elementary.code.settings show-right-margin false
+io.elementary.code.settings style-scheme 'solarized-light'
+io.elementary.code.settings prefer-dark-style false
+io.elementary.code.settings right-margin-position 80
+io.elementary.code.settings use-system-font true
+io.elementary.code.settings autosave true
+io.elementary.code.settings font 'Droid Sans Mono 10'
+io.elementary.code.settings draw-spaces 'For Selection'
+io.elementary.code.settings show-mini-map false
+io.elementary.code.settings focused-document-view1 ''
+io.elementary.code.settings focused-document-view2 ''
+io.elementary.code.settings auto-indent false
+io.elementary.code.settings spaces-instead-of-tabs true
+io.elementary.code.settings opened-files-view1 @as []
+org.gnome.desktop.sound input-feedback-sounds false
+org.gnome.desktop.sound theme-name 'elementary'
+org.gnome.desktop.sound allow-volume-above-100-percent false
+org.gnome.desktop.sound event-sounds true
+org.onboard current-settings-page 0
+org.onboard use-system-defaults true
+org.onboard xembed-background-color '#0000007F'
+org.onboard show-tooltips true
+org.onboard theme '/usr/share/onboard/themes/Nightshade.theme'
+org.onboard show-status-icon true
+org.onboard xembed-background-image-enabled true
+org.onboard key-label-overrides @as []
+org.onboard start-minimized false
+org.onboard xembed-aspect-change-range [0.0, 1.6000000000000001]
+org.onboard system-theme-tracking-enabled true
+org.onboard layout ''
+org.onboard schema-version ''
+org.onboard key-label-font ''
+org.onboard xembed-unity-greeter-offset-x 85.0
+org.onboard system-theme-associations {'HighContrast': 'HighContrast', 'HighContrastInverse': 'HighContrastInverse', 'LowContrast': 'LowContrast', 'ContrastHighInverse': 'HighContrastInverse'}
+org.onboard snippets ['0:Onboard\\nHome:https\\://launchpad.net/onboard', '1:Example:Create your macros here.']
+org.onboard status-icon-provider 'auto'
+org.onboard xembed-onboard false
+org.gnome.settings-daemon.peripherals active true
+org.gnome.settings-daemon.peripherals priority 0
+org.onboard.icon-palette.portrait width 64
+org.onboard.icon-palette.portrait height 64
+org.onboard.icon-palette.portrait x 100
+org.onboard.icon-palette.portrait y 50
+org.gnome.settings-daemon.peripherals.keyboard remember-numlock-state true
+org.gnome.settings-daemon.peripherals.keyboard bell-pitch 400
+org.gnome.settings-daemon.peripherals.keyboard click-volume 0
+org.gnome.settings-daemon.peripherals.keyboard numlock-state 'off'
+org.gnome.settings-daemon.peripherals.keyboard bell-duration 100
+org.gnome.settings-daemon.peripherals.keyboard bell-mode 'on'
+org.gnome.settings-daemon.peripherals.keyboard bell-custom-file ''
+org.gnome.settings-daemon.peripherals.keyboard click true
+org.gnome.settings-daemon.plugins.rfkill active true
+org.gnome.settings-daemon.plugins.rfkill priority 0
+org.gnome.power-manager info-last-device ''
+org.gnome.power-manager info-stats-graph-smooth true
+org.gnome.power-manager info-page-number 0
+org.gnome.power-manager info-history-graph-points true
+org.gnome.power-manager info-history-time 21600
+org.gnome.power-manager info-history-type 'power'
+org.gnome.power-manager info-history-graph-smooth true
+org.gnome.power-manager info-stats-type 'power'
+org.gnome.power-manager info-stats-graph-points true
+io.elementary.photos.sharing default-service 1
+io.elementary.photos.sharing last-used-service ''
+org.pantheon.desktop.gala.notifications do-not-disturb false
+org.pantheon.desktop.gala.notifications.application bubbles true
+org.pantheon.desktop.gala.notifications.application remember true
+org.pantheon.desktop.gala.notifications.application sounds true
+org.gnome.desktop.input-sources show-all-sources false
+org.gnome.desktop.input-sources xkb-options ['grp:alt_shift_toggle']
+org.gnome.desktop.input-sources per-window false
+org.gnome.desktop.input-sources current uint32 0
+org.gnome.desktop.input-sources mru-sources @a(ss) []
+org.gnome.desktop.input-sources sources [('xkb', 'us')]
+org.gnome.nautilus.list-view default-visible-columns ['name', 'size', 'date_modified']
+org.gnome.nautilus.list-view default-zoom-level 'standard'
+org.gnome.nautilus.list-view use-tree-view false
+org.gnome.nautilus.list-view default-column-order ['name', 'size', 'type', 'owner', 'group', 'permissions', 'mime_type', 'where', 'date_modified', 'date_modified_with_time', 'date_accessed']
+io.elementary.dpms standby-time 900
+io.elementary.dpms suspend-time 0
+io.elementary.dpms off-time 0
+org.gnome.settings-daemon.plugins.background active false
+org.gnome.settings-daemon.plugins.background priority 0
+org.gtk.Settings.ColorChooser selected-color (false, 1.0, 1.0, 1.0, 1.0)
+org.gtk.Settings.ColorChooser custom-colors @a(dddd) []
+org.gnome.SessionManager auto-save-session false
+org.gnome.SessionManager auto-save-session-one-shot false
+org.gnome.SessionManager logout-prompt true
+org.gnome.SessionManager show-fallback-warning true
+io.elementary.photos.sharing.youtube refresh-token ''
+org.gnome.evolution-data-server.addressbook self-contact-uid ''
+apps.light-locker late-locking false
+apps.light-locker lock-after-screensaver uint32 5
+apps.light-locker lock-on-suspend true
+apps.light-locker idle-hint false
+apps.light-locker lock-on-lid false
+io.elementary.desktop.agent-geoclue2 remembered-apps @a{sv} {}
+io.elementary.desktop.agent-geoclue2 location-enabled true
+org.gnome.settings-daemon.plugins.xsettings disabled-gtk-modules @as []
+org.gnome.settings-daemon.plugins.xsettings priority 0
+org.gnome.settings-daemon.plugins.xsettings hinting 'slight'
+org.gnome.settings-daemon.plugins.xsettings overrides {'Gtk/DialogsUseHeader': <0>, 'Gtk/EnablePrimaryPaste': <0>, 'Gtk/ShellShowsAppMenu': <0>, 'Gtk/DecorationLayout': <'close:menu,maximize'>}
+org.gnome.settings-daemon.plugins.xsettings rgba-order 'rgb'
+org.gnome.settings-daemon.plugins.xsettings antialiasing 'rgba'
+org.gnome.settings-daemon.plugins.xsettings active true
+org.gnome.settings-daemon.plugins.xsettings enabled-gtk-modules @as []
+org.gnome.settings-daemon.plugins.gsdwacom active true
+org.gnome.settings-daemon.plugins.gsdwacom priority 0
+io.elementary.desktop.wingpanel.power show-percentage false
+org.gnome.FileRoller.UI sidebar-width 200
+org.gnome.FileRoller.UI view-sidebar false
+org.gnome.FileRoller.UI window-height 480
+org.gnome.FileRoller.UI window-width 600
+org.gnome.mutter.wayland.keybindings switch-to-session-10 ['<Primary><Alt>F10']
+org.gnome.mutter.wayland.keybindings switch-to-session-11 ['<Primary><Alt>F11']
+org.gnome.mutter.wayland.keybindings switch-to-session-12 ['<Primary><Alt>F12']
+org.gnome.mutter.wayland.keybindings switch-to-session-1 ['<Primary><Alt>F1']
+org.gnome.mutter.wayland.keybindings restore-shortcuts ['<Super>Escape']
+org.gnome.mutter.wayland.keybindings switch-to-session-3 ['<Primary><Alt>F3']
+org.gnome.mutter.wayland.keybindings switch-to-session-4 ['<Primary><Alt>F4']
+org.gnome.mutter.wayland.keybindings switch-to-session-2 ['<Primary><Alt>F2']
+org.gnome.mutter.wayland.keybindings switch-to-session-5 ['<Primary><Alt>F5']
+org.gnome.mutter.wayland.keybindings switch-to-session-6 ['<Primary><Alt>F6']
+org.gnome.mutter.wayland.keybindings switch-to-session-7 ['<Primary><Alt>F7']
+org.gnome.mutter.wayland.keybindings switch-to-session-8 ['<Primary><Alt>F8']
+org.gnome.mutter.wayland.keybindings switch-to-session-9 ['<Primary><Alt>F9']
+org.gnome.evolution.eds-shell start-offline false
+org.pantheon.desktop.gala.behavior hotcorner-custom-command ''
+org.pantheon.desktop.gala.behavior dynamic-workspaces true
+org.pantheon.desktop.gala.behavior dock-names ['docky', 'Docky', 'plank']
+org.pantheon.desktop.gala.behavior hotcorner-bottomright 'none'
+org.pantheon.desktop.gala.behavior edge-tiling true
+org.pantheon.desktop.gala.behavior panel-main-menu-action 'wingpanel --toggle-indicator=app-launcher'
+org.pantheon.desktop.gala.behavior hotcorner-topright 'none'
+org.pantheon.desktop.gala.behavior hotcorner-bottomleft 'none'
+org.pantheon.desktop.gala.behavior hotcorner-topleft 'none'
+org.pantheon.desktop.gala.behavior overlay-action 'io.elementary.shortcut-overlay'
+org.pantheon.desktop.gala.behavior toggle-recording-action ''
+org.pantheon.desktop.gala.behavior window-overview-type 'grid'
+org.gnome.desktop.default-applications.terminal exec-arg '-e'
+org.gnome.desktop.default-applications.terminal exec 'io.elementary.terminal'
+org.onboard.universal-access drag-threshold -1
+org.onboard.universal-access hide-click-type-window true
+org.onboard.universal-access enable-click-type-window-on-exit true
+io.elementary.switchboard.saved-state position ['']
+io.elementary.switchboard.saved-state window-height 520
+io.elementary.switchboard.saved-state window-state 'Normal'
+io.elementary.switchboard.saved-state window-width 850
+org.gnome.mousetweaks click-type-window-style 'both'
+org.gnome.mousetweaks click-type-window-geometry ''
+org.gnome.mousetweaks click-type-window-orientation 'vertical'
+org.onboard.lockdown disable-quit false
+org.onboard.lockdown disable-preferences false
+org.onboard.lockdown disable-touch-handles false
+org.onboard.lockdown disable-hover-click false
+org.onboard.lockdown disable-keys [['CTRL', 'LALT', 'F[0-9]+']]
+org.onboard.lockdown disable-click-buttons false
+org.onboard.lockdown disable-dwell-activation false
+org.gnome.desktop.peripherals.mouse natural-scroll false
+org.gnome.desktop.peripherals.mouse speed 0.0
+org.gnome.desktop.peripherals.mouse accel-profile 'default'
+org.gnome.desktop.peripherals.mouse left-handed false
+org.gnome.online-accounts whitelisted-providers ['all']
+org.pantheon.desktop.gala.animations open-duration 350
+org.pantheon.desktop.gala.animations snap-duration 250
+org.pantheon.desktop.gala.animations close-duration 195
+org.pantheon.desktop.gala.animations enable-animations true
+org.pantheon.desktop.gala.animations menu-duration 150
+org.pantheon.desktop.gala.animations minimize-duration 200
+org.pantheon.desktop.gala.animations workspace-switch-duration 300
+io.elementary.desktop.wingpanel.applications-menu screen-resolution '1920x1080'
+io.elementary.desktop.wingpanel.applications-menu columns 5
+io.elementary.desktop.wingpanel.applications-menu rows 3
+io.elementary.desktop.wingpanel.applications-menu use-category false
+org.gnome.settings-daemon.plugins.datetime active true
+org.gnome.settings-daemon.plugins.datetime priority 0
+org.pantheon.desktop.gala.shadows normal-focused ['20', '-1', '0', '15', '220']
+org.pantheon.desktop.gala.shadows menu ['7', '-1', '0', '5', '130']
+org.pantheon.desktop.gala.shadows dialog-focused ['12', '-1', '0', '7', '190']
+org.pantheon.desktop.gala.shadows dialog-unfocused ['7', '-1', '0', '4', '130']
+org.pantheon.desktop.gala.shadows normal-unfocused ['8', '-1', '0', '6', '150']
+org.gnome.settings-daemon.plugins.mouse active true
+org.gnome.settings-daemon.plugins.mouse priority 0
+org.pantheon.desktop.gala.mask-corners disable-on-fullscreen true
+org.pantheon.desktop.gala.mask-corners only-on-primary false
+org.pantheon.desktop.gala.mask-corners corner-radius 4
+org.pantheon.desktop.gala.mask-corners enable true
+org.gnome.system.proxy.socks host ''
+org.gnome.system.proxy.socks port 0
+io.elementary.videos resume-videos true
+io.elementary.videos current-video ''
+io.elementary.videos library-folder ''
+io.elementary.videos poster-names ['poster.jpg', 'Poster.jpg', 'cover.jpg', 'Cover.jpg']
+io.elementary.videos subtitle-font 'Open Sans Bold'
+io.elementary.videos keep-aspect true
+io.elementary.videos last-played-videos @as []
+io.elementary.videos move-window true
+io.elementary.videos last-folder '-1'
+io.elementary.videos last-stopped 0.0
+io.elementary.videos stay-on-top false
+io.elementary.videos playback-wait false
+io.elementary.terminal.saved-state window-height 810
+io.elementary.terminal.saved-state window-width 1280
+io.elementary.terminal.saved-state focused-tab 0
+io.elementary.terminal.saved-state window-state 'Normal'
+io.elementary.terminal.saved-state tabs ['/media/elementary/c9e89bdb-b481-4d51-b24c-f3edebd90c89/home/hasan/IdeaProjects/juno_installation/shortcuts', '/home/elementary']
+io.elementary.terminal.saved-state zoom 1.0
+io.elementary.terminal.saved-state opening-x 320
+io.elementary.terminal.saved-state opening-y 119
+io.elementary.camera.settings delay 'DISABLED'
+io.elementary.camera.settings mode 'photo'
+org.gnome.FileRoller.Dialogs.LastOutput width -1
+org.gnome.FileRoller.Dialogs.LastOutput height -1
+org.gnome.desktop.default-applications.office.calendar exec 'evolution -c calendar'
+org.gnome.desktop.default-applications.office.calendar needs-term false
+io.elementary.appcenter.settings window-height 660
+io.elementary.appcenter.settings paid-apps @as []
+io.elementary.appcenter.settings window-width 1100
+io.elementary.appcenter.settings content-warning true
+io.elementary.appcenter.settings window-state 'normal'
+io.elementary.appcenter.settings reset-paid-apps true
+io.elementary.appcenter.settings developer-mode false
+io.elementary.appcenter.settings window-x -1
+io.elementary.appcenter.settings window-y -1
+org.pantheon.desktop.gala.keybindings move-to-workspace-last ['<Super><Shift>End', '<Super>0']
+org.pantheon.desktop.gala.keybindings switch-to-workspace-first ['<Super>Home']
+org.pantheon.desktop.gala.keybindings expose-windows ['<Super>w']
+org.pantheon.desktop.gala.keybindings move-to-workspace-first ['<Super><Shift>Home']
+org.pantheon.desktop.gala.keybindings switch-input-source ['<Alt>space']
+org.pantheon.desktop.gala.keybindings pip ['<Super>f']
+org.pantheon.desktop.gala.keybindings cycle-workspaces-next ['<Super>Tab']
+org.pantheon.desktop.gala.keybindings cycle-workspaces-previous ['<Super><Shift>Tab']
+org.pantheon.desktop.gala.keybindings switch-to-workspace-last ['<Super>End', '<Super>0']
+org.pantheon.desktop.gala.keybindings zoom-out ['<Super>minus', '<Super>KP_Subtract']
+org.pantheon.desktop.gala.keybindings switch-input-source-backward ['']
+org.pantheon.desktop.gala.keybindings expose-all-windows ['<Super>a']
+org.pantheon.desktop.gala.keybindings zoom-in ['<Super>plus', '<Super>KP_Add']
+org.gnome.settings-daemon.plugins.media-keys logout '<Control><Alt>Delete'
+org.gnome.settings-daemon.plugins.media-keys screenreader '<Alt><Super>s'
+org.gnome.settings-daemon.plugins.media-keys volume-mute 'XF86AudioMute'
+org.gnome.settings-daemon.plugins.media-keys volume-up 'XF86AudioRaiseVolume'
+org.gnome.settings-daemon.plugins.media-keys window-screenshot '<Alt>Print'
+org.gnome.settings-daemon.plugins.media-keys previous 'XF86AudioPrev'
+org.gnome.settings-daemon.plugins.media-keys control-center 'XF86Tools'
+org.gnome.settings-daemon.plugins.media-keys stop 'XF86AudioStop'
+org.gnome.settings-daemon.plugins.media-keys home 'XF86Explorer'
+org.gnome.settings-daemon.plugins.media-keys terminal '<Super>t'
+org.gnome.settings-daemon.plugins.media-keys screenshot-clip '<Ctrl>Print'
+org.gnome.settings-daemon.plugins.media-keys magnifier '<Alt><Super>8'
+org.gnome.settings-daemon.plugins.media-keys help ''
+org.gnome.settings-daemon.plugins.media-keys search 'XF86Search'
+org.gnome.settings-daemon.plugins.media-keys custom-keybindings @as []
+org.gnome.settings-daemon.plugins.media-keys magnifier-zoom-in '<Alt><Super>equal'
+org.gnome.settings-daemon.plugins.media-keys calculator 'XF86Calculator'
+org.gnome.settings-daemon.plugins.media-keys video-out '<Super>p'
+org.gnome.settings-daemon.plugins.media-keys eject 'XF86Eject'
+org.gnome.settings-daemon.plugins.media-keys window-screenshot-clip '<Ctrl><Alt>Print'
+org.gnome.settings-daemon.plugins.media-keys area-screenshot-clip '<Ctrl><Shift>Print'
+org.gnome.settings-daemon.plugins.media-keys media 'XF86AudioMedia'
+org.gnome.settings-daemon.plugins.media-keys www 'XF86WWW'
+org.gnome.settings-daemon.plugins.media-keys play 'XF86AudioPlay'
+org.gnome.settings-daemon.plugins.media-keys email 'XF86Mail'
+org.gnome.settings-daemon.plugins.media-keys volume-down 'XF86AudioLowerVolume'
+org.gnome.settings-daemon.plugins.media-keys decrease-text-size ''
+org.gnome.settings-daemon.plugins.media-keys on-screen-keyboard ''
+org.gnome.settings-daemon.plugins.media-keys next 'XF86AudioNext'
+org.gnome.settings-daemon.plugins.media-keys screenshot 'Print'
+org.gnome.settings-daemon.plugins.media-keys increase-text-size ''
+org.gnome.settings-daemon.plugins.media-keys max-screencast-length uint32 30
+org.gnome.settings-daemon.plugins.media-keys magnifier-zoom-out '<Alt><Super>minus'
+org.gnome.settings-daemon.plugins.media-keys priority 0
+org.gnome.settings-daemon.plugins.media-keys screencast '<Ctrl><Shift><Alt>R'
+org.gnome.settings-daemon.plugins.media-keys screensaver '<Super>l'
+org.gnome.settings-daemon.plugins.media-keys toggle-contrast ''
+org.gnome.settings-daemon.plugins.media-keys pause 'XF86AudioPause'
+org.gnome.settings-daemon.plugins.media-keys active true
+org.gnome.settings-daemon.plugins.media-keys area-screenshot '<Shift>Print'
+io.elementary.desktop.wingpanel use-transparency true
+io.elementary.photos.sharing.picasa strip-metadata false
+io.elementary.photos.sharing.picasa default-size 2
+io.elementary.photos.sharing.picasa refresh-token ''
+org.gnome.FileRoller.FileSelector show-hidden false
+org.gnome.FileRoller.FileSelector sidebar-size -1
+org.gnome.FileRoller.FileSelector window-size (-1, -1)
+io.elementary.desktop.capnet-assist window-height 680
+io.elementary.desktop.capnet-assist window-state 'normal'
+io.elementary.desktop.capnet-assist enabled true
+io.elementary.desktop.capnet-assist window-width 1000
+org.gnome.FileRoller.Dialogs.New default-extension '.tar.gz'
+org.gnome.FileRoller.Dialogs.New other-options false
+org.gnome.FileRoller.Dialogs.New volume-size 0
+org.gnome.FileRoller.Dialogs.New encrypt-header false
+org.gnome.desktop.a11y always-show-universal-access-status false
+org.gnome.desktop.a11y always-show-text-caret false
+io.elementary.photos.plugins.enable-state publishing-piwigo true
+io.elementary.photos.plugins.enable-state transitions-chess true
+io.elementary.photos.plugins.enable-state transitions-clock true
+io.elementary.photos.plugins.enable-state publishing-picasa true
+io.elementary.photos.plugins.enable-state transitions-circle true
+io.elementary.photos.plugins.enable-state publishing-flickr true
+io.elementary.photos.plugins.enable-state publishing-yandex-fotki false
+io.elementary.photos.plugins.enable-state publishing-tumblr false
+io.elementary.photos.plugins.enable-state transitions-fade true
+io.elementary.photos.plugins.enable-state transitions-circles true
+io.elementary.photos.plugins.enable-state transitions-slide true
+io.elementary.photos.plugins.enable-state transitions-crumble true
+io.elementary.photos.plugins.enable-state publishing-facebook true
+io.elementary.photos.plugins.enable-state transitions-stripes true
+io.elementary.photos.plugins.enable-state transitions-blinds true
+io.elementary.photos.plugins.enable-state transitions-squares true
+io.elementary.photos.plugins.enable-state dataimports-fspot true
+io.elementary.photos.plugins.enable-state publishing-youtube true
+org.gnome.libgnomekbd.desktop layout-names-as-group-names true
+org.gnome.libgnomekbd.desktop handle-indicators false
+org.gnome.libgnomekbd.desktop load-extra-items false
+org.gnome.libgnomekbd.desktop default-group -1
+org.gnome.libgnomekbd.desktop group-per-window false
+io.elementary.music.settings music-folder ''
+io.elementary.music.settings path-string '$ALBUM_ARTIST/$ALBUM/$TRACK - $TITLE'
+io.elementary.music.settings music-mount-name ''
+io.elementary.music.settings repeat-mode 'off'
+io.elementary.music.settings copy-imported-music false
+io.elementary.music.settings write-metadata-to-file true
+io.elementary.music.settings update-folder-hierarchy true
+io.elementary.music.settings shuffle-mode 'off'
+io.elementary.music.settings close-while-playing false
+io.elementary.music.settings plugins-disabled @as []
+org.gnome.nautilus.preferences confirm-trash true
+org.gnome.nautilus.preferences install-mime-activation true
+org.gnome.nautilus.preferences use-experimental-views false
+org.gnome.nautilus.preferences always-use-location-entry false
+org.gnome.nautilus.preferences default-sort-in-reverse-order false
+org.gnome.nautilus.preferences open-folder-on-dnd-hover true
+org.gnome.nautilus.preferences show-move-to-trash-shortcut-changed-dialog true
+org.gnome.nautilus.preferences executable-text-activation 'display'
+org.gnome.nautilus.preferences mouse-forward-button 9
+org.gnome.nautilus.preferences tabs-open-position 'after-current-tab'
+org.gnome.nautilus.preferences recursive-search 'local-only'
+org.gnome.nautilus.preferences click-policy 'double'
+org.gnome.nautilus.preferences show-delete-permanently false
+org.gnome.nautilus.preferences default-sort-order 'name'
+org.gnome.nautilus.preferences default-folder-viewer 'icon-view'
+org.gnome.nautilus.preferences search-view 'list-view'
+org.gnome.nautilus.preferences fts-default true
+org.gnome.nautilus.preferences show-directory-item-counts 'local-only'
+org.gnome.nautilus.preferences show-create-link false
+org.gnome.nautilus.preferences show-hidden-files false
+org.gnome.nautilus.preferences show-image-thumbnails 'local-only'
+org.gnome.nautilus.preferences thumbnail-limit uint64 10485760
+org.gnome.nautilus.preferences mouse-back-button 8
+org.gnome.nautilus.preferences bulk-rename-tool @ay []
+org.gnome.nautilus.preferences mouse-use-extra-buttons true
+org.gnome.nautilus.preferences search-filter-time-type 'last_modified'
+org.gnome.system.proxy.ftp host ''
+org.gnome.system.proxy.ftp port 0
+org.gnome.desktop.peripherals.tablet area [0.0, 0.0, 0.0, 0.0]
+org.gnome.desktop.peripherals.tablet keep-aspect false
+org.gnome.desktop.peripherals.tablet left-handed false
+org.gnome.desktop.peripherals.tablet mapping 'absolute'
+org.gnome.desktop.peripherals.tablet display ['', '', '']
+org.gnome.desktop.peripherals.touchscreen display ['', '', '']
+org.gnome.system.location max-accuracy-level 'exact'
+org.gnome.system.location enabled false
+org.gnome.settings-daemon.plugins.print-notifications active true
+org.gnome.settings-daemon.plugins.print-notifications priority 0
+org.gnome.Epiphany.lockdown disable-printing false
+org.gnome.Epiphany.lockdown disable-history false
+org.gnome.Epiphany.lockdown disable-arbitrary-url false
+org.gnome.Epiphany.lockdown disable-bookmark-editing false
+org.gnome.Epiphany.lockdown disable-fullscreen false
+org.gnome.Epiphany.lockdown disable-quit false
+org.gnome.Epiphany.lockdown disable-save-to-disk false
+org.gnome.desktop.thumbnail-cache maximum-age 180
+org.gnome.desktop.thumbnail-cache maximum-size 512
+org.gnome.desktop.peripherals.touchpad send-events 'enabled'
+org.gnome.desktop.peripherals.touchpad natural-scroll true
+org.gnome.desktop.peripherals.touchpad tap-to-click true
+org.gnome.desktop.peripherals.touchpad two-finger-scrolling-enabled true
+org.gnome.desktop.peripherals.touchpad left-handed 'mouse'
+org.gnome.desktop.peripherals.touchpad click-method 'fingers'
+org.gnome.desktop.peripherals.touchpad speed 0.0
+org.gnome.desktop.peripherals.touchpad scroll-method 'two-finger-scrolling'
+org.gnome.desktop.peripherals.touchpad tap-and-drag true
+org.gnome.desktop.peripherals.touchpad edge-scrolling-enabled false
+org.gnome.desktop.peripherals.touchpad disable-while-typing true
+org.gnome.settings-daemon.plugins.sharing active true
+org.gnome.settings-daemon.plugins.sharing priority 0
+io.elementary.code.saved-state window-x 250
+io.elementary.code.saved-state window-y 250
+io.elementary.code.saved-state vp-size 125
+io.elementary.code.saved-state window-height 550
+io.elementary.code.saved-state window-state 'Normal'
+io.elementary.code.saved-state hp1-size 125
+io.elementary.code.saved-state window-width 850
+org.gnome.settings-daemon.plugins.smartcard active true
+org.gnome.settings-daemon.plugins.smartcard priority 0
+org.gnome.settings-daemon.plugins.sound active true
+org.gnome.settings-daemon.plugins.sound priority 0
+io.elementary.photos.sharing.flickr access-phase-token ''
+io.elementary.photos.sharing.flickr access-phase-token-secret ''
+io.elementary.photos.sharing.flickr visibility 1
+io.elementary.photos.sharing.flickr strip-metadata false
+io.elementary.photos.sharing.flickr default-size 2
+io.elementary.photos.sharing.flickr access-phase-username ''
+io.elementary.files.file-chooser last-folder-uri ''
+org.gnome.Evince document-directory @ms nothing
+org.gnome.Evince auto-reload true
+org.gnome.Evince override-restrictions true
+org.gnome.Evince page-cache-size uint32 50
+org.gnome.Evince allow-links-change-zoom true
+org.gnome.Evince pictures-directory @ms nothing
+org.gnome.Evince show-caret-navigation-message true
+org.onboard.auto-show keyboard-device-detection-enabled false
+org.onboard.auto-show hide-on-key-press-pause 1800.0
+org.onboard.auto-show reposition-method-floating 'prevent-occlusion'
+org.onboard.auto-show tablet-mode-leave-key 0
+org.onboard.auto-show tablet-mode-state-file-pattern '1'
+org.onboard.auto-show tablet-mode-enter-key 0
+org.onboard.auto-show tablet-mode-state-file ''
+org.onboard.auto-show reposition-method-docked 'prevent-occlusion'
+org.onboard.auto-show tablet-mode-detection-enabled true
+org.onboard.auto-show widget-clearance (25.0, 55.0, 25.0, 40.0)
+org.onboard.auto-show enabled false
+org.onboard.auto-show keyboard-device-detection-exceptions @as []
+org.onboard.auto-show hide-on-key-press true
+io.elementary.calendar.savedstate show-weeks true
+io.elementary.calendar.savedstate window-width 850
+io.elementary.calendar.savedstate window-state 'Normal'
+io.elementary.calendar.savedstate window-height 550
+io.elementary.calendar.savedstate hpaned-position 650
+io.elementary.calendar.savedstate month-page '2018-11'
+io.elementary.calendar.savedstate selected-day ''
+org.gnome.FileRoller.Dialogs.Extract skip-newer false
+org.gnome.FileRoller.Dialogs.Extract recreate-folders true
+org.gnome.mutter attach-modal-dialogs false
+org.gnome.mutter auto-maximize false
+org.gnome.mutter overlay-key 'Super_L'
+org.gnome.mutter dynamic-workspaces false
+org.gnome.mutter edge-tiling false
+org.gnome.mutter draggable-border-width 10
+org.gnome.mutter workspaces-only-on-primary true
+org.gnome.mutter focus-change-on-pointer-rest false
+org.gnome.mutter experimental-features @as []
+org.gnome.mutter center-new-windows true
+org.gnome.mutter no-tab-popup false
+org.gnome.settings-daemon.plugins.remote-display active true
+org.gnome.settings-daemon.plugins.remote-display priority 0
+io.elementary.music.saved-state view-mode 1
+io.elementary.music.saved-state window-height 600
+io.elementary.music.saved-state window-maximized false
+io.elementary.music.saved-state window-width 1100
+io.elementary.music.saved-state sidebar-width 200
+io.elementary.music.saved-state column-browser-position 0
+io.elementary.music.saved-state column-browser-visible-columns ['3', '5', '6']
+io.elementary.music.saved-state column-browser-enabled false
+io.elementary.music.saved-state last-media-position 0
+io.elementary.music.saved-state column-browser-width 200
+io.elementary.music.saved-state last-media-playing int64 0
+io.elementary.music.saved-state column-browser-height 200
+io.elementary.music.saved-state search-string ''
+io.elementary.music.saved-state window-x -1
+io.elementary.music.saved-state window-y -1
+io.elementary.music.saved-state last-playlist-playing ''
+org.gnome.crypto.pgp keyservers ['hkp://pool.sks-keyservers.net', 'ldap://keyserver.pgp.com']
+org.gnome.crypto.pgp last-signer ''
+org.gnome.crypto.pgp default-key ''
+org.gnome.crypto.pgp ascii-armor true
+org.gnome.crypto.pgp encrypt-to-self true
+org.gnome.crypto.pgp sort-recipients-by 'name'
+org.gnome.desktop.calendar show-weekdate false
+org.gnome.desktop.notifications application-children @as []
+org.gnome.desktop.notifications show-in-lock-screen true
+org.gnome.desktop.notifications show-banners true
+org.freedesktop.Geoclue gps-baudrate uint32 0
+org.freedesktop.Geoclue gps-device ''
+io.elementary.org-pantheon-photos-publishing-yandex-fotki auth-token ''
+org.gnome.desktop.privacy remember-app-usage true
+org.gnome.desktop.privacy remove-old-temp-files false
+org.gnome.desktop.privacy old-files-age uint32 30
+org.gnome.desktop.privacy remove-old-trash-files false
+org.gnome.desktop.privacy remember-recent-files true
+org.gnome.desktop.privacy send-software-usage-stats false
+org.gnome.desktop.privacy report-technical-problems false
+org.gnome.desktop.privacy recent-files-max-age -1
+org.gnome.desktop.privacy hide-identity false
+org.gnome.desktop.privacy show-full-name-in-top-bar true
+org.gnome.Epiphany max-processes uint32 0
+org.gnome.Epiphany user-agent ''
+org.gnome.Epiphany process-model 'one-secondary-process-per-web-view'
+org.gnome.Epiphany default-search-engine 'Google'
+org.gnome.Epiphany warn-on-close-unsubmitted-data true
+org.gnome.Epiphany adblock-filters ['https://easylist.to/easylist/easylist.txt', 'https://easylist.to/easylist/easyprivacy.txt', 'https://easylist.to/easylist/fanboy-annoyance.txt']
+org.gnome.Epiphany restore-session-policy 'always'
+org.gnome.Epiphany remember-passwords true
+org.gnome.Epiphany search-engines [('DuckDuckGo', 'https://duckduckgo.com/?q=%s&t=epiphany', '!ddg'), ('Google', 'https://www.google.com/search?q=%s', '!g'), ('Bing', 'https://www.bing.com/search?q=%s', '!b')]
+org.gnome.Epiphany enable-smooth-scrolling false
+org.gnome.Epiphany restore-session-delaying-loads true
+org.gnome.Epiphany internal-view-source true
+org.gnome.Epiphany new-windows-in-tabs true
+org.gnome.Epiphany enable-caret-browsing false
+org.gnome.Epiphany automatic-downloads false
+org.gnome.Epiphany keyword-search-url 'https://duckduckgo.com/?q=%s&t=epiphany'
+org.gnome.Epiphany homepage-url ''
+org.gnome.Epiphany.permissions audio-device-permission 'undecided'
+org.gnome.Epiphany.permissions notifications-permission 'undecided'
+org.gnome.Epiphany.permissions geolocation-permission 'undecided'
+org.gnome.Epiphany.permissions save-password-permission 'undecided'
+org.gnome.Epiphany.permissions video-device-permission 'undecided'
+org.gnome.Epiphany.web user-agent ''
+org.gnome.Epiphany.web enable-user-css false
+org.gnome.Epiphany.web enable-webaudio true
+org.gnome.Epiphany.web enable-webgl true
+org.gnome.Epiphany.web remember-passwords true
+org.gnome.Epiphany.web serif-font 'Serif 10'
+org.gnome.Epiphany.web enable-popups true
+org.gnome.Epiphany.web enable-adblock false
+org.gnome.Epiphany.web do-not-track false
+org.gnome.Epiphany.web default-zoom-level 1.0
+org.gnome.Epiphany.web monospace-font 'Monospace 10'
+org.gnome.Epiphany.web use-gnome-fonts true
+org.gnome.Epiphany.web gsb-api-key 'AIzaSyAtuURrRblYXvwCyDC5ZFq0mEw1x4VN6KA'
+org.gnome.Epiphany.web enable-smooth-scrolling true
+org.gnome.Epiphany.web enable-spell-checking true
+org.gnome.Epiphany.web enable-safe-browsing true
+org.gnome.Epiphany.web enable-plugins true
+org.gnome.Epiphany.web language ['system']
+org.gnome.Epiphany.web cookies-policy 'always'
+org.gnome.Epiphany.web default-encoding 'iso-8859-1'
+org.gnome.Epiphany.web min-font-size 0
+org.gnome.Epiphany.web sans-serif-font 'Sans 10'
+org.gnome.Epiphany.web enable-site-specific-quirks true
+org.gnome.Epiphany.state window-position (-1, -1)
+org.gnome.Epiphany.state download-dir 'Downloads'
+org.gnome.Epiphany.state is-maximized false
+org.gnome.Epiphany.state recent-encodings ['']
+org.gnome.Epiphany.state window-size (-1, -1)
+org.gnome.desktop.interface menus-have-icons false
+org.gnome.desktop.interface cursor-blink-timeout 10
+org.gnome.desktop.interface gtk-color-palette 'black:white:gray50:red:purple:blue:light blue:green:yellow:orange:lavender:brown:goldenrod4:dodger blue:pink:light green:gray10:gray30:gray75:gray90'
+org.gnome.desktop.interface gtk-timeout-repeat 20
+org.gnome.desktop.interface automatic-mnemonics true
+org.gnome.desktop.interface toolkit-accessibility false
+org.gnome.desktop.interface cursor-theme 'elementary'
+org.gnome.desktop.interface gtk-im-module 'gtk-im-context-simple'
+org.gnome.desktop.interface clock-show-seconds false
+org.gnome.desktop.interface can-change-accels false
+org.gnome.desktop.interface cursor-blink-time 1200
+org.gnome.desktop.interface toolbar-detachable false
+org.gnome.desktop.interface enable-animations true
+org.gnome.desktop.interface menubar-detachable false
+org.gnome.desktop.interface toolbar-style 'icons'
+org.gnome.desktop.interface toolbar-icons-size 'large'
+org.gnome.desktop.interface show-input-method-menu true
+org.gnome.desktop.interface icon-theme 'elementary'
+org.gnome.desktop.interface gtk-timeout-initial 200
+org.gnome.desktop.interface scaling-factor uint32 0
+org.gnome.desktop.interface clock-format '24h'
+org.gnome.desktop.interface buttons-have-icons false
+org.gnome.desktop.interface monospace-font-name 'Roboto Mono 10'
+org.gnome.desktop.interface text-scaling-factor 1.0
+org.gnome.desktop.interface clock-show-weekday true
+org.gnome.desktop.interface menus-have-tearoff false
+org.gnome.desktop.interface gtk-im-preedit-style 'callback'
+org.gnome.desktop.interface show-unicode-menu false
+org.gnome.desktop.interface cursor-blink true
+org.gnome.desktop.interface gtk-theme 'elementary'
+org.gnome.desktop.interface gtk-key-theme 'Default'
+org.gnome.desktop.interface gtk-im-status-style 'callback'
+org.gnome.desktop.interface gtk-enable-primary-paste true
+org.gnome.desktop.interface cursor-size 24
+org.gnome.desktop.interface show-battery-percentage false
+org.gnome.desktop.interface menubar-accel 'F10'
+org.gnome.desktop.interface gtk-color-scheme ''
+org.gnome.desktop.interface clock-show-date true
+org.gnome.desktop.interface document-font-name 'Open Sans 10'
+org.gnome.desktop.interface font-name 'Open Sans 9'
+io.elementary.photos.preferences.files import-dir ''
+io.elementary.photos.preferences.files commit-metadata false
+io.elementary.photos.preferences.files raw-developer-default 'CAMERA'
+io.elementary.photos.preferences.files use-lowercase-filenames false
+io.elementary.photos.preferences.files auto-import true
+io.elementary.photos.sharing.org-pantheon-photos-publishing-piwigo remember-password false
+io.elementary.photos.sharing.org-pantheon-photos-publishing-piwigo last-title-as-comment false
+io.elementary.photos.sharing.org-pantheon-photos-publishing-piwigo last-category -1
+io.elementary.photos.sharing.org-pantheon-photos-publishing-piwigo strip-metadata false
+io.elementary.photos.sharing.org-pantheon-photos-publishing-piwigo password ''
+io.elementary.photos.sharing.org-pantheon-photos-publishing-piwigo url ''
+io.elementary.photos.sharing.org-pantheon-photos-publishing-piwigo last-photo-size -1
+io.elementary.photos.sharing.org-pantheon-photos-publishing-piwigo username ''
+io.elementary.photos.sharing.org-pantheon-photos-publishing-piwigo last-no-upload-tags false
+io.elementary.photos.sharing.org-pantheon-photos-publishing-piwigo last-permission-level -1
+org.gnome.system.smb workgroup ''
+org.gnome.settings-daemon.plugins.a11y-settings active true
+org.gnome.settings-daemon.plugins.a11y-settings priority 0
+org.gnome.evolution-data-server autoconfig-variables ['']
+org.gnome.evolution-data-server camel-gpg-binary ''
+org.gnome.evolution-data-server network-monitor-gio-name ''
+org.gnome.evolution-data-server oauth2-services-hint ['']
+org.gnome.evolution-data-server camel-cipher-load-photos true
+org.gnome.evolution-data-server migrated true
+org.gnome.evolution-data-server autoconfig-directory ''
+org.pantheon.mail window-height 768
+org.pantheon.mail window-maximize false
+org.pantheon.mail first-run true
+org.pantheon.mail window-width 1024
+org.pantheon.mail compose-as-html true
+org.pantheon.mail show-images true
+org.pantheon.mail composer-pane-position 400
+org.pantheon.mail folder-list-pane-position 150
+org.pantheon.mail messages-pane-position 250
+org.pantheon.mail display-preview true
+org.pantheon.mail folder-list-pane-position-horizontal -1
+org.pantheon.mail autoselect true
+org.pantheon.mail folder-list-pane-horizontal true
+org.pantheon.mail folder-list-pane-position-vertical 200
+org.pantheon.mail startup-notifications true
+org.pantheon.mail ask-open-attachment true
+org.pantheon.mail search-strategy 'conservative'
+org.freedesktop.ibus.general.hotkey next-engine ['Alt+Shift_L']
+org.freedesktop.ibus.general.hotkey disable-unconditional @as []
+org.freedesktop.ibus.general.hotkey enable-unconditional @as []
+org.freedesktop.ibus.general.hotkey trigger ['Control+space', 'Zenkaku_Hankaku', 'Alt+Kanji', 'Alt+grave', 'Hangul', 'Alt+Release+Alt_R']
+org.freedesktop.ibus.general.hotkey previous-engine @as []
+org.freedesktop.ibus.general.hotkey prev-engine @as []
+org.freedesktop.ibus.general.hotkey next-engine-in-menu ['Alt+Shift_L']
+org.freedesktop.ibus.general.hotkey triggers ['<Control>space']
+org.gnome.Epiphany.sync.DEPRECATED sync-history-initial true
+org.gnome.Epiphany.sync.DEPRECATED sync-bookmarks-enabled false
+org.gnome.Epiphany.sync.DEPRECATED sync-passwords-initial true
+org.gnome.Epiphany.sync.DEPRECATED sync-open-tabs-time 0.0
+org.gnome.Epiphany.sync.DEPRECATED sync-bookmarks-time 0.0
+org.gnome.Epiphany.sync.DEPRECATED sync-user ''
+org.gnome.Epiphany.sync.DEPRECATED sync-frequency uint32 30
+org.gnome.Epiphany.sync.DEPRECATED sync-device-name ''
+org.gnome.Epiphany.sync.DEPRECATED sync-history-enabled false
+org.gnome.Epiphany.sync.DEPRECATED sync-open-tabs-enabled false
+org.gnome.Epiphany.sync.DEPRECATED sync-bookmarks-initial true
+org.gnome.Epiphany.sync.DEPRECATED sync-passwords-time 0.0
+org.gnome.Epiphany.sync.DEPRECATED sync-device-id ''
+org.gnome.Epiphany.sync.DEPRECATED sync-with-firefox true
+org.gnome.Epiphany.sync.DEPRECATED sync-passwords-enabled false
+org.gnome.Epiphany.sync.DEPRECATED sync-history-time 0.0
+org.gnome.Epiphany.sync.DEPRECATED sync-time int64 0
+org.freedesktop.folks primary-store ''
+org.gnome.Epiphany.ui expand-tabs-bar false
+org.gnome.Epiphany.ui tabs-bar-visibility-policy 'always'
+org.gnome.Epiphany.ui tabs-bar-position 'top'
+io.elementary.photos.printing content-width 7.0
+io.elementary.photos.printing titles-font 'Sans Bold 12'
+io.elementary.photos.printing content-units 1
+io.elementary.photos.printing images-per-page 1
+io.elementary.photos.printing size-selection 3
+io.elementary.photos.printing content-ppi 600
+io.elementary.photos.printing print-titles false
+io.elementary.photos.printing match-aspect-ratio true
+io.elementary.photos.printing content-height 5.0
+io.elementary.photos.printing content-layout 3
+io.elementary.files.preferences confirm-trash true
+io.elementary.files.preferences window-height 680
+io.elementary.files.preferences restore-tabs true
+io.elementary.files.preferences tab-info-list [(uint32 0, '', '')]
+io.elementary.files.preferences minimum-sidebar-width 96
+io.elementary.files.preferences sidebar-cat-personal-expander true
+io.elementary.files.preferences active-tab-position 0
+io.elementary.files.preferences sidebar-width 191
+io.elementary.files.preferences sidebar-cat-devices-expander true
+io.elementary.files.preferences window-state 'normal'
+io.elementary.files.preferences window-width 1000
+io.elementary.files.preferences show-sidebar true
+io.elementary.files.preferences sidebar-cat-network-expander true
+io.elementary.files.preferences show-hiddenfiles false
+io.elementary.files.preferences date-format 'informal'
+io.elementary.files.preferences default-viewmode 'miller_columns'
+io.elementary.files.preferences show-remote-thumbnails false
+io.elementary.files.preferences window-x -1
+io.elementary.files.preferences single-click true
+io.elementary.files.preferences window-y -1
+org.gnome.FileRoller.General compression-level 'normal'
+org.gnome.FileRoller.General editors @as []
+org.gnome.FileRoller.General encrypt-header false
+org.gnome.desktop.datetime automatic-timezone true
+org.gnome.libgnomekbd.preview width -1
+org.gnome.libgnomekbd.preview height -1
+org.gnome.libgnomekbd.preview x -1
+org.gnome.libgnomekbd.preview y -1
+org.gnome.libgnomekbd.keyboard layouts @as []
+org.gnome.libgnomekbd.keyboard model ''
+org.gnome.libgnomekbd.keyboard options @as []
+org.gnome.mutter.keybindings switch-monitor ['<Super>p', 'XF86Display']
+org.gnome.mutter.keybindings toggle-tiled-left ['<Control><Super>Left']
+org.gnome.mutter.keybindings tab-popup-cancel @as []
+org.gnome.mutter.keybindings rotate-monitor ['XF86RotateWindows']
+org.gnome.mutter.keybindings tab-popup-select @as []
+org.gnome.mutter.keybindings toggle-tiled-right ['<Control><Super>Right']
+org.gnome.settings-daemon.plugins.power button-power 'suspend'
+org.gnome.settings-daemon.plugins.power sleep-inactive-ac-timeout 1200
+org.gnome.settings-daemon.plugins.power power-button-action 'suspend'
+org.gnome.settings-daemon.plugins.power critical-battery-action 'hibernate'
+org.gnome.settings-daemon.plugins.power percentage-low 10
+org.gnome.settings-daemon.plugins.power priority 0
+org.gnome.settings-daemon.plugins.power lid-close-suspend-with-external-monitor false
+org.gnome.settings-daemon.plugins.power idle-dim false
+org.gnome.settings-daemon.plugins.power button-hibernate 'hibernate'
+org.gnome.settings-daemon.plugins.power sleep-inactive-ac-type 'suspend'
+org.gnome.settings-daemon.plugins.power button-suspend 'suspend'
+org.gnome.settings-daemon.plugins.power button-sleep 'hibernate'
+org.gnome.settings-daemon.plugins.power sleep-inactive-battery-timeout 1200
+org.gnome.settings-daemon.plugins.power time-low 1200
+org.gnome.settings-daemon.plugins.power lid-close-ac-action 'suspend'
+org.gnome.settings-daemon.plugins.power notify-perhaps-recall true
+org.gnome.settings-daemon.plugins.power percentage-critical 3
+org.gnome.settings-daemon.plugins.power manage-dpms-defaults false
+org.gnome.settings-daemon.plugins.power percentage-action 2
+org.gnome.settings-daemon.plugins.power sleep-inactive-battery-type 'suspend'
+org.gnome.settings-daemon.plugins.power time-action 120
+org.gnome.settings-daemon.plugins.power lid-close-battery-action 'suspend'
+org.gnome.settings-daemon.plugins.power idle-brightness 30
+org.gnome.settings-daemon.plugins.power ambient-enabled false
+org.gnome.settings-daemon.plugins.power time-critical 300
+org.gnome.settings-daemon.plugins.power active true
+org.gnome.settings-daemon.plugins.power use-time-for-policy true
+org.gnome.system.proxy use-same-proxy true
+org.gnome.system.proxy mode 'none'
+org.gnome.system.proxy autoconfig-url ''
+org.gnome.system.proxy ignore-hosts ['localhost', '127.0.0.0/8', '::1']
+org.gtk.Settings.FileChooser sort-column 'name'
+org.gtk.Settings.FileChooser clock-format '24h'
+org.gtk.Settings.FileChooser last-folder-uri ''
+org.gtk.Settings.FileChooser sidebar-width 148
+org.gtk.Settings.FileChooser window-position (-1, -1)
+org.gtk.Settings.FileChooser show-size-column true
+org.gtk.Settings.FileChooser startup-mode 'recent'
+org.gtk.Settings.FileChooser show-hidden false
+org.gtk.Settings.FileChooser window-size (-1, -1)
+org.gtk.Settings.FileChooser sort-directories-first true
+org.gtk.Settings.FileChooser expand-folders false
+org.gtk.Settings.FileChooser date-format 'regular'
+org.gtk.Settings.FileChooser sort-order 'ascending'
+org.gtk.Settings.FileChooser location-mode 'path-bar'
+org.gnome.settings-daemon.plugins whitelisted-plugins ['all']
+org.onboard.icon-palette.landscape width 64
+org.onboard.icon-palette.landscape height 64
+org.onboard.icon-palette.landscape x 100
+org.onboard.icon-palette.landscape y 50
+io.elementary.switchboard.security-privacy disabled-firewall-rules @a(ssssiiii) []
+io.elementary.files.icon-view minimum-zoom-level 'normal'
+io.elementary.files.icon-view maximum-zoom-level 'largest'
+io.elementary.files.icon-view default-zoom-level 'large'
+io.elementary.files.icon-view zoom-level 'large'
+org.gnome.desktop.lockdown disable-command-line false
+org.gnome.desktop.lockdown disable-application-handlers false
+org.gnome.desktop.lockdown disable-user-switching false
+org.gnome.desktop.lockdown user-administration-disabled false
+org.gnome.desktop.lockdown disable-printing false
+org.gnome.desktop.lockdown disable-log-out false
+org.gnome.desktop.lockdown disable-lock-screen true
+org.gnome.desktop.lockdown disable-print-setup false
+org.gnome.desktop.lockdown disable-save-to-disk false
+io.elementary.calculator.saved-state extended-shown false
+io.elementary.calculator.saved-state window-x -100
+io.elementary.calculator.saved-state entry-content ''
+io.elementary.calculator.saved-state decimal-places 5
+io.elementary.calculator.saved-state window-y -100
+org.freedesktop.ibus.panel.emoji favorite-annotations @as []
+org.freedesktop.ibus.panel.emoji favorites @as []
+org.freedesktop.ibus.panel.emoji hotkey ['<Control><Shift>e']
+org.freedesktop.ibus.panel.emoji has-partial-match false
+org.freedesktop.ibus.panel.emoji partial-match-length 3
+org.freedesktop.ibus.panel.emoji partial-match-condition 0
+org.freedesktop.ibus.panel.emoji font 'Monospace 16'
+org.freedesktop.ibus.panel.emoji lang 'en'
+org.onboard.icon-palette in-use false
+org.onboard.icon-palette window-handles 'E SE S SW W NW N NE M'
+org.gnome.desktop.wm.keybindings cycle-windows-backward ['<Shift><Alt>Escape']
+org.gnome.desktop.wm.keybindings minimize ['<Super>h']
+org.gnome.desktop.wm.keybindings move-to-workspace-7 ['<Super><Shift>7', '<Super><Alt>7']
+org.gnome.desktop.wm.keybindings move-to-workspace-8 ['<Super><Shift>8', '<Super><Alt>8']
+org.gnome.desktop.wm.keybindings move-to-workspace-9 ['<Super><Shift>9', '<Super><Alt>9']
+org.gnome.desktop.wm.keybindings move-to-monitor-left ['<Super><Shift>Left']
+org.gnome.desktop.wm.keybindings move-to-workspace-5 ['<Super><Shift>5', '<Super><Alt>5']
+org.gnome.desktop.wm.keybindings move-to-workspace-6 ['<Super><Shift>6', '<Super><Alt>6']
+org.gnome.desktop.wm.keybindings move-to-workspace-10 @as []
+org.gnome.desktop.wm.keybindings move-to-workspace-11 @as []
+org.gnome.desktop.wm.keybindings move-to-workspace-12 @as []
+org.gnome.desktop.wm.keybindings move-to-center @as []
+org.gnome.desktop.wm.keybindings unmaximize ['<Alt>F5']
+org.gnome.desktop.wm.keybindings panel-main-menu ['<Super>space', '<Alt>F2']
+org.gnome.desktop.wm.keybindings cycle-windows ['<Alt>Escape']
+org.gnome.desktop.wm.keybindings cycle-panels-backward ['<Shift><Control><Alt>Escape']
+org.gnome.desktop.wm.keybindings panel-run-dialog @as []
+org.gnome.desktop.wm.keybindings switch-to-workspace-down @as []
+org.gnome.desktop.wm.keybindings move-to-corner-ne @as []
+org.gnome.desktop.wm.keybindings move-to-side-e @as []
+org.gnome.desktop.wm.keybindings move-to-workspace-right ['<Super><Alt>Right']
+org.gnome.desktop.wm.keybindings always-on-top @as []
+org.gnome.desktop.wm.keybindings move-to-workspace-up ['<Super><Shift>Page_Up', '<Control><Shift><Alt>Up']
+org.gnome.desktop.wm.keybindings raise @as []
+org.gnome.desktop.wm.keybindings maximize @as []
+org.gnome.desktop.wm.keybindings cycle-group-backward ['<Shift><Alt>F6']
+org.gnome.desktop.wm.keybindings move-to-side-n @as []
+org.gnome.desktop.wm.keybindings move-to-side-s @as []
+org.gnome.desktop.wm.keybindings maximize-horizontally @as []
+org.gnome.desktop.wm.keybindings move-to-side-w @as []
+org.gnome.desktop.wm.keybindings move-to-corner-nw @as []
+org.gnome.desktop.wm.keybindings switch-windows ['<Alt>Tab']
+org.gnome.desktop.wm.keybindings begin-move ['<Alt>F7']
+org.gnome.desktop.wm.keybindings move-to-monitor-down ['<Super><Shift>Down']
+org.gnome.desktop.wm.keybindings switch-windows-backward ['<Alt><Shift>Tab']
+org.gnome.desktop.wm.keybindings move-to-workspace-left ['<Super><Alt>Left']
+org.gnome.desktop.wm.keybindings move-to-corner-se @as []
+org.gnome.desktop.wm.keybindings activate-window-menu ['<Alt>space']
+org.gnome.desktop.wm.keybindings switch-input-source @as []
+org.gnome.desktop.wm.keybindings toggle-above @as []
+org.gnome.desktop.wm.keybindings move-to-monitor-right ['<Super><Shift>Right']
+org.gnome.desktop.wm.keybindings switch-input-source-backward @as []
+org.gnome.desktop.wm.keybindings move-to-workspace-last ['<Super><Shift>End']
+org.gnome.desktop.wm.keybindings lower @as []
+org.gnome.desktop.wm.keybindings cycle-panels ['<Control><Alt>Escape']
+org.gnome.desktop.wm.keybindings toggle-fullscreen @as []
+org.gnome.desktop.wm.keybindings toggle-on-all-workspaces @as []
+org.gnome.desktop.wm.keybindings move-to-monitor-up ['<Super><Shift>Up']
+org.gnome.desktop.wm.keybindings move-to-corner-sw @as []
+org.gnome.desktop.wm.keybindings toggle-shaded @as []
+org.gnome.desktop.wm.keybindings switch-to-workspace-1 ['<Super>1']
+org.gnome.desktop.wm.keybindings switch-to-workspace-2 ['<Super>2']
+org.gnome.desktop.wm.keybindings switch-to-workspace-3 ['<Super>3']
+org.gnome.desktop.wm.keybindings switch-to-workspace-4 ['<Super>4']
+org.gnome.desktop.wm.keybindings raise-or-lower @as []
+org.gnome.desktop.wm.keybindings switch-panels ['<Control><Alt>Tab']
+org.gnome.desktop.wm.keybindings switch-panels-backward ['<Shift><Control><Alt>Tab']
+org.gnome.desktop.wm.keybindings switch-applications-backward @as []
+org.gnome.desktop.wm.keybindings maximize-vertically @as []
+org.gnome.desktop.wm.keybindings switch-to-workspace-7 ['<Super>7']
+org.gnome.desktop.wm.keybindings switch-to-workspace-5 ['<Super>5']
+org.gnome.desktop.wm.keybindings show-desktop ['<Super>Down', '<Super>s']
+org.gnome.desktop.wm.keybindings switch-to-workspace-8 ['<Super>8']
+org.gnome.desktop.wm.keybindings switch-to-workspace-9 ['<Super>9']
+org.gnome.desktop.wm.keybindings switch-to-workspace-6 ['<Super>6']
+org.gnome.desktop.wm.keybindings switch-applications @as []
+org.gnome.desktop.wm.keybindings switch-to-workspace-10 @as []
+org.gnome.desktop.wm.keybindings switch-to-workspace-11 @as []
+org.gnome.desktop.wm.keybindings switch-to-workspace-12 @as []
+org.gnome.desktop.wm.keybindings switch-to-workspace-left ['<Super>Left']
+org.gnome.desktop.wm.keybindings toggle-maximized ['<Super>Up']
+org.gnome.desktop.wm.keybindings set-spew-mark @as []
+org.gnome.desktop.wm.keybindings begin-resize ['<Alt>F8']
+org.gnome.desktop.wm.keybindings move-to-workspace-down ['<Super><Shift>Page_Down', '<Control><Shift><Alt>Down']
+org.gnome.desktop.wm.keybindings switch-to-workspace-last ['<Super>End']
+org.gnome.desktop.wm.keybindings switch-group-backward ['<Shift><Super>Above_Tab', '<Shift><Alt>Above_Tab']
+org.gnome.desktop.wm.keybindings switch-group ['<Super>Above_Tab', '<Alt>Above_Tab']
+org.gnome.desktop.wm.keybindings cycle-group ['<Alt>F6']
+org.gnome.desktop.wm.keybindings close ['<Alt>F4']
+org.gnome.desktop.wm.keybindings switch-to-workspace-up @as []
+org.gnome.desktop.wm.keybindings move-to-workspace-1 ['<Super><Shift>1', '<Super><Alt>1']
+org.gnome.desktop.wm.keybindings move-to-workspace-2 ['<Super><Shift>2', '<Super><Alt>2']
+org.gnome.desktop.wm.keybindings move-to-workspace-3 ['<Super><Shift>3', '<Super><Alt>3']
+org.gnome.desktop.wm.keybindings move-to-workspace-4 ['<Super><Shift>4', '<Super><Alt>4']
+org.gnome.desktop.wm.keybindings switch-to-workspace-right ['<Super>Right']
+org.gnome.crypto.cache gpg-cache-method 'session'
+org.gnome.crypto.cache gpg-cache-ttl 300
+org.gnome.settings-daemon.plugins.screensaver-proxy active false
+org.gnome.settings-daemon.plugins.screensaver-proxy priority 0
+org.gnome.desktop.peripherals.keyboard repeat-interval uint32 30
+org.gnome.desktop.peripherals.keyboard delay uint32 500
+org.gnome.desktop.peripherals.keyboard repeat true
+org.gnome.settings-daemon.plugins.housekeeping min-notify-period 10
+org.gnome.settings-daemon.plugins.housekeeping active true
+org.gnome.settings-daemon.plugins.housekeeping free-size-gb-no-notify 1
+org.gnome.settings-daemon.plugins.housekeeping ignore-paths @as []
+org.gnome.settings-daemon.plugins.housekeeping free-percent-notify 0.050000000000000003
+org.gnome.settings-daemon.plugins.housekeeping free-percent-notify-again 0.01
+org.gnome.settings-daemon.plugins.housekeeping priority 0
+io.elementary.desktop.wingpanel.bluetooth bluetooth-enabled true
+org.freedesktop.IBus.Chewing show-systray true
+org.freedesktop.IBus.Chewing esc-clean-all-buf false
+org.freedesktop.IBus.Chewing capslock-toggle-chinese true
+org.freedesktop.IBus.Chewing clean-buffer-focus-out false
+org.freedesktop.IBus.Chewing max-chi-symbol-len 20
+org.freedesktop.IBus.Chewing shift-toggle-chinese true
+org.freedesktop.IBus.Chewing add-phrase-direction true
+org.freedesktop.IBus.Chewing easy-symbol-input true
+org.freedesktop.IBus.Chewing space-as-selection false
+org.freedesktop.IBus.Chewing kb-type 'default'
+org.freedesktop.IBus.Chewing cand-per-page uint32 10
+org.freedesktop.IBus.Chewing sel-keys '1234567890'
+org.freedesktop.IBus.Chewing default-english-case 'lowercase'
+org.freedesktop.IBus.Chewing phrase-choice-from-last true
+org.freedesktop.IBus.Chewing plain-zhuyin false
+org.freedesktop.IBus.Chewing auto-shift-cur true
+org.freedesktop.IBus.Chewing sync-caps-lock 'disable'
+org.onboard.scanner backtrack 5
+org.onboard.scanner device-name 'Default'
+org.onboard.scanner interval-fast 0.050000000000000003
+org.onboard.scanner feedback-flash true
+org.onboard.scanner mode 'Autoscan'
+org.onboard.scanner interval 1.2
+org.onboard.scanner alternate false
+org.onboard.scanner device-button-map {1: 0, 3: 5}
+org.onboard.scanner user-scan false
+org.onboard.scanner device-detach false
+org.onboard.scanner device-key-map @a{ii} {}
+org.onboard.scanner enabled false
+org.onboard.scanner cycles 2
+org.onboard.typing-assistance.word-suggestions learning-behavior-paused 'nothing'
+org.onboard.typing-assistance.word-suggestions accent-insensitive true
+org.onboard.typing-assistance.word-suggestions delayed-word-separators-enabled false
+org.onboard.typing-assistance.word-suggestions spelling-suggestions-enabled true
+org.onboard.typing-assistance.word-suggestions pause-learning-locked false
+org.onboard.typing-assistance.word-suggestions max-word-choices 5
+org.onboard.typing-assistance.word-suggestions show-context-line false
+org.onboard.typing-assistance.word-suggestions auto-learn true
+org.onboard.typing-assistance.word-suggestions punctuation-assistance true
+org.onboard.typing-assistance.word-suggestions enabled false
+org.onboard.typing-assistance.word-suggestions wordlist-buttons ['previous-predictions', 'next-predictions', 'language', 'hide']
+org.onboard.typing-assistance.word-suggestions stealth-mode false
+org.onboard.window.portrait dock-width 600
+org.onboard.window.portrait width 600
+org.onboard.window.portrait dock-expand true
+org.onboard.window.portrait y 50
+org.onboard.window.portrait dock-height 200
+org.onboard.window.portrait height 200
+org.onboard.window.portrait x 100
+org.onboard.window keep-aspect-ratio false
+org.onboard.window enable-inactive-transparency false
+org.onboard.window window-decoration false
+org.onboard.window inactive-transparency 50.0
+org.onboard.window docking-monitor 'active'
+org.onboard.window docking-enabled false
+org.onboard.window force-to-top false
+org.onboard.window transparent-background false
+org.onboard.window window-handles 'E SE S SW W NW N NE M'
+org.onboard.window window-state-sticky true
+org.onboard.window docking-edge 'bottom'
+org.onboard.window transparency 0.0
+org.onboard.window background-transparency 10.0
+org.onboard.window docking-aspect-change-range [0.0, 2.0]
+org.onboard.window docking-shrink-workarea true
+org.onboard.window inactive-transparency-delay 1.0
+org.gnome.FileRoller.Dialogs.Add recursive true
+org.gnome.FileRoller.Dialogs.Add selected-files @as []
+org.gnome.FileRoller.Dialogs.Add filename ''
+org.gnome.FileRoller.Dialogs.Add no-symlinks true
+org.gnome.FileRoller.Dialogs.Add include-files ''
+org.gnome.FileRoller.Dialogs.Add exclude-files ''
+org.gnome.FileRoller.Dialogs.Add exclude-folders ''
+org.gnome.FileRoller.Dialogs.Add current-folder ''
+org.gnome.FileRoller.Dialogs.Add update false
+org.gnome.desktop.search-providers sort-order ['org.gnome.Contacts.desktop', 'org.gnome.Documents.desktop', 'org.gnome.Nautilus.desktop']
+org.gnome.desktop.search-providers disabled @as []
+org.gnome.desktop.search-providers disable-external false
+org.gnome.desktop.search-providers enabled @as []
+org.gnome.GWeather distance-unit 'default'
+org.gnome.GWeather default-location ('', 'KNYC', @m(dd) nothing)
+org.gnome.GWeather temperature-unit 'default'
+org.gnome.GWeather radar ''
+org.gnome.GWeather speed-unit 'default'
+org.gnome.GWeather pressure-unit 'default'
+org.gnome.desktop.a11y.keyboard slowkeys-beep-press false
+org.gnome.desktop.a11y.keyboard mousekeys-accel-time 300
+org.gnome.desktop.a11y.keyboard bouncekeys-beep-reject false
+org.gnome.desktop.a11y.keyboard slowkeys-beep-reject false
+org.gnome.desktop.a11y.keyboard togglekeys-enable false
+org.gnome.desktop.a11y.keyboard disable-timeout 200
+org.gnome.desktop.a11y.keyboard enable false
+org.gnome.desktop.a11y.keyboard bouncekeys-enable false
+org.gnome.desktop.a11y.keyboard stickykeys-enable false
+org.gnome.desktop.a11y.keyboard feature-state-change-beep false
+org.gnome.desktop.a11y.keyboard slowkeys-beep-accept false
+org.gnome.desktop.a11y.keyboard bouncekeys-delay 300
+org.gnome.desktop.a11y.keyboard mousekeys-max-speed 10
+org.gnome.desktop.a11y.keyboard mousekeys-enable false
+org.gnome.desktop.a11y.keyboard timeout-enable false
+org.gnome.desktop.a11y.keyboard slowkeys-delay 300
+org.gnome.desktop.a11y.keyboard stickykeys-modifier-beep false
+org.gnome.desktop.a11y.keyboard stickykeys-two-key-off false
+org.gnome.desktop.a11y.keyboard mousekeys-init-delay 300
+org.gnome.desktop.a11y.keyboard slowkeys-enable false
+org.gnome.desktop.thumbnailers disable-all false
+org.gnome.desktop.thumbnailers disable @as []
+org.gnome.settings-daemon.peripherals.touchscreen orientation-lock false
+org.onboard.window.landscape dock-width 700
+org.onboard.window.landscape width 700
+org.onboard.window.landscape dock-expand true
+org.onboard.window.landscape y 50
+org.onboard.window.landscape dock-height 205
+org.onboard.window.landscape height 205
+org.onboard.window.landscape x 100
