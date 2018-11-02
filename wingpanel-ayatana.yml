@@ -1,0 +1,21 @@
+- name: to check how to properly install it
+  hosts: 127.0.0.1
+  connection: local
+  tasks:
+
+  #based on insruction
+  #https://github.com/mdh34/elementary-indicators
+  - name: Install a modificated .deb package from the internet for install indicator-application-patched
+    apt:
+      deb: "https://github.com/mdh34/elementary-indicators/releases/download/0.1/indicator-application-patched.deb"
+    become: true
+
+  - name: Install a last .deb package from the internet for install wingpanel-indicator-ayatana
+    apt:
+      deb: "https://launchpad.net/%7Eelementary-os/+archive/ubuntu/stable/+files/wingpanel-indicator-ayatana_2.0.3+r27+pkg17%7Eubuntu0.4.1.1_amd64.deb"
+    become: true
+
+ #Another way (probably better) to enable ayatana wingpanel
+ #https://elementaryos.stackexchange.com/questions/16502/missing-icons-in-the-wingpanel 
+ #or
+ #https://elementaryos.stackexchange.com/questions/7550/dropbox-icon-missing-in-loki
