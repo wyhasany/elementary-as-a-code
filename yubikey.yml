@@ -2,17 +2,24 @@
   hosts: 127.0.0.1
   connection: local
   tasks:
+
   - name: Add Yubico Repository
     apt_repository:
       repo: ppa:yubico/stable
-      tags:
+    tags:
       - yubico
-      become: true
+    become: true
+
   - name: Install Yubico Tools
-    apt: name={{item}} state=latest update_cache=yes
-    with_items:
+    apt: 
+      name: "{{ packages }}"
+      state: latest 
+      update_cache: yes
+    vars:
+      packages:
       - yubikey-manager-qt
       - yubioath-desktop
       - yubikey-personalization-gui
       - yubikey-piv-manager
     become: true
+
