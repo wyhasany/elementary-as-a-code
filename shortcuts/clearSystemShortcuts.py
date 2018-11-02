@@ -62,7 +62,7 @@ def main():
     args = get_parsed_args()
     idea_key_strokes = get_idea_key_strokes()
     gsettings_output_lines = get_system_config_from_gsettings()
-    all_commands = []
+    all_commands = set()
     for key_stroke in idea_key_strokes:
         if len(key_stroke.split()) <= 1:  # System do not implement one key shortcuts in dconf
             continue
@@ -71,7 +71,7 @@ def main():
             partials=args.partials, verbose=args.verbose
         )
         commands = generate_clearing_commands(pairs)
-        all_commands.extend(commands)
+        all_commands.update(commands)
     display(all_commands)
     if args.execute:
         execute_commands(all_commands)
