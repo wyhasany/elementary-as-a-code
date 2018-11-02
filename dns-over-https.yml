@@ -14,6 +14,11 @@
       cloudflared_port: 53
     become: true
 
+  #1. I have to edit role to set become: true, where we need sudo support
+  #2. I gave to execute additionally 
+  # $ sudo setcap 'cap_net_bind_service=+ep' /usr/local/bin/cloudflared
+
   #to set dns check:
   #https://askubuntu.com/questions/1033292/ubuntu-18-04-using-netplan-with-dhcp-and-static-dns-settings-seems-totally-broke
+  #do not work on usb system to check after installation standalone elementary
 
