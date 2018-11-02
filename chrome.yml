@@ -6,6 +6,7 @@
     apt_repository:
       repo: "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main"
       state: present
+      validate_certs: no
       filename: google.list
     tags:
     - chrome
