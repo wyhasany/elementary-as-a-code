@@ -3,7 +3,7 @@
   connection: local
   tasks:
 
-  - name: Install packages for Fusuma
+  - name: Install vim
     apt: 
       name: vim 
       state: present
