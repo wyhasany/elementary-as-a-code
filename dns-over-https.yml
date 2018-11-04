@@ -12,7 +12,7 @@
       cloudflared_allow_firewall: false
       cloudflared_enable_service: true
       cloudflared_port: 53
-    become: true
+      ansible_become: true
 
   #1. I have to edit role to set become: true, where we need sudo support
   #2. I gave to execute additionally 
