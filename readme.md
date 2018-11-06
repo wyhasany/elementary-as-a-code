@@ -26,7 +26,7 @@ flatpak.yml
 fusuma.yml
 jetbrains-toolbox.yml (needs one more test)
 idea-shortcuts.yml
-keepassxc.yml (need to add configuration)
+keepassxc.yml
 multimedia-codecs.yml
 nord-vpn.yml
 plank.yml
@@ -41,6 +41,12 @@ wireshark-installation.yml
 yakuake.yml
 yubikey.yml
 zsh.yml
+```
+
+If you would like to install KeepassXC with your provided configuration
+copy your current keepassxc configuration to keepassxc folder:
+```
+cp ~/.config/keepassxc/keepassxc.ini keepassxc/
 ```
 
 Playbook with issues:

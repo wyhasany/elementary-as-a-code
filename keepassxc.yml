@@ -16,3 +16,19 @@
       state: latest
     become: true
 
+  - name: ensure the ~/.config/keepassxc directory is present
+    file:
+      path: /home/{{ ansible_user_id }}/.config/keepassxc
+      state: directory
+
+  - name: copy local keepassxc.ini to remote if exists
+    stat:
+      path: keepassxc/keepassxc.ini
+    register: keepassxc_ini
+
+  - name: copy keepassxc configuration
+    when: keepassxc_ini.stat.exists
+    copy:
+      src: keepassxc/keepassxc.ini
+      dest: /home/{{ ansible_user_id }}/.config/keepassxc/keepassxc.ini
+      force: yes
