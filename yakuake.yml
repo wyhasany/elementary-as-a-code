@@ -1,0 +1,45 @@
+- name:
+  hosts: 127.0.0.1
+  connection: local
+  tags: yakuake
+  tasks:
+  
+  - name: Instal yakuake
+    apt:
+      name: yakuake
+      update_cache: yes
+      state: latest
+    become: true
+  
+  - name: ensure the ~/.local/share/konsole directory is present
+    file:
+      path: /home/{{ ansible_user_id }}/.local/share/konsole
+      state: directory
+
+  - name: copy konsole profiles
+    synchronize:
+      src: zsh_files/konsole_profiles/konsole
+      dest: /home/{{ ansible_user_id }}/.local/share/
+
+  - name: ensure the /usr/share/yakuake/skins/ directory is present
+    file:
+      path: /usr/share/yakuake/skins/
+      state: directory
+    become: true
+
+  - name: copy yakuake skins
+    synchronize:
+      src: zsh_files/yakuake_skins/
+      dest: /usr/share/yakuake/
+    become: true
+
+  - name: copy yakuakerc
+    copy:
+      src: zsh_files/yakuakerc
+      dest: /home/{{ ansible_user_id }}/.config/
+
+  - name: copy yakuake skins
+    synchronize:
+      src: zsh_files/konsoleprofile
+      dest: /home/{{ ansible_user_id }}/.local/bin/
+

@@ -1,0 +1,9 @@
+- name: Install zsh shell
+  hosts: 127.0.0.1
+  connection: local
+  tags: sdkman
+  tasks:
+
+  - name: Install sdkman (https://sdkman.io/)
+    command: bash -c "curl -s http://get.sdkman.io | bash"
+
