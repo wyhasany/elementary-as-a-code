@@ -1,6 +1,7 @@
 - name:
   hosts: 127.0.0.1
   connection: local
+  tags: [fusuma,gestures]
   tasks:
   - name: Adding user to input group
     user:
@@ -19,18 +20,17 @@
       - ruby
       - python-psutil
       - python3-psutil
+      - zlib1g-dev
     become: true
 
-#  - name: Configure Gnome to send info about touchpad events
-#    dconf:
-#      key: "/org/gnome/desktop/peripherals/touchpad/send-events"
-#      value: "enabled"
-#      state: present
+  - name: Configure Gnome to send info about touchpad events
+    dconf:
+      key: "/org/gnome/desktop/peripherals/touchpad/send-events"
+      value: "'enabled'"
+      state: present
 
   - name: Install newest package Fusuma
-    gem:
-      name: fusuma
-      state: latest
+    shell: gem install fusuma
     become: true
 
   - name: ensure the ~/.config/fusuma directory is present
