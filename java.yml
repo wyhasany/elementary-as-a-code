@@ -1,0 +1,22 @@
+- name: qnapi
+  hosts: 127.0.0.1
+  connection: local
+  tags: java
+  tasks:
+
+  - name: Add JDK Oracle Repository
+    apt_repository:
+      repo: ppa:webupd8team/java
+    become: true
+
+  - name: Install JDKs
+    apt:
+      name: "{{ package }}"
+      update_cache: yes
+      state: latest
+    vars:
+      package:
+        - oracle-java8-installer
+        - openjdk-11-jre
+        - openjdk-11-jdk
+    become: true

@@ -26,8 +26,9 @@ elementary-tweaks.yml
 flatpak.yml
 fusuma.yml
 grub-customizer.yml
-jetbrains-toolbox.yml (needs one more test)
 idea-shortcuts.yml
+java.yml
+jetbrains-toolbox.yml (needs one more test)
 keepassxc.yml
 multimedia-codecs.yml
 nord-vpn.yml

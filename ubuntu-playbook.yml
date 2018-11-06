@@ -13,6 +13,7 @@
 - import_playbook: fusuma.yml
 - import_playbook: grub-customizer.yml
 - import_playbook: idea-shortcuts.yml
+- import_playbook: java.yml
 - import_playbook: jetbrains-toolbox.yml
 - import_playbook: keepassxc.yml
 - import_playbook: multimedia-codecs.yml
