@@ -6,7 +6,7 @@
 
   - name: Add qnapi Repository
     apt_repository:
-      repo: grub-customizer.yml
+      repo: ppa:krzemin/qnapi
     become: true
 
   - name: copy local qnapi.ini to remote if not exists
