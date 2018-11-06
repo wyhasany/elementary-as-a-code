@@ -1,7 +1,7 @@
 - name:
   hosts: 127.0.0.1
   connection: local
-  tags: jetbrains-toolbox
+  tags: jetbrains
   tasks:
   - name: Download Jetbrains Toolbox using shell script
     command: jetbrains-toolbox/jetbrains-toolbox.sh  # waiting for snap module to get rid of command
