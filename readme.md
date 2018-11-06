@@ -15,6 +15,7 @@ ansible-playbook ubuntu-playbook.yml
 ```
 
 Playbook already tested, works flawlessly:
+```
 autostart.yml
 chrome.yml
 dns-over-https.yml
@@ -24,6 +25,7 @@ elementary-os-apps.yml
 flatpak.yml
 fusuma.yml
 jetbrains-toolbox.yml (needs one more test)
+idea-shortcuts.yml
 keepassxc.yml (need to add configuration)
 multimedia-codecs.yml
 nord-vpn.yml
@@ -39,6 +41,9 @@ wireshark-installation.yml
 yakuake.yml
 yubikey.yml
 zsh.yml
+```
 
 Playbook with issues:
+```
 caprine.yml (the snap probably do not work correctly inside juno)
+```
