@@ -8,6 +8,7 @@
 - import_playbook: docker.yml
 - import_playbook: dropbox.yml
 - import_playbook: elementary-os-apps.yml
+- import_playbook: elementary-tweaks.yml
 - import_playbook: flatpak.yml
 - import_playbook: fusuma.yml
 - import_playbook: grub-customizer.yml

@@ -22,6 +22,7 @@ dns-over-https.yml
 docker.yml
 dropbox.yml
 elementary-os-apps.yml
+elementary-tweaks.yml
 flatpak.yml
 fusuma.yml
 grub-customizer.yml
