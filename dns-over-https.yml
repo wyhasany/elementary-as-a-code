@@ -1,24 +1,44 @@
 - name:
   hosts: 127.0.0.1
   connection: local
+  tags: cloudflared-dns
   tasks:
 
   #Based on: https://bendews.com/posts/implement-dns-over-https/
   #https://galaxy.ansible.com/bendews/cloudflared
   - name: Install and Configure cloudflared - dns over https
     include_role:
-      name: bendews.cloudflared
+      name: ansible-cloudflared
     vars:
       cloudflared_allow_firewall: false
       cloudflared_enable_service: true
       cloudflared_port: 53
       ansible_become: true
 
-  #1. I have to edit role to set become: true, where we need sudo support
-  #2. I gave to execute additionally 
-  # $ sudo setcap 'cap_net_bind_service=+ep' /usr/local/bin/cloudflared
+  - name: Configure systemd-resolvconf to use default local dns server
+    replace:
+      path: /etc/systemd/resolved.conf
+      regexp: '\#DNS\='
+      replace: 'DNS=127.0.0.1'
+    become: true
 
-  #to set dns check:
-  #https://askubuntu.com/questions/1033292/ubuntu-18-04-using-netplan-with-dhcp-and-static-dns-settings-seems-totally-broke
-  #do not work on usb system to check after installation standalone elementary
+  - name: Restart systemd service systemd-resolvconf
+    service:
+      name: systemd-resolvconf
+      state: restarted
 
+  #To understand what ig going on:
+  #https://askubuntu.com/questions/973017/wrong-nameserver-set-by-resolvconf-and-networkmanager
+  #https://bugs.launchpad.net/ubuntu/+source/systemd/+bug/1624320?comments=all
+  - name: Remove default resolv.conf
+    file:
+      path: /etc/resolv.conf
+      state: absent
+    become: true
+
+  - name: Link proper resolv.conf
+    file:
+      src: /run/systemd/resolve/resolv.conf
+      dest: /etc/resolv.conf
+      state: link
+    become: true
