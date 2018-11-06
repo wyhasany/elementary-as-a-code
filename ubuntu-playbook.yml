@@ -10,6 +10,7 @@
 - import_playbook: elementary-os-apps.yml
 - import_playbook: flatpak.yml
 - import_playbook: fusuma.yml
+- import_playbook: grub-customizer.yml
 - import_playbook: idea-shortcuts.yml
 - import_playbook: jetbrains-toolbox.yml
 - import_playbook: keepassxc.yml

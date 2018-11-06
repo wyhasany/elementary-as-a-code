@@ -24,6 +24,7 @@ dropbox.yml
 elementary-os-apps.yml
 flatpak.yml
 fusuma.yml
+grub-customizer.yml
 jetbrains-toolbox.yml (needs one more test)
 idea-shortcuts.yml
 keepassxc.yml

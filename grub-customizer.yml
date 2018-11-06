@@ -1,0 +1,16 @@
+- name: grub-customizer
+  hosts: 127.0.0.1
+  connection: local
+  tags: flatpak
+  tasks:
+  - name: Add grub-customizer Repository
+    apt_repository:
+      repo: ppa:danielrichter2007/grub-customizer
+    become: true
+  - name: Install flatpak
+    apt:
+      name: grub-customizer
+      update_cache: yes
+      state: latest
+    become: true
+
