@@ -1,38 +1,39 @@
 - name:
   hosts: 127.0.0.1
+  tags: elementary-os
   connection: local
   tasks:
 
-  - name: Add UNetbootin Repository
+  - name: Add Plank Repository
     apt_repository:
       repo: ppa:ricotz/docky
-      become: true
+    become: true
 
   - name: Configure plank
-    user:
-      name: "{{ item.name }}"
+    dconf:
+      key: "{{ item.name }}"
       value: "{{ item.value }}"
       state: present
     loop:
-      - { name: "/net/launchpad/plank/dock/settings/icon-size", value: "50" }
-      - { name: "/net/launchpad/plank/dock/settings/show-dock-item", value: "false" }
-      - { name: "/net/launchpad/plank/dock/settings/position", value: "bottom" }
-      - { name: "/net/launchpad/plank/dock/settings/unhide-delay", value: "0" }
-      - { name: "/net/launchpad/plank/dock/settings/items-alignment", value: "center" }
-      - { name: "/net/launchpad/plank/dock/settings/theme", value: "Transparent" }
-      - { name: "/net/launchpad/plank/dock/settings/hide-mode", value: "Intellihide" }
-      - { name: "/net/launchpad/plank/dock/settings/pinned-only", value: "false" }
-      - { name: "/net/launchpad/plank/dock/settings/auto-pinning", value: "true" }
-      - { name: "/net/launchpad/plank/dock/settings/alignment", value: "center" }
-      - { name: "/net/launchpad/plank/dock/settings/zoom-percent", value: "150" }
-      - { name: "/net/launchpad/plank/dock/settings/hide-delay", value: "0" }
-      - { name: "/net/launchpad/plank/dock/settings/zoom-enabled", value: "true" }
-      - { name: "/net/launchpad/plank/dock/settings/monitor", value: "" }
-      - { name: "/net/launchpad/plank/dock/settings/lock-items", value: "false" }
-      - { name: "/net/launchpad/plank/dock/settings/tooltips-enabled", value: "true" }
-      - { name: "/net/launchpad/plank/dock/settings/pressure-reveal", value: "false" }
-      - { name: "/net/launchpad/plank/dock/settings/offset", value: "0" }
-      - { name: "/net/launchpad/plank/dock/settings/current-workspace-only", value: "false" }
+      - { name: "/net/launchpad/plank/docks/dock1/icon-size", value: "50" }
+      - { name: "/net/launchpad/plank/docks/dock1/show-dock-item", value: "false" }
+      - { name: "/net/launchpad/plank/docks/dock1/position", value: "'bottom'" }
+      - { name: "/net/launchpad/plank/docks/dock1/unhide-delay", value: "0" }
+      - { name: "/net/launchpad/plank/docks/dock1/items-alignment", value: "'center'" }
+      - { name: "/net/launchpad/plank/docks/dock1/theme", value: "'Transparent'" }
+      - { name: "/net/launchpad/plank/docks/dock1/hide-mode", value: "'Intellihide'" }
+      - { name: "/net/launchpad/plank/docks/dock1/pinned-only", value: "false" }
+      - { name: "/net/launchpad/plank/docks/dock1/auto-pinning", value: "true" }
+      - { name: "/net/launchpad/plank/docks/dock1/alignment", value: "'center'" }
+      - { name: "/net/launchpad/plank/docks/dock1/zoom-percent", value: "150" }
+      - { name: "/net/launchpad/plank/docks/dock1/hide-delay", value: "0" }
+      - { name: "/net/launchpad/plank/docks/dock1/zoom-enabled", value: "true" }
+      - { name: "/net/launchpad/plank/docks/dock1/monitor", value: "''" }
+      - { name: "/net/launchpad/plank/docks/dock1/lock-items", value: "false" }
+      - { name: "/net/launchpad/plank/docks/dock1/tooltips-enabled", value: "true" }
+      - { name: "/net/launchpad/plank/docks/dock1/pressure-reveal", value: "false" }
+      - { name: "/net/launchpad/plank/docks/dock1/offset", value: "0" }
+      - { name: "/net/launchpad/plank/docks/dock1/current-workspace-only", value: "false" }
 
   - name: Install plank
     apt:
