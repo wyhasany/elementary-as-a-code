@@ -1,13 +1,12 @@
 - name:
   hosts: 127.0.0.1
   connection: local
+  tags: nord-vpn
   tasks:
 
   - name: Add NordVPN Repository from deb package from Internet
     apt:
       deb: https://repo.nordvpn.com/deb/nordvpn/debian/pool/main/nordvpn-release_1.0.0_all.deb
-    tags:
-    - nord-vpn
     become: true
 
   - name: Install NordVPN
@@ -15,7 +14,5 @@
       name: nordvpn
       update_cache: yes
       state: latest
-    tags:
-    - nord-vpn
     become: true
 
