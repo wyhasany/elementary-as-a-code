@@ -39,4 +39,16 @@
       - transmission
       - vlc
       - unetbootin
+      - unace
+      - rar
+      - unrar
+      - p7zip-rar
+      - p7zip
+      - sharutils
+      - uudeview
+      - mpack
+      - arj
+      - cabextract
+      - lzip
+      - lunzip
     become: true
