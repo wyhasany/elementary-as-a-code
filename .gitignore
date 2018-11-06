@@ -2,3 +2,6 @@
 *.retry
 wingpanel-ayatana.yml~
 keepassxc/keepassxc.ini
+wallpapers/ls.desktop.*
+zsh_files/zshrc.*
+
