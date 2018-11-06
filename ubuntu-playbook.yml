@@ -1,7 +1,28 @@
 - name:
   hosts: 127.0.0.1
   connection: local
-- import_playbook: wireshark-installation.yml
+- import_playbook: autostart.yml
+- import_playbook: caprine.yml
+- import_playbook: chrome.yml
+- import_playbook: dns-over-https.yml
+- import_playbook: docker.yml
+- import_playbook: dropbox.yml
+- import_playbook: elementary-os-apps.yml
+- import_playbook: flatpak.yml
+- import_playbook: fusuma.yml
+- import_playbook: jetbrains-toolbox.yml
+- import_playbook: keepassxc.yml
+- import_playbook: multimedia-codecs.yml
+- import_playbook: nord-vpn.yml
+- import_playbook: plank.yml
+- import_playbook: sdkman.yml
 - import_playbook: terminal-tools.yml
 - import_playbook: utilities.yml
+- import_playbook: vim.yml
 - import_playbook: vivaldi.yml
+- import_playbook: wallpapers.yml
+- import_playbook: wingpanel-ayatana.yml
+- import_playbook: wireshark-installation.yml
+- import_playbook: yakuake.yml
+- import_playbook: yubikey.yml
+- import_playbook: zsh.yml
