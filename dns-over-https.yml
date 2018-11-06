@@ -22,9 +22,9 @@
       replace: 'DNS=127.0.0.1'
     become: true
 
-  - name: Restart systemd service systemd-resolvconf
+  - name: Restart systemd service systemd-resolved 
     service:
-      name: systemd-resolvconf
+      name: systemd-resolved
       state: restarted
 
   #To understand what ig going on:
