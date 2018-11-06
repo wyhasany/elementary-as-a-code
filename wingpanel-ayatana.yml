@@ -1,6 +1,7 @@
 - name: to check how to properly install it
   hosts: 127.0.0.1
   connection: local
+  tags: elementary-os
   tasks:
 
   - name: ensure the ~/.config/autostart directory is present

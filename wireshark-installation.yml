@@ -1,6 +1,7 @@
 - name:
   hosts: 127.0.0.1
   connection: local
+  tags: wireshark
   vars:
     user: $USER
   tasks:

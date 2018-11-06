@@ -1,13 +1,12 @@
 - name:
   hosts: 127.0.0.1
   connection: local
+  tags: yubikey
   tasks:
 
   - name: Add Yubico Repository
     apt_repository:
       repo: ppa:yubico/stable
-    tags:
-      - yubico
     become: true
 
   - name: Install Yubico Tools
