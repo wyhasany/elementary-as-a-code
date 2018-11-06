@@ -1,14 +1,13 @@
 - name:
   hosts: 127.0.0.1
   connection: local
+  tags: elementary-os
   tasks:
   - name: Install variety
     apt:
       name: variety
       update_cache: yes
       state: latest
-    tags:
-    - wallpapers
     become: true
 
   - name: ensure the ~/.config/variety directory is present
@@ -76,7 +75,7 @@
     replace:
       path: wallpapers/ls.desktop
       regexp: 'yourusername'
-      replace: {{ ansible_user_id }}
+      replace: "{{ ansible_user_id }}"
       backup: yes
 
   - name: copy ls.desktop to autostart
