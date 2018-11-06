@@ -134,3 +134,20 @@
   - name: Install custom fonts
     shell: /home/{{ ansible_user_id }}/src-hub/fonts/install.sh
 
+  - name: Clone stderred, to colour sterred on red
+    git:
+      repo: https://github.com/sickill/stderred.git
+      dest: /home/{{ ansible_user_id }}/src-hub/stderred
+      update: no
+
+  - name: Install stderred dependencies
+    apt: name="{{package}}" state=present
+    vars:
+      package:
+        - build-essential
+        - cmake
+    become: true
+
+  - name: Build stderred
+    make:
+      chdir: /home/{{ ansible_user_id }}/src-hub/stderred

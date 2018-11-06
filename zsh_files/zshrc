@@ -220,3 +220,5 @@ source ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting/zsh-syntax-highlighti
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="/home/yourusername/.sdkman"
 [[ -s "/home/yourusername/.sdkman/bin/sdkman-init.sh" ]] && source "/home/yourusername/.sdkman/bin/sdkman-init.sh"
+
+export LD_PRELOAD="/home/yourusername/src-hub/stderred/build/libstderred.so${LD_PRELOAD:+:$LD_PRELOAD}"
