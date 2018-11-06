@@ -15,7 +15,7 @@
       repo: https://github.com/zant95/elementary-dropbox
       dest: /tmp/elementary-dropbox
 
-  - name: copy local keepassxc.ini to remote if exists
+  - name: install dropbox if its binary does not exists
     stat:
       path: /home/elementary/.dropbox-bin
     register: dropbox-bin
