@@ -33,6 +33,7 @@ multimedia-codecs.yml
 nord-vpn.yml
 plank.yml
 qnapi.yml
+remmina.yml
 sdkman.yml
 terminal-tools.yml
 utilities.yml
