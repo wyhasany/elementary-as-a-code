@@ -1,6 +1,7 @@
-- name: to check how to properly install it
+- name: Dropbox for elementary os installation
   hosts: 127.0.0.1
   connection: local
+  tags: elementary-os
   tasks:
 
   - name: Install git
@@ -14,6 +15,6 @@
       repo: https://github.com/zant95/elementary-dropbox
       dest: /tmp/elementary-dropbox
 
-  - name: Install docker by script
+  - name: Install dropbox by script
     shell: /tmp/elementary-dropbox/install.sh -y
       
