@@ -38,6 +38,7 @@ sdkman.yml
 terminal-tools.yml
 utilities.yml
 vim.yml
+virtualbox.yml
 vivaldi.yml
 wallpapers.yml
 wingpanel-ayatana.yml

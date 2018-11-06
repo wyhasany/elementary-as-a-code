@@ -24,6 +24,7 @@
 - import_playbook: terminal-tools.yml
 - import_playbook: utilities.yml
 - import_playbook: vim.yml
+- import_playbook: virtualbox.yml
 - import_playbook: vivaldi.yml
 - import_playbook: wallpapers.yml
 - import_playbook: wingpanel-ayatana.yml

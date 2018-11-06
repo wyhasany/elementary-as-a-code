@@ -1,0 +1,34 @@
+- name: virtualbox
+  hosts: 127.0.0.1
+  connection: local
+  tags: virtualbox
+  tasks:
+
+  - name: Add the Virtualbox APT new key
+    apt_key:
+      url: https://www.virtualbox.org/download/oracle_vbox_2016.asc
+      id: B9F8D658297AF3EF
+      state: present
+    become: true
+
+  - name: Add the Virtualbox APT old key
+    apt_key:
+      url: https://www.virtualbox.org/download/oracle_vbox.asc
+      id: 7B0FAB3A13B90743
+      state: present
+    become: true
+
+  - name: Add Virtualbox Repository
+    apt_repository:
+      repo: "deb https://download.virtualbox.org/virtualbox/debian bionic contrib"
+      state: present
+      filename: virtualbox.list
+    become: true
+
+  - name: Install Virtualbox
+    apt:
+      name: virtualbox-5.2
+      update_cache: yes
+      state: latest
+    become: true
+
