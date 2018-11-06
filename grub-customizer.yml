@@ -7,7 +7,7 @@
     apt_repository:
       repo: ppa:danielrichter2007/grub-customizer
     become: true
-  - name: Install flatpak
+  - name: Install grub-customizer
     apt:
       name: grub-customizer
       update_cache: yes
