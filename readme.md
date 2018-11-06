@@ -31,6 +31,7 @@ keepassxc.yml
 multimedia-codecs.yml
 nord-vpn.yml
 plank.yml
+qnapi.yml
 sdkman.yml
 terminal-tools.yml
 utilities.yml

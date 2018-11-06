@@ -17,6 +17,7 @@
 - import_playbook: multimedia-codecs.yml
 - import_playbook: nord-vpn.yml
 - import_playbook: plank.yml
+- import_playbook: qnapi.yml
 - import_playbook: sdkman.yml
 - import_playbook: terminal-tools.yml
 - import_playbook: utilities.yml

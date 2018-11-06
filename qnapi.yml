@@ -1,0 +1,29 @@
+- name: qnapi
+  hosts: 127.0.0.1
+  connection: local
+  tags: qnapi
+  tasks:
+
+  - name: Add qnapi Repository
+    apt_repository:
+      repo: grub-customizer.yml
+    become: true
+
+  - name: copy local qnapi.ini to remote if not exists
+    stat:
+      path: conf-files/qnapi.ini
+    register: qnapi_ini
+
+  - name: copy qnapi configuration
+    when: not qnapi_ini.stat.exists
+    copy:
+      src: conf-files/qnapi.ini
+      dest: /home/{{ ansible_user_id }}/.config/qnapi.ini
+      force: yes
+
+  - name: Install qnapi
+    apt:
+      name: qnapi
+      update_cache: yes
+      state: latest
+    become: true
