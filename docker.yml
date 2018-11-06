@@ -1,57 +1,65 @@
 - name:
   hosts: 127.0.0.1
   connection: local
+  tags: docker
   tasks:
 
   - name: Install Docker dependencies
-    apt: name={{item}} state=present
-    with_items:
+    apt: name="{{package}}" state=present
+    vars:
+      package:
       - apt-transport-https
       - ca-certificates
       - curl
       - software-properties-common
-      - python3-pip
+      - python-pip
     become: true
 
   - name: Remove legacy Docker packages
     apt:
-      name: "{{item}}"
+      name: "{{package}}"
       purge: yes
       state: absent
-    with_items:
+    vars:
+      package:
       - lxc-docker
       - docker
       - docker-engine
+    become: true
 
   - name: Add Docker APT repository key
     apt_key:
       url: "https://download.docker.com/linux/ubuntu/gpg"
       state: present
+    become: true
 
   - name: Add Docker APT repository
     apt_repository:
       repo: "deb https://download.docker.com/linux/ubuntu bionic stable"
       state: present
       update_cache: yes
+    become: true
 
   - name: Install Docker
     apt:
-      name: "{{ item }}"
+      name: docker-ce
       state: present
-    with_items:
-      - docker-ce
+    become: true
 
   - name: Ensure group "docker" exists
     group:
       name: docker
       state: present
+    become: true
 
-  - name: Adding existing user '{{ user }}' to group docker (to run docker without sudo)
+  - name: Adding existing user {{ ansible_user_id }} to group docker (to run docker without sudo)
     user:
-      name: '{{ user }}'
+      name: "{{ ansible_user_id }}"
       groups: docker
       append: yes
+    become: true
 
   - name: Install docker-compose
     pip:
       name: docker-compose
+    become: true
