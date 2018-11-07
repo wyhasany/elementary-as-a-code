@@ -4,6 +4,16 @@
   connection: local
   tasks:
 
+  - name: Install packages for Plank
+    apt: name="{{packages}}" state=present
+    vars:
+      packages:
+        - python-psutil
+        - python3-psutil
+        - zlib1g-dev
+        - dconf-cli
+    become: true
+
   - name: Add Plank Repository
     apt_repository:
       repo: ppa:ricotz/docky

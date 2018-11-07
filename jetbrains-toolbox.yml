@@ -21,14 +21,20 @@
     changed_when: false
     register: user_home
 
+  - name: install Jetbrain Toolbox if its binary does not exists
+    stat:
+      path: "{{ user_home.stdout_lines[0] }}/jetbrains-toolbox/jetbrains-toolbox"
+    register: toolboxbin
+
   - name: Download Jetbrains Toolbox using shell script
     command: jetbrains-toolbox/jetbrains-toolbox.sh  # waiting for snap module to get rid of command
+    when: not toolboxbin.stat.exists
 
   - name: Install Jetbrains Toolbox
     command: "{{ user_home.stdout_lines[0] }}/jetbrains-toolbox/jetbrains-toolbox"
     tags: no-tests #error loading libfuse.so.2 AppImages require FUSE to run
-
-  - name: Clean Jetbrains Toolbox
-    file:
-      state: absent
-      path: "{{ user_home.stdout_lines[0] }}/jetbrains-toolbox/"
+#
+#  - name: Clean Jetbrains Toolbox
+#    file:
+#      state: absent
+#      path: "{{ user_home.stdout_lines[0] }}/jetbrains-toolbox/"
