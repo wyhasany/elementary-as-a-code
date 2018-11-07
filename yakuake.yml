@@ -19,13 +19,13 @@
   
   - name: ensure the ~/.local/share/konsole directory is present
     file:
-      path: "{{ user_home.stdout_lines }}/.local/share/konsole"
+      path: "{{ user_home.stdout_lines[0] }}/.local/share/konsole"
       state: directory
 
   - name: copy konsole profiles
     synchronize:
       src: zsh_files/konsole_profiles/konsole
-      dest: "{{ user_home.stdout_lines }}/.local/share/"
+      dest: "{{ user_home.stdout_lines[0] }}/.local/share/"
 
   - name: ensure the /usr/share/yakuake/skins/ directory is present
     file:
@@ -42,10 +42,10 @@
   - name: copy yakuakerc
     copy:
       src: zsh_files/yakuakerc
-      dest: "{{ user_home.stdout_lines }}/.config/"
+      dest: "{{ user_home.stdout_lines[0] }}/.config/"
 
   - name: copy yakuake skins
     synchronize:
       src: zsh_files/konsoleprofile
-      dest: "{{ user_home.stdout_lines }}/.local/bin/"
+      dest: "{{ user_home.stdout_lines[0] }}/.local/bin/"
 

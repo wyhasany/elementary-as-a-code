@@ -24,7 +24,7 @@
     when: not qnapi_ini.stat.exists
     copy:
       src: conf-files/qnapi.ini
-      dest: "{{ user_home.stdout_lines }}/.config/qnapi.ini"
+      dest: "{{ user_home.stdout_lines[0] }}/.config/qnapi.ini"
       force: yes
 
   - name: Install qnapi

@@ -14,9 +14,9 @@
     command: jetbrains-toolbox/jetbrains-toolbox.sh  # waiting for snap module to get rid of command
 
   - name: Install Jetbrains Toolbox
-    command: "{{ user_home.stdout_lines }}/jetbrains-toolbox/jetbrains-toolbox"
+    command: "{{ user_home.stdout_lines[0] }}/jetbrains-toolbox/jetbrains-toolbox"
 
   - name: Clean Jetbrains Toolbox
     file:
       state: absent
-      path: "{{ user_home.stdout_lines }}/jetbrains-toolbox/"
+      path: "{{ user_home.stdout_lines[0] }}/jetbrains-toolbox/"

@@ -45,14 +45,19 @@
 
   - name: ensure the ~/.config/fusuma directory is present
     file:
-      path: "{{ user_home.stdout_lines }}/.config/fusuma"
+      path: "{{ user_home.stdout_lines[0] }}/.config/fusuma"
       state: directory
 
   - name: copy fusuma.yml to local user configuration
     copy:
       src: gestures/fusuma.yml
-      dest: "{{ user_home.stdout_lines }}/.config/fusuma/fusuma.yml"
+      dest: "{{ user_home.stdout_lines[0] }}/.config/fusuma/fusuma.yml"
       force: yes
+
+  - name: ensure the ~/.config/autostart directory is present
+      file:
+        path: "{{ user_home.stdout_lines[0] }}/.config/autostart"
+        state: directory
 
   - name: Add fusuma to autostart
     copy:

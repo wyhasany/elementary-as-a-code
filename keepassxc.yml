@@ -24,7 +24,7 @@
 
   - name: ensure the ~/.config/keepassxc directory is present
     file:
-      path: "{{ user_home.stdout_lines }}/.config/keepassxc"
+      path: "{{ user_home.stdout_lines[0] }}/.config/keepassxc"
       state: directory
 
   - name: copy local keepassxc.ini to remote if exists
@@ -36,5 +36,5 @@
     when: keepassxcini.stat.exists
     copy:
       src: keepassxc/keepassxc.ini
-      dest: "{{ user_home.stdout_lines }}/.config/keepassxc/keepassxc.ini"
+      dest: "{{ user_home.stdout_lines[0] }}/.config/keepassxc/keepassxc.ini"
       force: yes

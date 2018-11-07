@@ -18,12 +18,12 @@
 
   - name: ensure the ~/.vim/undodir directory is present
     file:
-      path: "{{ user_home.stdout_lines }}/.vim/undodir"
+      path: "{{ user_home.stdout_lines[0] }}/.vim/undodir"
       state: directory
 
   - name: copy .vimrc to local user configuration
     copy:
       src: vim/vimrc
-      dest: "{{ user_home.stdout_lines }}/.vimrc"
+      dest: "{{ user_home.stdout_lines[0] }}/.vimrc"
       force: yes
 
