@@ -22,7 +22,13 @@
       state: latest
     vars:
       package:
-        - oracle-java8-installer
         - openjdk-11-jre
         - openjdk-11-jdk
     become: true
+
+  - name: Install oracle-java8-installer
+    apt:
+      name: oracle-java8-installer
+      update_cache: yes
+      state: latest
+    tags: no-tests
