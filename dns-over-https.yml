@@ -38,8 +38,9 @@
   - name: Print to screen resolv.conf details
     command: /etc/resolv.conf
     register: details
+    become: true
 
-  - debug: msg="{{ details.stdout_lines | quote }}"
+  - debug: msg="{{ details.stdout_lines.split('\n') | quote }}"
 
   - name: Link proper resolv.conf
     file:
