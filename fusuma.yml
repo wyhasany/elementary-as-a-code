@@ -55,9 +55,9 @@
       force: yes
 
   - name: ensure the ~/.config/autostart directory is present
-      file:
-        path: "{{ user_home.stdout_lines[0] }}/.config/autostart"
-        state: directory
+    file:
+      path: "{{ user_home.stdout_lines[0] }}/.config/autostart"
+      state: directory
 
   - name: Add fusuma to autostart
     copy:
