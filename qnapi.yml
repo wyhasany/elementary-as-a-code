@@ -4,32 +4,34 @@
   tags: qnapi
   tasks:
 
-  - name: Add qnapi Repository
-    apt_repository:
-      repo: ppa:krzemin/qnapi
-    become: true
+#Unable to install (lack bionic packages)
 
-  - name: copy local qnapi.ini to remote if not exists
-    stat:
-      path: conf-files/qnapi.ini
-    register: qnapi_ini
-
-  - name: grep and register user_home
-    shell: >
-      egrep "^{{ ansible_user_id }}:" /etc/passwd | awk -F: '{ print $6 }'
-    changed_when: false
-    register: user_home
-
-  - name: copy qnapi configuration
-    when: not qnapi_ini.stat.exists
-    copy:
-      src: conf-files/qnapi.ini
-      dest: "{{ user_home.stdout_lines[0] }}/.config/qnapi.ini"
-      force: yes
-
-  - name: Install qnapi
-    apt:
-      name: qnapi
-      update_cache: yes
-      state: latest
-    become: true
+#  - name: Add qnapi Repository
+#    apt_repository:
+#      repo: ppa:krzemin/qnapi
+#    become: true
+#
+#  - name: copy local qnapi.ini to remote if not exists
+#    stat:
+#      path: conf-files/qnapi.ini
+#    register: qnapi_ini
+#
+#  - name: grep and register user_home
+#    shell: >
+#      egrep "^{{ ansible_user_id }}:" /etc/passwd | awk -F: '{ print $6 }'
+#    changed_when: false
+#    register: user_home
+#
+#  - name: copy qnapi configuration
+#    when: not qnapi_ini.stat.exists
+#    copy:
+#      src: conf-files/qnapi.ini
+#      dest: "{{ user_home.stdout_lines[0] }}/.config/qnapi.ini"
+#      force: yes
+#
+#  - name: Install qnapi
+#    apt:
+#      name: qnapi
+#      update_cache: yes
+#      state: latest
+#    become: true
