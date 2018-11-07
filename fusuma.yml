@@ -10,6 +10,7 @@
       append: yes
       state: present
     become: true
+    tags: no-tests
 
   - name: Install packages for Fusuma
     apt: name="{{packages}}" state=present
