@@ -30,15 +30,16 @@
   #To understand what ig going on:
   #https://askubuntu.com/questions/973017/wrong-nameserver-set-by-resolvconf-and-networkmanager
   #https://bugs.launchpad.net/ubuntu/+source/systemd/+bug/1624320?comments=all
-  - name: Remove default resolv.conf
-    file:
-      path: /etc/resolv.conf
-      state: absent
-    become: true
+#  - name: Remove default resolv.conf
+#    file:
+#      path: /etc/resolv.conf
+#      state: absent
+#    become: true
 
   - name: Link proper resolv.conf
     file:
       src: /run/systemd/resolve/resolv.conf
       dest: /etc/resolv.conf
+      force: yes
       state: link
     become: true
