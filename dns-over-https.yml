@@ -35,13 +35,16 @@
 #      path: /etc/resolv.conf
 #      state: absent
 #    become: true
+
   - name: Print to screen resolv.conf details
     command: /etc/resolv.conf
     register: details
     become: true
+    tags: no-tests
 
   - debug: msg="{{ details.stdout_lines.split('\n') | quote }}"
     become: true
+    tags: no-tests
 
   - name: Link proper resolv.conf
     file:
@@ -50,3 +53,4 @@
       force: yes
       state: link
     become: true
+    tags: no-tests
