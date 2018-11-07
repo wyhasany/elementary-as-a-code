@@ -18,7 +18,7 @@
 #- import_playbook: keepassxc.yml
 #- import_playbook: multimedia-codecs.yml
 #- import_playbook: nord-vpn.yml
-- import_playbook: plank.yml
+#- import_playbook: plank.yml
 - import_playbook: qnapi.yml
 - import_playbook: remmina.yml
 - import_playbook: sdkman.yml

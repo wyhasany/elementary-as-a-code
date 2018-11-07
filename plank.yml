@@ -55,3 +55,4 @@
 
   - name: Restart plank
     shell: "killall -9 plank"
+    tags: no-tests
