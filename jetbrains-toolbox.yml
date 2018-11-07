@@ -26,6 +26,7 @@
 
   - name: Install Jetbrains Toolbox
     command: "{{ user_home.stdout_lines[0] }}/jetbrains-toolbox/jetbrains-toolbox"
+    tags: no-tests #error loading libfuse.so.2 AppImages require FUSE to run
 
   - name: Clean Jetbrains Toolbox
     file:
