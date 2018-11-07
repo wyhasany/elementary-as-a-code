@@ -3,6 +3,7 @@
   connection: local
   tags: [fusuma,gestures]
   tasks:
+
   - name: Adding user to input group
     user:
       name: "{{ ansible_user_id }}"
@@ -55,6 +56,6 @@
   - name: Add fusuma to autostart
     copy:
       src: gestures/fusuma.desktop
-      dest: "{{ user_home }}/.config/autostart/fusuma.desktop"
+      dest: "{{ user_home.stdout_lines }}/.config/autostart/fusuma.desktop"
       force: yes
 
