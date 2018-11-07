@@ -57,6 +57,6 @@
   - name: Add fusuma to autostart
     copy:
       src: gestures/fusuma.desktop
-      dest: "{{ user_home.stdout_lines }}/.config/autostart/fusuma.desktop"
+      dest: "{{ user_home.stdout_lines | join ('\[\',\'\]') }}/.config/autostart/fusuma.desktop"
       force: yes
 
