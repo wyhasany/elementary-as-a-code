@@ -39,7 +39,7 @@
     command: /etc/resolv.conf
     register: details
 
-  - debug: msg="{{ details.stdout_lines | regex_replace('"', '\"') }"
+  - debug: msg="{{ details.stdout_lines | regex_escape() }"
 
   - name: Link proper resolv.conf
     file:
