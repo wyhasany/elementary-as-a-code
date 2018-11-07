@@ -23,7 +23,7 @@
 
   - name: install dropbox if its binary does not exists
     stat:
-      path: {{ user_home }}/.dropbox-bin
+      path: "{{ user_home }}/.dropbox-bin"
     register: dropbox-bin
  
   - name: Install dropbox by script
