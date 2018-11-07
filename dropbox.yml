@@ -4,11 +4,15 @@
   tags: elementary-os
   tasks:
 
-  - name: Install git
+  - name: Install git and wget
     apt:
-      name: git
+      name: "{{ package }}"
       state: present
     become: true
+    vars:
+      package:
+        - git
+        - wget
 
   - name: Clone git repository with script to install dropbox
     git:
