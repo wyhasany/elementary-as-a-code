@@ -21,6 +21,6 @@
     register: dropbox-bin
  
   - name: Install dropbox by script
-    when: not dropbox-bin.stat.exists
     shell: /tmp/elementary-dropbox/install.sh -y
-      
+    when: not dropbox-bin.stat.exists
+
