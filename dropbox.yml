@@ -17,7 +17,7 @@
 
   - name: install dropbox if its binary does not exists
     stat:
-      path: /home/elementary/.dropbox-bin
+      path: /home/{{ ansible_user_id }}/.dropbox-bin
     register: dropbox-bin
  
   - name: Install dropbox by script
