@@ -10,16 +10,22 @@
       update_cache: yes
       state: latest
     become: true
+
+  - name: grep and register user_home
+    shell: >
+      egrep "^{{ ansible_user_id }}:" /etc/passwd | awk -F: '{ print $6 }'
+    changed_when: false
+    register: user_home
   
   - name: ensure the ~/.local/share/konsole directory is present
     file:
-      path: /home/{{ ansible_user_id }}/.local/share/konsole
+      path: "{{ user_home }}/.local/share/konsole"
       state: directory
 
   - name: copy konsole profiles
     synchronize:
       src: zsh_files/konsole_profiles/konsole
-      dest: /home/{{ ansible_user_id }}/.local/share/
+      dest: "{{ user_home }}/.local/share/"
 
   - name: ensure the /usr/share/yakuake/skins/ directory is present
     file:
@@ -36,10 +42,10 @@
   - name: copy yakuakerc
     copy:
       src: zsh_files/yakuakerc
-      dest: /home/{{ ansible_user_id }}/.config/
+      dest: "{{ user_home }}/.config/"
 
   - name: copy yakuake skins
     synchronize:
       src: zsh_files/konsoleprofile
-      dest: /home/{{ ansible_user_id }}/.local/bin/
+      dest: "{{ user_home }}/.local/bin/"
 

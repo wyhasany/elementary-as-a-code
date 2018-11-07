@@ -10,14 +10,20 @@
       state: present
     become: true
 
+  - name: grep and register user_home
+    shell: >
+      egrep "^{{ ansible_user_id }}:" /etc/passwd | awk -F: '{ print $6 }'
+    changed_when: false
+    register: user_home
+
   - name: ensure the ~/.vim/undodir directory is present
     file:
-      path: /home/{{ ansible_user_id }}/.vim/undodir
+      path: "{{ user_home }}/.vim/undodir"
       state: directory
 
   - name: copy .vimrc to local user configuration
     copy:
       src: vim/vimrc
-      dest: /home/{{ ansible_user_id }}/.vimrc
+      dest: "{{ user_home }}/.vimrc"
       force: yes
 

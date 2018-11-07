@@ -3,11 +3,20 @@
   connection: local
   tags: jetbrains
   tasks:
+
+  - name: grep and register
+    shell: >
+      egrep "^{{ ansible_user_id }}:" /etc/passwd | awk -F: '{ print $6 }'
+    changed_when: false
+    register: user_home
+
   - name: Download Jetbrains Toolbox using shell script
     command: jetbrains-toolbox/jetbrains-toolbox.sh  # waiting for snap module to get rid of command
+
   - name: Install Jetbrains Toolbox
-    command: /home/{{ ansible_user_id }}/jetbrains-toolbox/jetbrains-toolbox
+    command: "{{ user_home }}/jetbrains-toolbox/jetbrains-toolbox"
+
   - name: Clean Jetbrains Toolbox
     file:
       state: absent
-      path: "/home/{{ ansible_user_id }}/jetbrains-toolbox/"
+      path: "{{ user_home }}/jetbrains-toolbox/"

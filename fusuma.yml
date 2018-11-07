@@ -33,20 +33,26 @@
     shell: gem install fusuma
     become: true
 
+  - name: grep and register user_home
+    shell: >
+      egrep "^{{ ansible_user_id }}:" /etc/passwd | awk -F: '{ print $6 }'
+    changed_when: false
+    register: user_home
+
   - name: ensure the ~/.config/fusuma directory is present
     file:
-      path: /home/{{ ansible_user_id }}/.config/fusuma
+      path: "{{ user_home }}/.config/fusuma"
       state: directory
 
   - name: copy fusuma.yml to local user configuration
     copy:
       src: gestures/fusuma.yml
-      dest: /home/{{ ansible_user_id }}/.config/fusuma/fusuma.yml
+      dest: "{{ user_home }}/.config/fusuma/fusuma.yml"
       force: yes
 
   - name: Add fusuma to autostart
     copy:
       src: gestures/fusuma.desktop
-      dest: /home/{{ ansible_user_id }}/.config/autostart/fusuma.desktop
+      dest: "{{ user_home }}/.config/autostart/fusuma.desktop"
       force: yes
 

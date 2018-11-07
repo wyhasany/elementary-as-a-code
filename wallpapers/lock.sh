@@ -1,7 +1,7 @@
 #!/bin/bash
 
 #Pulpit
-ls -Art /home/hasan/.config/variety/Downloaded/Bing | xargs -I{} cp /home/hasan/.config/variety/Downloaded/Bing/{} /home/hasan/.local/share/backgrounds/lock.jpg
+ls -Art /home/yourusername/.config/variety/Downloaded/Bing | xargs -I{} cp /home/yourusername/.config/variety/Downloaded/Bing/{} /home/yourusername/.local/share/backgrounds/lock.jpg
 #Lock screen
-ls -Art /home/hasan/.config/variety/Downloaded/Bing | xargs -I{} cp /home/hasan/.config/variety/Downloaded/Bing/{} /var/lib/lightdm-data/hasan/wallpaper/lock.jpg
+ls -Art /home/yourusername/.config/variety/Downloaded/Bing | xargs -I{} cp /home/yourusername/.config/variety/Downloaded/Bing/{} /var/lib/lightdm-data/yourusername/wallpaper/lock.jpg
 

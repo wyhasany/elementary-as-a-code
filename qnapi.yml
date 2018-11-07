@@ -14,11 +14,17 @@
       path: conf-files/qnapi.ini
     register: qnapi_ini
 
+  - name: grep and register user_home
+    shell: >
+      egrep "^{{ ansible_user_id }}:" /etc/passwd | awk -F: '{ print $6 }'
+    changed_when: false
+    register: user_home
+
   - name: copy qnapi configuration
     when: not qnapi_ini.stat.exists
     copy:
       src: conf-files/qnapi.ini
-      dest: /home/{{ ansible_user_id }}/.config/qnapi.ini
+      dest: "{{ user_home }}/.config/qnapi.ini"
       force: yes
 
   - name: Install qnapi

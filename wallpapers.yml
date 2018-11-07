@@ -3,6 +3,7 @@
   connection: local
   tags: elementary-os
   tasks:
+
   - name: Install variety
     apt:
       name: variety
@@ -10,77 +11,99 @@
       state: latest
     become: true
 
+  - name: grep and register
+    shell: >
+      egrep "^{{ ansible_user_id }}:" /etc/passwd | awk -F: '{ print $6 }'
+    changed_when: false
+    register: user_home
+
   - name: ensure the ~/.config/variety directory is present
     file:
-      path: /home/{{ ansible_user_id }}/.config/variety
+      path: "{{ user_home }}/.config/variety"
       state: directory
 
   - name: check if variety.conf exists
     stat:
-      path: /home/{{ ansible_user_id }}/.config/variety/variety.conf
+      path: "{{ user_home }}/.config/variety/variety.conf"
     register: variety_conf
 
   - name: back up existing variety.conf file if it exists
     when: variety_conf.stat.exists
     copy:
-      src: /home/{{ ansible_user_id }}/.config/variety/variety.conf
-      dest: /home/{{ ansible_user_id }}/.config/variety/variety.conf-orig
+      src: "{{ user_home }}/.config/variety/variety.conf"
+      dest: "{{ user_home }}/.config/variety/variety.conf-orig"
 
   - name: copy variety.conf to user home
     copy:
       src: wallpapers/variety.conf
-      dest: /home/{{ ansible_user_id }}/.config/variety/variety.conf
+      dest: "{{ user_home }}/.config/variety/variety.conf"
       force: yes
 
   - name: ensure the ~/.config/autostart directory is present
     file:
-      path: /home/{{ ansible_user_id }}/.config/autostart
+      path: "{{ user_home }}/.config/autostart"
       state: directory
 
   - name: check if variety.desktop has been added to autostart
     stat:
-      path: /home/{{ ansible_user_id }}/.config/autostart/variety.desktop
+      path: "{{ user_home }}/.config/autostart/variety.desktop"
     register: variety_desktop
 
   - name: copy variety.desktop to autostart
     when: not variety_desktop.stat.exists
     copy:
       src: wallpapers/variety.desktop
-      dest: /home/{{ ansible_user_id }}/.config/autostart/variety.desktop
+      dest: "{{ user_home }}/.config/autostart/variety.desktop"
       force: yes
 
   - name: ensure the ~/bin directory is present
     file:
-      path: /home/{{ ansible_user_id }}/bin
+      path: "{{ user_home }}/bin"
       state: directory
 
-  - name: check if lock.sh has been added to bin
-    stat:
-      path: /home/{{ ansible_user_id }}/bin/lock.sh
-    register: lock_sh
+#  - name: check if lock.sh has been added to bin
+#    stat:
+#      path: "{{ user_home }}/bin/lock.sh"
+#    register: lock_sh
+
+  - name: Use your user home in lock.sh config
+    when: not ls_desktop.stat.exists
+    replace:
+      path: wallpapers/lock.sh
+      regexp: '\/home\/yourusername'
+      replace: "{{ user_home }}"
+      backup: yes
+
+  - name: Use your username in lock.sh config
+    when: not ls_desktop.stat.exists
+    replace:
+      path: wallpapers/lock.sh
+      regexp: 'yourusername'
+      replace: "{{ ansible_user_id }}"
+      backup: yes
 
   - name: copy variety.desktop to autostart
     copy:
       src: wallpapers/lock.sh
-      dest: /home/{{ ansible_user_id }}/bin/lock.sh
+      dest: "{{ user_home }}/bin/lock.sh"
       force: yes
 
   - name: check if ls.desktop has been added to autostart
     stat:
-      path: /home/{{ ansible_user_id }}/.config/autostart/ls.desktop
+      path: "{{ user_home }}/.config/autostart/ls.desktop"
     register: ls_desktop
 
   - name: Use your username in zshrc config
     when: not ls_desktop.stat.exists
     replace:
       path: wallpapers/ls.desktop
-      regexp: 'yourusername'
-      replace: "{{ ansible_user_id }}"
+      regexp: '\/home\/yourusername'
+      replace: "{{ user_home }}"
       backup: yes
 
   - name: copy ls.desktop to autostart
     when: not ls_desktop.stat.exists
     copy:
       src: wallpapers/ls.desktop
-      dest: /home/{{ ansible_user_id }}/.config/autostart/ls.desktop
+      dest: "{{ user_home }}/.config/autostart/ls.desktop"
       force: yes

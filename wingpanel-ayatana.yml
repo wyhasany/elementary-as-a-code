@@ -4,19 +4,25 @@
   tags: elementary-os
   tasks:
 
+  - name: grep and register user_home
+    shell: >
+      egrep "^{{ ansible_user_id }}:" /etc/passwd | awk -F: '{ print $6 }'
+    changed_when: false
+    register: user_home
+
   - name: ensure the ~/.config/autostart directory is present
     file:
-      path: /home/{{ ansible_user_id }}/.config/autostart
+      path: "{{ user_home }}/.config/autostart"
       state: directory
 
   - name: copy indicator-application.desktop to user home autostart
     copy:
       src: /etc/xdg/autostart/indicator-application.desktop
-      dest: /home/{{ ansible_user_id }}/.config/autostart/
+      dest: "{{ user_home }}/.config/autostart/"
       force: yes
 
   - replace:
-      path: /home/{{ ansible_user_id }}/.config/autostart/indicator-application.desktop
+      path: "{{ user_home }}/.config/autostart/indicator-application.desktop"
       regexp: 'OnlyShowIn.*'
       replace: 'OnlyShowIn=Unity;GNOME;Pantheon;'
 

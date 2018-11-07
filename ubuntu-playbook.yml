@@ -1,11 +1,11 @@
 - name:
   hosts: 127.0.0.1
   connection: local
-- import_playbook: autostart.yml
-- import_playbook: caprine.yml
-- import_playbook: chrome.yml
-- import_playbook: dns-over-https.yml
-- import_playbook: docker.yml
+#- import_playbook: autostart.yml
+#- import_playbook: caprine.yml
+#- import_playbook: chrome.yml
+#- import_playbook: dns-over-https.yml
+#- import_playbook: docker.yml
 - import_playbook: dropbox.yml
 - import_playbook: elementary-os-apps.yml
 - import_playbook: elementary-tweaks.yml
