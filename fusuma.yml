@@ -22,6 +22,7 @@
       - python-psutil
       - python3-psutil
       - zlib1g-dev
+      - dconf-cli
     become: true
 
   - name: Configure Gnome to send info about touchpad events
