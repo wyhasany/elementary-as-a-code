@@ -12,6 +12,7 @@
         - python3-psutil
         - zlib1g-dev
         - dconf-cli
+        - psmisc
     become: true
 
   - name: Add Plank Repository
