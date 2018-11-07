@@ -16,6 +16,7 @@
       state: latest
     vars:
       package:
+        - apt-utils
         - oracle-java8-installer
         - openjdk-11-jre
         - openjdk-11-jdk
