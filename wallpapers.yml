@@ -19,51 +19,51 @@
 
   - name: ensure the ~/.config/variety directory is present
     file:
-      path: "{{ user_home }}/.config/variety"
+      path: "{{ user_home.stdout_lines }}/.config/variety"
       state: directory
 
   - name: check if variety.conf exists
     stat:
-      path: "{{ user_home }}/.config/variety/variety.conf"
+      path: "{{ user_home.stdout_lines }}/.config/variety/variety.conf"
     register: variety_conf
 
   - name: back up existing variety.conf file if it exists
     when: variety_conf.stat.exists
     copy:
-      src: "{{ user_home }}/.config/variety/variety.conf"
-      dest: "{{ user_home }}/.config/variety/variety.conf-orig"
+      src: "{{ user_home.stdout_lines }}/.config/variety/variety.conf"
+      dest: "{{ user_home.stdout_lines }}/.config/variety/variety.conf-orig"
 
   - name: copy variety.conf to user home
     copy:
       src: wallpapers/variety.conf
-      dest: "{{ user_home }}/.config/variety/variety.conf"
+      dest: "{{ user_home.stdout_lines }}/.config/variety/variety.conf"
       force: yes
 
   - name: ensure the ~/.config/autostart directory is present
     file:
-      path: "{{ user_home }}/.config/autostart"
+      path: "{{ user_home.stdout_lines }}/.config/autostart"
       state: directory
 
   - name: check if variety.desktop has been added to autostart
     stat:
-      path: "{{ user_home }}/.config/autostart/variety.desktop"
+      path: "{{ user_home.stdout_lines }}/.config/autostart/variety.desktop"
     register: variety_desktop
 
   - name: copy variety.desktop to autostart
     when: not variety_desktop.stat.exists
     copy:
       src: wallpapers/variety.desktop
-      dest: "{{ user_home }}/.config/autostart/variety.desktop"
+      dest: "{{ user_home.stdout_lines }}/.config/autostart/variety.desktop"
       force: yes
 
   - name: ensure the ~/bin directory is present
     file:
-      path: "{{ user_home }}/bin"
+      path: "{{ user_home.stdout_lines }}/bin"
       state: directory
 
 #  - name: check if lock.sh has been added to bin
 #    stat:
-#      path: "{{ user_home }}/bin/lock.sh"
+#      path: "{{ user_home.stdout_lines }}/bin/lock.sh"
 #    register: lock_sh
 
   - name: Use your user home in lock.sh config
@@ -71,7 +71,7 @@
     replace:
       path: wallpapers/lock.sh
       regexp: '\/home\/yourusername'
-      replace: "{{ user_home }}"
+      replace: "{{ user_home.stdout_lines }}"
       backup: yes
 
   - name: Use your username in lock.sh config
@@ -85,12 +85,12 @@
   - name: copy variety.desktop to autostart
     copy:
       src: wallpapers/lock.sh
-      dest: "{{ user_home }}/bin/lock.sh"
+      dest: "{{ user_home.stdout_lines }}/bin/lock.sh"
       force: yes
 
   - name: check if ls.desktop has been added to autostart
     stat:
-      path: "{{ user_home }}/.config/autostart/ls.desktop"
+      path: "{{ user_home.stdout_lines }}/.config/autostart/ls.desktop"
     register: ls_desktop
 
   - name: Use your username in zshrc config
@@ -98,12 +98,12 @@
     replace:
       path: wallpapers/ls.desktop
       regexp: '\/home\/yourusername'
-      replace: "{{ user_home }}"
+      replace: "{{ user_home.stdout_lines }}"
       backup: yes
 
   - name: copy ls.desktop to autostart
     when: not ls_desktop.stat.exists
     copy:
       src: wallpapers/ls.desktop
-      dest: "{{ user_home }}/.config/autostart/ls.desktop"
+      dest: "{{ user_home.stdout_lines }}/.config/autostart/ls.desktop"
       force: yes

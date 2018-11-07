@@ -31,6 +31,7 @@
       key: "/org/gnome/desktop/peripherals/touchpad/send-events"
       value: "'enabled'"
       state: present
+    tags: no-tests
 
   - name: Install newest package Fusuma
     shell: gem install fusuma
@@ -44,13 +45,13 @@
 
   - name: ensure the ~/.config/fusuma directory is present
     file:
-      path: "{{ user_home }}/.config/fusuma"
+      path: "{{ user_home.stdout_lines }}/.config/fusuma"
       state: directory
 
   - name: copy fusuma.yml to local user configuration
     copy:
       src: gestures/fusuma.yml
-      dest: "{{ user_home }}/.config/fusuma/fusuma.yml"
+      dest: "{{ user_home.stdout_lines }}/.config/fusuma/fusuma.yml"
       force: yes
 
   - name: Add fusuma to autostart

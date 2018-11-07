@@ -16,31 +16,31 @@
 
   - name: ensure the ~/src-hub directory is present
     file:
-      path: "{{ user_home }}/src-hub"
+      path: "{{ user_home.stdout_lines }}/src-hub"
       state: directory
 
   - name: clone oh-my-zsh
     git:
       repo: https://github.com/robbyrussell/oh-my-zsh.git
-      dest: "{{ user_home }}/src-hub/oh-my-zsh"
+      dest: "{{ user_home.stdout_lines }}/src-hub/oh-my-zsh"
       update: no
 
   - name: create symlink to oh-my-zsh
     file:
-      path: "{{ user_home }}/.oh-my-zsh"
-      src: "{{ user_home }}/src-hub/oh-my-zsh"
+      path: "{{ user_home.stdout_lines }}/.oh-my-zsh"
+      src: "{{ user_home.stdout_lines }}/src-hub/oh-my-zsh"
       state: link
 
   - name: check if .zshrc exists
     stat:
-      path: "{{ user_home }}/.zshrc"
+      path: "{{ user_home.stdout_lines }}/.zshrc"
     register: zshrc
 
   - name: back up existing .zshrc file if it exists
     when: zshrc.stat.exists
     copy:
-      src: "{{ user_home }}/.zshrc"
-      dest: "{{ user_home }}/.zshrc-orig"
+      src: "{{ user_home.stdout_lines }}/.zshrc"
+      dest: "{{ user_home.stdout_lines }}/.zshrc-orig"
 
   - name: Use your home in zshrc config
     replace:
@@ -59,7 +59,7 @@
   - name: copy zshrc to user home
     copy:
       src: zsh_files/zshrc
-      dest: "{{ user_home }}/.zshrc"
+      dest: "{{ user_home.stdout_lines }}/.zshrc"
       force: yes
 
   - name: change user shell to zsh
@@ -69,7 +69,7 @@
 
   - name: ensure the fonts directory is present
     file:
-      path: "{{ user_home }}/.local/share/fonts"
+      path: "{{ user_home.stdout_lines }}/.local/share/fonts"
       mode: 0755
       state: directory
       recurse: true
@@ -77,7 +77,7 @@
   - name: copy fonts
     synchronize:
       src: zsh_files/fonts
-      dest: "{{ user_home }}/.local/share/"
+      dest: "{{ user_home.stdout_lines }}/.local/share/"
 
   - name: scan for new fonts
     command: fc-cache -fv ~/.local/share/fonts/
@@ -101,7 +101,7 @@
       update: no
 
   - name: install fuzzy finder
-    command: "{{ user_home }}/.oh-my-zsh/custom/plugins/fzf/install --bin"
+    command: "{{ user_home.stdout_lines }}/.oh-my-zsh/custom/plugins/fzf/install --bin"
 
   - name: clone fzf-zsh wrapper
     git:
@@ -122,14 +122,14 @@
 
   - name: create folder for flatpak plugin
     file:
-      path: "{{ user_home }}/.oh-my-zsh/custom/plugins/flatpak/"
+      path: "{{ user_home.stdout_lines }}/.oh-my-zsh/custom/plugins/flatpak/"
       state: directory
       mode: 0755
 
   - name: copy flatpak plugin
     get_url:
       url: https://raw.githubusercontent.com/bilelmoussaoui/flatpak-zsh-completion/master/flatpak/flatpak.plugin.zsh
-      dest: "{{ user_home }}/.oh-my-zsh/custom/plugins/flatpak/"
+      dest: "{{ user_home.stdout_lines }}/.oh-my-zsh/custom/plugins/flatpak/"
 
   - name: clone zsh-syntax-highlighting
     git:
@@ -140,17 +140,17 @@
   - name: Clone custom fonts
     git:
       repo: https://github.com/powerline/fonts.git 
-      dest: "{{ user_home }}/src-hub/fonts"
+      dest: "{{ user_home.stdout_lines }}/src-hub/fonts"
       depth: 1
       update: no
 
   - name: Install custom fonts
-    shell: "{{ user_home }}/src-hub/fonts/install.sh"
+    shell: "{{ user_home.stdout_lines }}/src-hub/fonts/install.sh"
 
   - name: Clone stderred, to colour sterred on red
     git:
       repo: https://github.com/sickill/stderred.git
-      dest: "{{ user_home }}/src-hub/stderred"
+      dest: "{{ user_home.stdout_lines }}/src-hub/stderred"
       update: no
 
   - name: Install stderred dependencies
@@ -163,4 +163,4 @@
 
   - name: Build stderred
     make:
-      chdir: "{{ user_home }}/src-hub/stderred"
+      chdir: "{{ user_home.stdout_lines }}/src-hub/stderred"

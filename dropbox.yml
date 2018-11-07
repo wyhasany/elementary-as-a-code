@@ -27,7 +27,7 @@
 
   - name: install dropbox if its binary does not exists
     stat:
-      path: "{{ user_home }}/.dropbox-bin"
+      path: "{{ user_home.stdout_lines }}/.dropbox-bin"
     register: dropboxbin
  
   - name: Install dropbox by script

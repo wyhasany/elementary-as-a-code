@@ -9,6 +9,13 @@
       repo: ppa:ricotz/docky
     become: true
 
+  - name: Install plank
+    apt:
+      name: plank
+      update_cache: yes
+      state: latest
+    become: true
+
   - name: Configure plank
     dconf:
       key: "{{ item.name }}"
@@ -34,13 +41,6 @@
       - { name: "/net/launchpad/plank/docks/dock1/pressure-reveal", value: "false" }
       - { name: "/net/launchpad/plank/docks/dock1/offset", value: "0" }
       - { name: "/net/launchpad/plank/docks/dock1/current-workspace-only", value: "false" }
-
-  - name: Install plank
-    apt:
-      name: plank
-      update_cache: yes
-      state: latest
-    become: true
 
   - name: Restart plank
     shell: "killall -9 plank"

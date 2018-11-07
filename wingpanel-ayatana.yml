@@ -12,17 +12,17 @@
 
   - name: ensure the ~/.config/autostart directory is present
     file:
-      path: "{{ user_home }}/.config/autostart"
+      path: "{{ user_home.stdout_lines }}/.config/autostart"
       state: directory
 
   - name: copy indicator-application.desktop to user home autostart
     copy:
       src: /etc/xdg/autostart/indicator-application.desktop
-      dest: "{{ user_home }}/.config/autostart/"
+      dest: "{{ user_home.stdout_lines }}/.config/autostart/"
       force: yes
 
   - replace:
-      path: "{{ user_home }}/.config/autostart/indicator-application.desktop"
+      path: "{{ user_home.stdout_lines }}/.config/autostart/indicator-application.desktop"
       regexp: 'OnlyShowIn.*'
       replace: 'OnlyShowIn=Unity;GNOME;Pantheon;'
 

@@ -19,6 +19,6 @@
   - name: Copy all desktop files to local autostart
     copy:
       src: "{{item}}"
-      dest: "{{ user_home }}/.config/autostart/"
+      dest: "{{ user_home.stdout_lines }}/.config/autostart/"
       force: yes
     with_fileglob: autostart/*
