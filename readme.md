@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/wyhasany/elementary-as-a-code.svg?branch=master)](https://travis-ci.org/wyhasany/elementary-as-a-code)
+
 Firstly to configure new Elementary Juno installation run:
 
 ```
