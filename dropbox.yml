@@ -24,9 +24,9 @@
   - name: install dropbox if its binary does not exists
     stat:
       path: "{{ user_home }}/.dropbox-bin"
-    register: dropbox-bin
+    register: dropboxbin
  
   - name: Install dropbox by script
     shell: /tmp/elementary-dropbox/install.sh -y
-    when: not dropbox-bin.stat.exists
+    when: not dropboxbin.stat.exists
 
