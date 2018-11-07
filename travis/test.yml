@@ -1,5 +1,7 @@
 ---
-- hosts: all
+- name: Test elementary-as-a-code
+  hosts: 127.0.0.1
+  connection: local
 
   pre_tasks:
     - name: Ensure build dependencies are installed (RedHat)
@@ -25,4 +27,4 @@
         - sudo
       when: ansible_os_family == 'Debian'
 
-  import_playbook: ../ubuntu-playbook.yml
+- import_playbook: ../ubuntu-playbook.yml
