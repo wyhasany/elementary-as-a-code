@@ -9,6 +9,12 @@
       repo: ppa:webupd8team/java
     become: true
 
+  - name: Install apt-utils
+    apt:
+      name: apt-utils
+      update_cache: yes
+      state: latest
+
   - name: Install JDKs
     apt:
       name: "{{ package }}"
@@ -16,7 +22,6 @@
       state: latest
     vars:
       package:
-        - apt-utils
         - oracle-java8-installer
         - openjdk-11-jre
         - openjdk-11-jdk

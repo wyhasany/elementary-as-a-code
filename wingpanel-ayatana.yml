@@ -15,6 +15,11 @@
       path: "{{ user_home.stdout_lines[0] }}/.config/autostart"
       state: directory
 
+  - name: ensure the ~/.config/autostart directory is present
+    file:
+      path: "{{ user_home.stdout_lines[0] }}/.config/autostart"
+      state: directory
+
   - name: copy indicator-application.desktop to user home autostart
     copy:
       src: /etc/xdg/autostart/indicator-application.desktop

@@ -16,6 +16,11 @@
     changed_when: false
     register: user_home
 
+  - name: ensure the ~/.config/autostart directory is present
+    file:
+      path: "{{ user_home.stdout_lines[0] }}/.config/autostart"
+      state: directory
+
   - name: Copy all desktop files to local autostart
     copy:
       src: "{{item}}"
