@@ -4,6 +4,17 @@
   tags: jetbrains
   tasks:
 
+  - name: Install script tools
+    apt:
+      name: "{{ package }}"
+      update_cache: yes
+      state: latest
+    vars:
+      package:
+        - curl
+        - wget
+    become: true
+
   - name: grep and register
     shell: >
       egrep "^{{ ansible_user_id }}:" /etc/passwd | awk -F: '{ print $6 }'
