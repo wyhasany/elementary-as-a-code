@@ -1,15 +1,15 @@
 - name: qnapi
   hosts: 127.0.0.1
   connection: local
-  tags: elementary-os
+  tags: [elementary-os,no-tests]
   tasks:
 
-  - name: Add qnapi Repository
+  - name: Add elementary tweaks Repository
     apt_repository:
       repo: ppa:philip.scott/elementary-tweaks
     become: true
 
-  - name: Install qnapi
+  - name: Install elementary-tweaks
     apt:
       name: elementary-tweaks
       update_cache: yes
