@@ -52,5 +52,4 @@
       - lzip
       - lunzip
       - shutter
-      - gnome-web-photo
     become: true
