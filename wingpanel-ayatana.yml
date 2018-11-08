@@ -36,6 +36,7 @@
       path: "{{ user_home.stdout_lines[0] }}/.config/autostart/indicator-application.desktop"
       regexp: 'OnlyShowIn.*'
       replace: 'OnlyShowIn=Unity;GNOME;Pantheon;'
+    when: indicatorappdesktop.stat.exists
 
   - name: Install a last .deb package from the internet for install wingpanel-indicator-ayatana
     apt:
