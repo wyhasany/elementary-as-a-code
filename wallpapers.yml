@@ -67,7 +67,6 @@
 #    register: lock_sh
 
   - name: Use your user home in lock.sh config
-    when: not ls_desktop.stat.exists
     replace:
       path: wallpapers/lock.sh
       regexp: '\/home\/yourusername'
@@ -75,7 +74,6 @@
       backup: yes
 
   - name: Use your username in lock.sh config
-    when: not ls_desktop.stat.exists
     replace:
       path: wallpapers/lock.sh
       regexp: 'yourusername'
