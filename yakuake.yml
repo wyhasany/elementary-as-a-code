@@ -9,7 +9,7 @@
       name: "{{ package }}"
       update_cache: yes
       state: latest
-    var:
+    vars:
       package:
       - yakuake
       - rsync
