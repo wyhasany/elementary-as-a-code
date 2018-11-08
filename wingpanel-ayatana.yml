@@ -47,7 +47,7 @@
   - name: Correct padding in app.css if it exists
     stat:
       path: /usr/share/themes/elementary/gtk-3.0/apps.css
-    register: appscss
+    register: appcss
 
   - replace:
       path: /usr/share/themes/elementary/gtk-3.0/apps.css
