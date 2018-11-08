@@ -5,7 +5,13 @@
   tasks:
 
   - name: Install packages
-    apt: name=zsh state=present
+    apt: name="{{ package }}" state=present
+    vars:
+      package:
+      - zsh
+      - wget
+      - curl
+      - git
     become: true
 
   - name: grep and register user_home
