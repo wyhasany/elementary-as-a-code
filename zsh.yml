@@ -12,6 +12,7 @@
       - wget
       - curl
       - git
+      - rsync
     become: true
 
   - name: grep and register user_home
