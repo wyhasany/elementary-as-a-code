@@ -6,9 +6,13 @@
   
   - name: Instal yakuake
     apt:
-      name: yakuake
+      name: "{{ package }}"
       update_cache: yes
       state: latest
+    var:
+      package:
+      - yakuake
+      - rsync
     become: true
 
   - name: grep and register user_home

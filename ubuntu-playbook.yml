@@ -28,8 +28,8 @@
 #- import_playbook: virtualbox.yml
 #- import_playbook: vivaldi.yml
 #- import_playbook: wallpapers.yml
-- import_playbook: wingpanel-ayatana.yml
-- import_playbook: wireshark-installation.yml
+#- import_playbook: wingpanel-ayatana.yml
+#- import_playbook: wireshark-installation.yml
 - import_playbook: yakuake.yml
 - import_playbook: yubikey.yml
 - import_playbook: zsh.yml
