@@ -1,5 +1,11 @@
 [![Build Status](https://travis-ci.com/wyhasany/elementary-as-a-code.svg?branch=master)](https://travis-ci.com/wyhasany/elementary-as-a-code)
 
+This script configures fresh installation of Elementary OS Juno as well
+as any linux distribution based on Ubuntu Bionic. All pre-installed
+applications you can find under playbooks directory. As well you can
+customize which application would you like to pre-install on your
+system.
+
 Firstly to configure new Elementary Juno installation run:
 
 ```
@@ -13,10 +19,22 @@ ansible-galaxy install bendews.cloudflared
 Then install all default apps and configurations by:
 
 ```
-ansible-playbook ubuntu-playbook.yml
+ansible-playbook ubuntu-playbook.yml --user="$USER" --ask-sudo-pass
+```
+
+If you would like to miss packages for elementary os use command:
+```
+ansible-playbook ubuntu-playbook.yml --user="$USER" --ask-sudo-pass --skip-tags elementary-os
+```
+
+As well you can just run:
+
+```
+./run.sh
 ```
 
 Playbook already tested, works flawlessly:
+
 ```
 autostart.yml
 chrome.yml
@@ -54,7 +72,7 @@ zsh.yml
 If you would like to install KeepassXC with your provided configuration
 copy your current keepassxc configuration to keepassxc folder:
 ```
-cp ~/.config/keepassxc/keepassxc.ini keepassxc/
+cp ~/.config/keepassxc/keepassxc.ini playbooks/keepassxc/
 ```
 
 Playbook with issues:

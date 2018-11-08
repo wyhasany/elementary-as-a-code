@@ -1,11 +1,11 @@
 .idea
 *.retry
 wingpanel-ayatana.yml~
-keepassxc/keepassxc.ini
-wallpapers/ls.desktop.*
-zsh_files/zshrc.*
-conf-files/.git-credentials
-conf-files/.gitconfig
-conf-files/.ssh/*
-conf-files/.gnupg/*
+playbooks/keepassxc/keepassxc.ini
+playbooks/wallpapers/ls.desktop.*
+playbooks/zsh_files/zshrc.*
+playbooks/conf-files/.git-credentials
+playbooks/conf-files/.gitconfig
+playbooks/conf-files/.ssh/*
+playbooks/conf-files/.gnupg/*
 
