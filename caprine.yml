@@ -15,7 +15,9 @@
       name: snapd.service
       state: started
     become: true
+    tags: no-tests
 
   - name: Install Caprine using snap
     command: snap install caprine --classic  # waiting for snap module to get rid of command
     become: true
+    tags: no-tests
