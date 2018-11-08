@@ -8,7 +8,7 @@
   #https://galaxy.ansible.com/bendews/cloudflared
   - name: Install and Configure cloudflared - dns over https
     include_role:
-      name: ansible-cloudflared
+      name: bendews.cloudflared
     vars:
       cloudflared_allow_firewall: false
       cloudflared_enable_service: true
