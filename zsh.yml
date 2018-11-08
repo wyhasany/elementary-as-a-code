@@ -87,24 +87,24 @@
       dest: "{{ user_home.stdout_lines[0] }}/.local/share/fonts/"
 
   - name: scan for new fonts
-    command: fc-cache -fv ~/.local/share/fonts/
+    command: fc-cache -fv {{ user_home.stdout_lines[0] }}/.local/share/fonts/
 
   - name: clone powerlevel9k theme
     git:
       repo: https://github.com/bhilburn/powerlevel9k.git
-      dest:  ~/.oh-my-zsh/custom/themes/powerlevel9k
+      dest:  "{{ user_home.stdout_lines[0] }}/.oh-my-zsh/custom/themes/powerlevel9k"
       update: no
 
   - name: clone docker-machine completion
     git:
       repo: https://github.com/leonhartX/docker-machine-zsh-completion.git
-      dest: ~/.oh-my-zsh/custom/plugins/docker-machine
+      dest: "{{ user_home.stdout_lines[0] }}/.oh-my-zsh/custom/plugins/docker-machine"
       update: no
 
   - name: clone fuzzy finder
     git:
       repo: https://github.com/junegunn/fzf.git
-      dest: ~/.oh-my-zsh/custom/plugins/fzf
+      dest: "{{ user_home.stdout_lines[0] }}/.oh-my-zsh/custom/plugins/fzf"
       update: no
 
   - name: install fuzzy finder
@@ -113,19 +113,19 @@
   - name: clone fzf-zsh wrapper
     git:
       repo: https://github.com/Treri/fzf-zsh.git
-      dest: ~/.oh-my-zsh/custom/plugins/fzf-zsh
+      dest: "{{ user_home.stdout_lines[0] }}/.oh-my-zsh/custom/plugins/fzf-zsh"
       update: no
 
   - name: clone sdkman zsh plugin
     git:
       repo: https://github.com/nobeans/zsh-sdkman.git
-      dest: ~/.oh-my-zsh/custom/plugins/sdkman
+      dest: "{{ user_home.stdout_lines[0] }}/.oh-my-zsh/custom/plugins/sdkman"
       update: no
 
   - name: clone zsh-autosuggestions
     git:
       repo: https://github.com/zsh-users/zsh-autosuggestions
-      dest: ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions
+      dest: "{{ user_home.stdout_lines[0] }}/.oh-my-zsh/custom/plugins/zsh-autosuggestions"
 
   - name: create folder for flatpak plugin
     file:
@@ -141,7 +141,7 @@
   - name: clone zsh-syntax-highlighting
     git:
       repo: https://github.com/zsh-users/zsh-syntax-highlighting.git
-      dest: ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting
+      dest: "{{ user_home.stdout_lines[0] }}/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting"
       update: no
 
   - name: Clone custom fonts
