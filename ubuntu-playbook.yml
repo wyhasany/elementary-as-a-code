@@ -1,37 +1,35 @@
 - name: Bionic Dev Station Instalator
   hosts: 127.0.0.1
   connection: local
-  tasks:
-
-  - include_tasks: autostart.yml
-  - include_tasks: caprine.yml
-  - include_tasks: chrome.yml
-  - include_tasks: dns-over-https.yml
-  - include_tasks: docker.yml
-  - include_tasks: dropbox.yml
-  - include_tasks: elementary-os-apps.yml
-  - include_tasks: elementary-tweaks.yml
-  - include_tasks: flatpak.yml
-  - include_tasks: fusuma.yml
-  - include_tasks: grub-customizer.yml
-  - include_tasks: idea-shortcuts.yml
-  - include_tasks: java.yml
-  - include_tasks: jetbrains-toolbox.yml
-  - include_tasks: keepassxc.yml
-  - include_tasks: multimedia-codecs.yml
-  - include_tasks: nord-vpn.yml
-  - include_tasks: plank.yml
-  - include_tasks: qnapi.yml
-  - include_tasks: remmina.yml
-  - include_tasks: sdkman.yml
-  - include_tasks: terminal-tools.yml
-  - include_tasks: utilities.yml
-  - include_tasks: vim.yml
-  - include_tasks: virtualbox.yml
-  - include_tasks: vivaldi.yml
-  - include_tasks: wallpapers.yml
-  - include_tasks: wingpanel-ayatana.yml
-  - include_tasks: wireshark-installation.yml
-  - include_tasks: yakuake.yml
-  - include_tasks: yubikey.yml
-  - include_tasks: zsh.yml
+- import_playbook: autostart.yml
+- import_playbook: caprine.yml
+- import_playbook: chrome.yml
+- import_playbook: dns-over-https.yml
+- import_playbook: docker.yml
+- import_playbook: dropbox.yml
+- import_playbook: elementary-os-apps.yml
+- import_playbook: elementary-tweaks.yml
+- import_playbook: flatpak.yml
+- import_playbook: fusuma.yml
+- import_playbook: grub-customizer.yml
+- import_playbook: idea-shortcuts.yml
+- import_playbook: java.yml
+- import_playbook: jetbrains-toolbox.yml
+- import_playbook: keepassxc.yml
+- import_playbook: multimedia-codecs.yml
+- import_playbook: nord-vpn.yml
+- import_playbook: plank.yml
+- import_playbook: qnapi.yml
+- import_playbook: remmina.yml
+- import_playbook: sdkman.yml
+- import_playbook: terminal-tools.yml
+- import_playbook: utilities.yml
+- import_playbook: vim.yml
+- import_playbook: virtualbox.yml
+- import_playbook: vivaldi.yml
+- import_playbook: wallpapers.yml
+- import_playbook: wingpanel-ayatana.yml
+- import_playbook: wireshark-installation.yml
+- import_playbook: yakuake.yml
+- import_playbook: yubikey.yml
+- import_playbook: zsh.yml

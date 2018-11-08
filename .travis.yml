@@ -15,6 +15,7 @@ before_install:
 
 script:
   - container_id=$(mktemp)
+  - "{ echo '[defaults]'; echo 'gathering = smart'; echo 'fact_caching = jsonfile'; echo 'fact_caching_connection = /tmp/facts_cache'; echo 'fact_caching_timeout = 7200'; } >> ansible.cfg"
   - 'sudo docker run --detach --privileged --volume="${PWD}":/etc/ansible/roles/nginx_role ${distribution}-${version}:ansible > "${container_id}"'
   - 'sudo docker exec "$(cat ${container_id})" env ANSIBLE_FORCE_COLOR=1 ansible-playbook /etc/ansible/roles/nginx_role/travis/test.yml --syntax-check'
   - 'sudo docker exec "$(cat ${container_id})" env ANSIBLE_FORCE_COLOR=1 ansible-playbook /etc/ansible/roles/nginx_role/travis/test.yml --skip-tags "caprine,no-tests"'
