@@ -18,7 +18,6 @@ script:
   - 'sudo docker run --detach --privileged --volume="${PWD}":/etc/ansible/roles/nginx_role ${distribution}-${version}:ansible > "${container_id}"'
   - 'sudo docker exec "$(cat ${container_id})" env ANSIBLE_FORCE_COLOR=1 ansible-playbook /etc/ansible/roles/nginx_role/travis/test.yml --syntax-check'
   - 'sudo docker exec "$(cat ${container_id})" env ANSIBLE_FORCE_COLOR=1 ansible-playbook /etc/ansible/roles/nginx_role/travis/test.yml --skip-tags "caprine,no-tests"'
-  - 'sudo docker exec "$(cat ${container_id})" env ANSIBLE_FORCE_COLOR=1 ansible-playbook /etc/ansible/roles/nginx_role/travis/test.yml --skip-tags "caprine,no-tests"'
   - >
     sudo docker exec "$(cat ${container_id})" env ANSIBLE_FORCE_COLOR=1 ansible-playbook /etc/ansible/roles/nginx_role/travis/test.yml --skip-tags "caprine,no-tests"
     | grep -q 'changed=0.*failed=0'
