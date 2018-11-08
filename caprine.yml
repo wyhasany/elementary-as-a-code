@@ -3,11 +3,17 @@
   connection: local
   tags: caprine
   tasks:
+
   - name: Install dependency for using snaps
     apt:
       name: snapd
       state: present
     become: true
+
+  - name: Start systemd service
+    service:
+      name: snapd.service
+      state: started
 
   - name: Install Caprine using snap
     command: snap install caprine --classic  # waiting for snap module to get rid of command
