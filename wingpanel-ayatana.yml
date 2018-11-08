@@ -20,11 +20,17 @@
       path: "{{ user_home.stdout_lines[0] }}/.config/autostart"
       state: directory
 
+  - name: copy indicator-application.desktop if exists
+    stat:
+      path: /etc/xdg/autostart/indicator-application.desktop
+    register: indicatorappdesktop
+
   - name: copy indicator-application.desktop to user home autostart
     copy:
       src: /etc/xdg/autostart/indicator-application.desktop
       dest: "{{ user_home.stdout_lines[0] }}/.config/autostart/"
       force: yes
+    when: indicatorappdesktop.stat.exists
 
   - replace:
       path: "{{ user_home.stdout_lines[0] }}/.config/autostart/indicator-application.desktop"
@@ -36,11 +42,18 @@
       deb: "https://launchpad.net/%7Eelementary-os/+archive/ubuntu/stable/+files/wingpanel-indicator-ayatana_2.0.3+r27+pkg17%7Eubuntu0.4.1.1_amd64.deb"
     become: true
 
+  - name: Correct padding in app.css if it exists
+    stat:
+      path: /usr/share/themes/elementary/gtk-3.0/apps.css
+    register: appscss
+
   - replace:
       path: /usr/share/themes/elementary/gtk-3.0/apps.css
       regexp: '.composited-indicator.*\n\s*padding: 0 \dpx;'
       replace: '.composited-indicator {\n    padding: 0 2px;'
     become: true
+    when: appcss.stat.exists
+
 
  #Based on:
  #https://elementaryos.stackexchange.com/questions/16502/missing-icons-in-the-wingpanel 
