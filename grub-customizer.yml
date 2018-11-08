@@ -3,10 +3,12 @@
   connection: local
   tags: grub customizer
   tasks:
+
   - name: Add grub-customizer Repository
     apt_repository:
       repo: ppa:danielrichter2007/grub-customizer
     become: true
+
   - name: Install grub-customizer
     apt:
       name: grub-customizer

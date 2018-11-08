@@ -1,4 +1,4 @@
-- name:
+- name: Idea keymap
   hosts: 127.0.0.1
   tags: jetbrains
   connection: local
@@ -11,5 +11,11 @@
       state: latest
     become: true
 
+  - name: install dropbox if its binary does not exists
+    stat:
+      path: "clearSystemShortcuts.executed"
+    register: clearSystemShortcutsExecuted
+
   - name: Remove/change system shortcuts with collisions for Jetbrains products
-    shell: "python3 shortcuts/clearSystemShortcuts.py  -e"
+    shell: "python3 shortcuts/clearSystemShortcuts.py  -e && touch clearSystemShortcuts.executed"
+    when: not clearSystemShortcutsExecuted.stat.exists

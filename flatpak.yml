@@ -1,12 +1,14 @@
-- name:
+- name: Flatpak
   hosts: 127.0.0.1
   connection: local
   tags: flatpak
   tasks:
+
   - name: Add flatpak Repository
     apt_repository:
       repo: ppa:alexlarsson/flatpak
     become: true
+
   - name: Install flatpak
     apt:
       name: flatpak

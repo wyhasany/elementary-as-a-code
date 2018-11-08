@@ -1,4 +1,4 @@
-- name: Install zsh shell
+- name: zsh
   hosts: 127.0.0.1
   connection: local
   tags: zsh
@@ -15,6 +15,7 @@
       - rsync
       - fontconfig
     become: true
+    register: zshInst
 
   - name: grep and register user_home
     shell: >
@@ -45,7 +46,7 @@
     register: zshrc
 
   - name: back up existing .zshrc file if it exists
-    when: zshrc.stat.exists
+    when: zshrc.stat.exists and zshInst.changed
     copy:
       src: "{{ user_home.stdout_lines[0] }}/.zshrc"
       dest: "{{ user_home.stdout_lines[0] }}/.zshrc-orig"
@@ -74,6 +75,7 @@
     become: yes
     become_user: root
     command: chsh -s /bin/zsh "{{ ansible_user_id }}"
+    when: zshInst.changed
 
   - name: ensure the fonts directory is present
     file:
@@ -81,14 +83,17 @@
       mode: 0755
       state: directory
       recurse: true
+    when: zshInst.changed
 
   - name: copy fonts
     synchronize:
       src: zsh_files/fonts
       dest: "{{ user_home.stdout_lines[0] }}/.local/share/"
+    when: zshInst.changed
 
   - name: scan for new fonts
     command: fc-cache -fv {{ user_home.stdout_lines[0] }}/.local/share/fonts/
+    when: zshInst.changed
 
   - name: clone powerlevel9k theme
     git:
@@ -107,9 +112,11 @@
       repo: https://github.com/junegunn/fzf.git
       dest: "{{ user_home.stdout_lines[0] }}/.oh-my-zsh/custom/plugins/fzf"
       update: no
+    register: fuzzyInst
 
   - name: install fuzzy finder
     command: "{{ user_home.stdout_lines[0] }}/.oh-my-zsh/custom/plugins/fzf/install --bin"
+    when: fuzzyInst.changed
 
   - name: clone fzf-zsh wrapper
     git:
@@ -151,9 +158,11 @@
       dest: "{{ user_home.stdout_lines[0] }}/src-hub/fonts"
       depth: 1
       update: no
+    register: customFontsInst
 
   - name: Install custom fonts
     shell: "{{ user_home.stdout_lines[0] }}/src-hub/fonts/install.sh"
+    when: customFontsInst.changed
 
   - name: Clone stderred, to colour sterred on red
     git:

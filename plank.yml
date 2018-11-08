@@ -1,4 +1,4 @@
-- name:
+- name: Plank
   hosts: 127.0.0.1
   tags: elementary-os
   connection: local
@@ -26,6 +26,7 @@
       update_cache: yes
       state: latest
     become: true
+    register: plankInst
 
   - name: Configure plank
     dconf:
@@ -55,4 +56,5 @@
 
   - name: Restart plank
     shell: "killall -9 plank"
+    when: plankInst.changed
     tags: no-tests

@@ -1,4 +1,4 @@
-- name:
+- name: DNS over https
   hosts: 127.0.0.1
   connection: local
   tags: cloudflared-dns
@@ -21,11 +21,13 @@
       regexp: '\#DNS\='
       replace: 'DNS=127.0.0.1'
     become: true
+    register: resolvedConf
 
   - name: Restart systemd service systemd-resolved 
     service:
       name: systemd-resolved
       state: restarted
+    when: resolvedConf.changed
 
   #To understand what ig going on:
   #https://askubuntu.com/questions/973017/wrong-nameserver-set-by-resolvconf-and-networkmanager

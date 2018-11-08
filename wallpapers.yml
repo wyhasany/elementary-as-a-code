@@ -1,4 +1,4 @@
-- name:
+- name: Wallpapers
   hosts: 127.0.0.1
   connection: local
   tags: elementary-os
@@ -26,12 +26,6 @@
     stat:
       path: "{{ user_home.stdout_lines[0] }}/.config/variety/variety.conf"
     register: variety_conf
-
-  - name: back up existing variety.conf file if it exists
-    when: variety_conf.stat.exists
-    copy:
-      src: "{{ user_home.stdout_lines[0] }}/.config/variety/variety.conf"
-      dest: "{{ user_home.stdout_lines[0] }}/.config/variety/variety.conf-orig"
 
   - name: copy variety.conf to user home
     copy:

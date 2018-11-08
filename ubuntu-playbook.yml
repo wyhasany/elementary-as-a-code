@@ -1,4 +1,4 @@
-- name:
+- name: Bionic Dev Station Instalator
   hosts: 127.0.0.1
   connection: local
 - import_playbook: autostart.yml

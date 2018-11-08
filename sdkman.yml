@@ -1,9 +1,22 @@
-- name: Install zsh shell
+- name: sdkman
   hosts: 127.0.0.1
   connection: local
   tags: sdkman
   tasks:
 
+  - name: grep and register user_home
+    shell: >
+      egrep "^{{ ansible_user_id }}:" /etc/passwd | awk -F: '{ print $6 }'
+    changed_when: false
+    register: user_home
+
+  - name: install sdkman if its binary does not exists
+    stat:
+      path: "{{ user_home.stdout_lines[0] }}/.sdkman/bin/sdkman-init.sh"
+    register: sdkManInstalled
+
   - name: Install sdkman (https://sdkman.io/)
     command: bash -c "curl -s http://get.sdkman.io | bash"
+    when: not sdkManInstalled.stat.exists
+
 

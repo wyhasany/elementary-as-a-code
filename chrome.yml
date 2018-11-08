@@ -1,8 +1,9 @@
-- name:
+- name: Chrome
   hosts: 127.0.0.1
   connection: local
   tags: chrome
   tasks:
+
   - name: Add the Chrome APT key
     apt_key:
       url: https://dl-ssl.google.com/linux/linux_signing_key.pub
@@ -13,12 +14,14 @@
       id: A040830F7FAC5991
       state: present
     become: true
+
   - name: Add Chrome Repository
     apt_repository:
       repo: "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main"
       state: present
       filename: google.list
     become: true
+
   - name: Install Chrome
     apt:
       name: google-chrome-stable

@@ -1,4 +1,4 @@
-- name:
+- name: Jetbrains Toolbox
   hosts: 127.0.0.1
   connection: local
   tags: jetbrains
@@ -15,7 +15,7 @@
         - wget
     become: true
 
-  - name: grep and register
+  - name: grep and register user_home
     shell: >
       egrep "^{{ ansible_user_id }}:" /etc/passwd | awk -F: '{ print $6 }'
     changed_when: false
