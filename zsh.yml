@@ -84,7 +84,7 @@
   - name: copy fonts
     synchronize:
       src: zsh_files/fonts
-      dest: "{{ user_home.stdout_lines[0] }}/.local/share/"
+      dest: "{{ user_home.stdout_lines[0] }}/.local/share/fonts/"
 
   - name: scan for new fonts
     command: fc-cache -fv ~/.local/share/fonts/
