@@ -13,6 +13,7 @@
       - curl
       - git
       - rsync
+      - fontconfig
     become: true
 
   - name: grep and register user_home
@@ -84,7 +85,7 @@
   - name: copy fonts
     synchronize:
       src: zsh_files/fonts
-      dest: "{{ user_home.stdout_lines[0] }}/.local/share/fonts/"
+      dest: "{{ user_home.stdout_lines[0] }}/.local/share/"
 
   - name: scan for new fonts
     command: fc-cache -fv {{ user_home.stdout_lines[0] }}/.local/share/fonts/
