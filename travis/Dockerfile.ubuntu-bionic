@@ -11,7 +11,9 @@ RUN apt-add-repository -y ppa:ansible/ansible && apt-get update && apt-get insta
       echo 'gathering = smart'; \
       echo 'fact_caching = jsonfile'; \
       echo 'fact_caching_connection = /tmp/facts_cache'; \
-      echo 'fact_caching_timeout = 7200'; } >> ansible.cfg
+      echo 'fact_caching_timeout = 7200';
+      echo 'callback_whitelist = profile_tasks';
+      \} >> ansible.cfg
 
 
 RUN echo "[local]\nlocalhost ansible_connection=local" > /etc/ansible/hosts
