@@ -10,7 +10,7 @@ env:
     version: bionic
 
 before_install:
-  - 'sudo docker pull ${distribution}:${version}'
+  - 'sudo docker pull wyhasany/${distribution}-ansible:${version}'
   - 'sudo docker build --no-cache --rm --file=travis/Dockerfile.${distribution}-${version} --tag=${distribution}-${version}:ansible travis'
 
 script:
