@@ -8,6 +8,7 @@
     apt:
       name: python3
       update_cache: yes
+      cache_valid_time: 7200
       state: latest
     become: true
 

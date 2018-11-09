@@ -13,12 +13,14 @@
     apt:
       name: apt-utils
       update_cache: yes
+      cache_valid_time: 7200
       state: latest
 
   - name: Install JDKs
     apt:
       name: "{{ package }}"
       update_cache: yes
+      cache_valid_time: 7200
       state: latest
     vars:
       package:
@@ -30,5 +32,6 @@
     apt:
       name: oracle-java8-installer
       update_cache: yes
+      cache_valid_time: 7200
       state: latest
     tags: no-tests

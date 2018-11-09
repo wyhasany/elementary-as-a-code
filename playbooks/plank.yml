@@ -24,6 +24,7 @@
     apt:
       name: plank
       update_cache: yes
+      cache_valid_time: 7200
       state: latest
     become: true
     register: plankInst

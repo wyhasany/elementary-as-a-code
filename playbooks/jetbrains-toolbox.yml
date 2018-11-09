@@ -8,6 +8,7 @@
     apt:
       name: "{{ package }}"
       update_cache: yes
+      cache_valid_time: 7200
       state: latest
     vars:
       package:
