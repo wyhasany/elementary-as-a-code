@@ -87,3 +87,5 @@ RUN apt-add-repository -y ppa:ansible/ansible && apt-get update && DEBIAN_FRONTE
 
 
 RUN echo "[local]\nlocalhost ansible_connection=local" > /etc/ansible/hosts
+
+ENTRYPOINT ["/bin/systemd"]

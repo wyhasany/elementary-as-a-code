@@ -11,11 +11,10 @@ env:
 
 before_install:
   - 'sudo docker pull wyhasany/${distribution}-ansible:${version}'
-  - 'sudo docker build --no-cache --rm --file=travis/Dockerfile.${distribution}-${version} --tag=${distribution}-${version}:ansible travis'
 
 script:
   - container_id=$(mktemp)
-  - 'sudo docker run --detach --privileged --volume="${PWD}":/etc/ansible/roles/nginx_role ${distribution}-${version}:ansible > "${container_id}"'
+  - 'sudo docker run --detach --privileged --volume="${PWD}":/etc/ansible/roles/nginx_role wyhasany/${distribution}-ansible:${version} > "${container_id}"'
   - 'sudo docker exec "$(cat ${container_id})" env ANSIBLE_FORCE_COLOR=1 ansible-playbook /etc/ansible/roles/nginx_role/travis/test.yml --syntax-check'
   - 'sudo docker exec "$(cat ${container_id})" env ANSIBLE_FORCE_COLOR=1 ansible-playbook /etc/ansible/roles/nginx_role/travis/test.yml --skip-tags "no-tests"'
   - >
