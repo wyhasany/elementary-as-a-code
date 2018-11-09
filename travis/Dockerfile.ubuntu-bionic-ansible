@@ -87,6 +87,7 @@ RUN apt-add-repository -y ppa:ansible/ansible && apt-get update && DEBIAN_FRONTE
       echo 'fact_caching_connection = /tmp/facts_cache'; \
       echo 'fact_caching_timeout = 7200'; \
       echo 'callback_whitelist = profile_tasks'; \
+      echo 'pipelining = True'; \
       } >> ansible.cfg
 
 
