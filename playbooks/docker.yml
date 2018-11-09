@@ -37,8 +37,6 @@
     apt_repository:
       repo: "deb https://download.docker.com/linux/ubuntu bionic stable"
       state: present
-      update_cache: yes
-      cache_valid_time: 7200
     become: true
 
   - name: Install Docker
