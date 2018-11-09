@@ -60,12 +60,16 @@ RUN apt-add-repository -y ppa:ansible/ansible && apt-get update && DEBIAN_FRONTE
     sharutils \
     shutter \
     snapd \
+    sudo \
     software-properties-common \
+    tar \
     tldr \
     transmission \
     tree \
+    ubuntu-restricted-extras \
     unace \
     unrar \
+    unzip \
     uudeview \
     variety \
     vim \
