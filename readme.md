@@ -79,3 +79,4 @@ Playbook with issues:
 ```
 caprine.yml (the snap probably do not work correctly inside juno)
 ```
+
