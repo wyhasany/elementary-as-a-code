@@ -65,7 +65,7 @@
     replace:
       path: wallpapers/lock.sh
       regexp: '\/home\/yourusername'
-      replace: "{{ user_home.stdout_lines[0] }}"
+      replace: "/home/{{ user_home.stdout_lines[0] }}"
       backup: yes
 
   - name: Use your username in lock.sh config
@@ -91,7 +91,7 @@
     replace:
       path: wallpapers/ls.desktop
       regexp: '\/home\/yourusername'
-      replace: "{{ user_home.stdout_lines[0] }}"
+      replace: "/home/{{ user_home.stdout_lines[0] }}"
       backup: yes
 
   - name: copy ls.desktop to autostart

@@ -55,7 +55,7 @@
     replace:
       path: zsh_files/zshrc
       regexp: '\/home\/yourusername'
-      replace: "{{ ansible_user_id }}"
+      replace: "/home/{{ ansible_user_id }}"
       backup: yes
 
   - name: Use your username in zshrc config
