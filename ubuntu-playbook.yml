@@ -5,8 +5,8 @@
 #- import_playbook: playbooks/caprine.yml
 #- import_playbook: playbooks/chrome.yml
 #- import_playbook: playbooks/dns-over-https.yml
-#- import_playbook: playbooks/docker.yml
-- import_playbook: playbooks/dropbox.yml
+- import_playbook: playbooks/docker.yml
+#- import_playbook: playbooks/dropbox.yml
 #- import_playbook: playbooks/elementary-os-apps.yml
 #- import_playbook: playbooks/elementary-tweaks.yml
 #- import_playbook: playbooks/flatpak.yml
