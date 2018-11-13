@@ -16,9 +16,15 @@
       state: present
     become: true
 
+  - name: Get upstream codename (bionic, xenial, trusty etc.)
+    shell: >
+      lsb_release -cus
+    changed_when: false
+    register: upstream_codename
+
   - name: Add Virtualbox Repository
     apt_repository:
-      repo: "deb https://download.virtualbox.org/virtualbox/debian bionic contrib"
+      repo: "deb https://download.virtualbox.org/virtualbox/debian {{ upstream_codename.stdout_lines[0] }} contrib"
       state: present
       filename: virtualbox.list
     become: true
