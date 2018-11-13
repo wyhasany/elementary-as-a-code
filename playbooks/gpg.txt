@@ -1,0 +1,4 @@
+1. .zshrc
+2. .profile
+3. pinentry choose terminal/gui
+https://askubuntu.com/questions/144188/how-to-add-a-link-group-to-update-alternatives/410070#410070
