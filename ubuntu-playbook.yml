@@ -1,4 +1,4 @@
-- name: Bionic Dev Station Instalator
+- name: Dev Station Instalator
   hosts: 127.0.0.1
   connection: local
 - import_playbook: playbooks/autostart.yml
@@ -8,7 +8,9 @@
 - import_playbook: playbooks/docker.yml
 - import_playbook: playbooks/dropbox.yml
 - import_playbook: playbooks/elementary-os-apps.yml
+  when: ansible_distribution_release == 'juno'
 - import_playbook: playbooks/elementary-tweaks.yml
+  when: ansible_distribution_release == 'juno'
 - import_playbook: playbooks/flatpak.yml
 - import_playbook: playbooks/fusuma.yml
 - import_playbook: playbooks/grub-customizer.yml
@@ -28,7 +30,9 @@
 - import_playbook: playbooks/virtualbox.yml
 - import_playbook: playbooks/vivaldi.yml
 - import_playbook: playbooks/wallpapers.yml
+  when: ansible_distribution_release == 'juno'
 - import_playbook: playbooks/wingpanel-ayatana.yml
+  when: ansible_distribution_release == 'juno'
 - import_playbook: playbooks/wireshark-installation.yml
 - import_playbook: playbooks/yakuake.yml
 - import_playbook: playbooks/yubikey.yml
