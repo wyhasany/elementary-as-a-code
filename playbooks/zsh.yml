@@ -135,6 +135,11 @@
       repo: https://github.com/zsh-users/zsh-autosuggestions
       dest: "{{ user_home.stdout_lines[0] }}/.oh-my-zsh/custom/plugins/zsh-autosuggestions"
 
+  - name: clone zsh-completions
+    git:
+      repo: https://github.com/zsh-users/zsh-completions
+      dest: "{{ user_home.stdout_lines[0] }}/.oh-my-zsh/custom/plugins/zsh-completions"
+
   - name: create folder for flatpak plugin
     file:
       path: "{{ user_home.stdout_lines[0] }}/.oh-my-zsh/custom/plugins/flatpak/"
