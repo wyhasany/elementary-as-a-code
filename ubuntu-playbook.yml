@@ -4,6 +4,8 @@
 - import_playbook: playbooks/autostart.yml
 - import_playbook: playbooks/caprine.yml
 - import_playbook: playbooks/chrome.yml
+- import_playbook: playbooks/crypto.yml
+- import_playbook: playbooks/deb.yml
 - import_playbook: playbooks/dns-over-https.yml
 - import_playbook: playbooks/docker.yml
 - import_playbook: playbooks/dropbox.yml
