@@ -1,0 +1,11 @@
+- name: Custom debs installator (installs all debs from ./debs folder)
+  hosts: 127.0.0.1
+  connection: local
+  tags: custom-debs
+  tasks:
+
+  - name: Install all custom debs (i.e. not available in public domain)
+    apt:
+      deb: "{{item}}"
+    become: true
+    with_fileglob: debs/*.deb
