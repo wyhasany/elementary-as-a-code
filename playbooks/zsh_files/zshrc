@@ -28,6 +28,7 @@ plugins=(
   virtualenv
   z
   zsh-autosuggestions
+  zsh-completions
   zsh-syntax-highlighting
 )
 
@@ -222,3 +223,5 @@ export SDKMAN_DIR="/home/yourusername/.sdkman"
 [[ -s "/home/yourusername/.sdkman/bin/sdkman-init.sh" ]] && source "/home/yourusername/.sdkman/bin/sdkman-init.sh"
 
 export LD_PRELOAD="/home/yourusername/src-hub/stderred/build/libstderred.so${LD_PRELOAD:+:$LD_PRELOAD}"
+
+autoload -U compinit && compinit
