@@ -33,6 +33,9 @@
       - gdebi-core
       - gparted
       - htop
+      # For network issues debugging
+      - iptraf
+      - iftop
       - menulibre
       - pinta
       - pulseaudio
