@@ -11,4 +11,6 @@
       - opensc
       - openssl
       - libengine-pkcs11-openssl1.1
+      # installs certtool for easy ssl key management
+      - gnutls-bin
     become: true
