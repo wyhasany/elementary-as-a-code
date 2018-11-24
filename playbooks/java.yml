@@ -28,10 +28,3 @@
         - openjdk-11-jdk
     become: true
 
-  - name: Install oracle-java8-installer
-    apt:
-      name: oracle-java8-installer
-      update_cache: yes
-      cache_valid_time: 7200
-      state: latest
-    tags: no-tests
