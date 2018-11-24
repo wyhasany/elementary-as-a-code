@@ -1,0 +1,15 @@
+#Installation of jupyter notebook:
+python3 -m pip install --user jupyter
+
+#Installation of plug in for presentations
+python3 -m pip install --user RISE
+jupyter-nbextension install rise --py --user
+jupyter-nbextension enable rise --py --user
+
+#Installation of bash kernel
+python3 -m pip install --user bash_kernel
+python3 -m bash_kernel.install
+
+#Run jupyter notebook
+
+jupyter notebook
