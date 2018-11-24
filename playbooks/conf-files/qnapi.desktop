@@ -1,0 +1,10 @@
+[Desktop Entry]
+Version=1.1
+Type=Application
+Name=QNapi
+GenericName=Subtitles downloader
+Comment=Scan directory and download subtitles
+Icon=/home/yourusername/bin/qnapi-128.png
+Exec="/home/yourusername/bin/QNapi-0.2.3-x86_64.AppImage"
+Actions=
+Categories=FileTransfer;Network;
