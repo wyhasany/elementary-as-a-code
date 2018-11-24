@@ -9,6 +9,5 @@
       package:
       - ubuntu-restricted-extras
       - libavcodec-extra
-      - libdvd-pkg
       - ffmpeg
     become: true
