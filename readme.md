@@ -10,10 +10,12 @@ Firstly to configure new Elementary Juno installation run:
 
 ```
 sudo apt-get update &&\
-sudo apt-get install software-properties-common -y &&\
+sudo apt-get install software-properties-common git -y &&\
 sudo apt-add-repository --yes --update ppa:ansible/ansible &&\
 sudo apt-get install ansible -y &&\
-ansible-galaxy install bendews.cloudflared
+ansible-galaxy install bendews.cloudflared &&\
+git clone https://github.com/wyhasany/elementary-as-a-code.git &&\
+cd elementary-as-a-code
 ```
 
 Then install all default apps and configurations by:
