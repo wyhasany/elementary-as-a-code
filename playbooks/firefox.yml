@@ -1,0 +1,19 @@
+- name: Firefox
+  hosts: 127.0.0.1
+  connection: local
+  tags: firefox
+  tasks:
+
+  - name: Add Firefox Repository
+    apt_repository:
+      repo: ppa:ubuntu-mozilla-security/ppa
+    become: true
+
+  - name: Install Firefox
+    apt:
+      name: firefox
+      update_cache: yes
+      cache_valid_time: 7200
+      state: latest
+    become: true
+

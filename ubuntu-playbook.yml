@@ -12,6 +12,7 @@
   when: ansible_distribution_release == 'juno'
 - import_playbook: playbooks/elementary-tweaks.yml
   when: ansible_distribution_release == 'juno'
+- import_playbook: playbooks/firefox.yml
 - import_playbook: playbooks/flatpak.yml
 - import_playbook: playbooks/fusuma.yml
 - import_playbook: playbooks/grub-customizer.yml
