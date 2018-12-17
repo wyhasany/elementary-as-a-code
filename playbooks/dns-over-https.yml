@@ -15,6 +15,10 @@
       cloudflared_port: 53
       ansible_become: true
 
+# Wait for fix:
+# https://askubuntu.com/questions/973017/wrong-nameserver-set-by-resolvconf-and-networkmanager
+# https://bugs.launchpad.net/ubuntu/+source/systemd/+bug/1624320
+
   - name: Configure systemd-resolvconf to use default local dns server
     replace:
       path: /etc/systemd/resolved.conf
