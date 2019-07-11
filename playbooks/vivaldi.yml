@@ -7,7 +7,7 @@
   - name: Add the Vivaldi APT key
     apt_key:
       url: https://repo.vivaldi.com/stable/linux_signing_key.pub
-      id: 6D3789EDC3401E12
+      id: 8D04CE49EFB20B23
       state: present
     become: true
 
