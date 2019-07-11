@@ -148,7 +148,7 @@
 
   - name: copy flatpak plugin
     get_url:
-      url: https://raw.githubusercontent.com/bilelmoussaoui/flatpak-zsh-completion/master/flatpak/flatpak.plugin.zsh
+      url: https://raw.githubusercontent.com/bilelmoussaoui/flatpak-zsh-completion/master/flatpak.plugin.zsh
       dest: "{{ user_home.stdout_lines[0] }}/.oh-my-zsh/custom/plugins/flatpak/"
 
   - name: clone zsh-syntax-highlighting
