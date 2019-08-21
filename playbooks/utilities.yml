@@ -12,6 +12,7 @@
     apt: name="{{packages}}" state=present
     vars:
       packages:
+      - cargo
       - tree
       - httpie
       # https://httpie.org/
@@ -57,3 +58,12 @@
       - lunzip
       - shutter
     become: true
+
+  - name: install exa if its binary does not exists
+    stat:
+      path: "exa.executed"
+    register: exaExecuted
+
+  - name: Install exa with cargo package manager
+    shell: "cargo install exa && touch exa.executed"
+    when: not exaExecuted.stat.exists

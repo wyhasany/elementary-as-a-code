@@ -35,7 +35,7 @@ plugins=(
 source $ZSH/oh-my-zsh.sh
 
 # My shell config
-export PATH=$PATH:~/scripts/
+export PATH=$PATH:~/scripts/:~/.cargo/bin
 export EDITOR=vi
 
 ENABLE_CORRECTION="true"
