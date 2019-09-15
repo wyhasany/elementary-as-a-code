@@ -1,0 +1,28 @@
+- name: Slack
+  hosts: 127.0.0.1
+  connection: local
+  tasks:
+    - name: Check if slack is installed
+      command: dpkg-query -W slack-desktop
+      register: slack_check
+      failed_when: slack_check.rc > 1
+      changed_when: slack_check.rc == 1
+
+    - name: Download slack.deb
+      get_url: url="https://downloads.slack-edge.com/linux_releases/slack-desktop-4.0.2-amd64.deb"
+        dest="/home/{{ ansible_env.USER }}/Downloads/slack.deb"
+      when: slack_check.rc == 1
+
+    - name: Install slack
+      apt: deb="/home/{{ ansible_env.USER }}/Downloads/slack.deb"
+        state=present
+      sudo: true
+      when: slack_check.rc == 1
+
+    - name: Remove slack.deb file
+      file:
+        state: absent
+        path: "/home/{{ ansible_env.USER }}/Downloads/slack.deb"
+      when: slack_check.rc == 1
+
+
