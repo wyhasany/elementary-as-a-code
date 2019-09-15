@@ -3,11 +3,6 @@
   connection: local
   tasks:
 
-  - name: Add UNetbootin Repository
-    apt_repository:
-      repo: ppa:gezakovacs/ppa
-    become: true
-
   - name: Install Ubuntu packages
     apt: name="{{packages}}" state=present
     vars:
@@ -39,7 +34,6 @@
       - remmina
       - transmission
       - vlc
-      - unetbootin
       - unace
       - sharutils
       - uudeview

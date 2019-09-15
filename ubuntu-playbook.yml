@@ -27,6 +27,7 @@
 - import_playbook: playbooks/sdkman.yml
 - import_playbook: playbooks/terminal-tools.yml
 - import_playbook: playbooks/utilities.yml
+- import_playbook: playbooks/unetbootin.yml
 - import_playbook: playbooks/vim.yml
 - import_playbook: playbooks/virtualbox.yml
 - import_playbook: playbooks/vivaldi.yml
