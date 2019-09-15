@@ -8,6 +8,7 @@
     vars:
       package:
       - screen
+      - tmux
       - git-core
       - powerline
       - zsh
