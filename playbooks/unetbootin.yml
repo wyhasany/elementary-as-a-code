@@ -1,0 +1,17 @@
+- name: Utilities
+  hosts: 127.0.0.1
+  connection: local
+  tasks:
+
+  - name: Add UNetbootin Repository
+    apt_repository:
+      repo: ppa:gezakovacs/ppa
+    become: true
+
+  - name: Install  Unetbootin
+    apt: name="{{packages}}" state=present
+    vars:
+      packages:
+      - unetbootin
+    become: true
+
