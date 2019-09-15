@@ -12,6 +12,16 @@
       - git-core
       - powerline
       - zsh
+      - tree
+      - httpie
+        # https://httpie.org/
+      - tldr
+      - rar
+      - unrar
+      - p7zip-rar
+      - p7zip
+      - lzip
+      - lunzip
     become: true
 
   - name: install exa if its binary does not exists

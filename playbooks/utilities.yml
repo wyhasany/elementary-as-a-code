@@ -13,10 +13,6 @@
     vars:
       packages:
       - cargo
-      - tree
-      - httpie
-      # https://httpie.org/
-      - tldr
       - python
       - python-pip
       - python3
@@ -45,17 +41,11 @@
       - vlc
       - unetbootin
       - unace
-      - rar
-      - unrar
-      - p7zip-rar
-      - p7zip
       - sharutils
       - uudeview
       - mpack
       - arj
       - cabextract
-      - lzip
-      - lunzip
       - shutter
     become: true
 
