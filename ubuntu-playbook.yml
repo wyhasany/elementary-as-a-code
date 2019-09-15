@@ -35,7 +35,7 @@
   when: ansible_distribution_release == 'juno'
 - import_playbook: playbooks/wingpanel-ayatana.yml
   when: ansible_distribution_release == 'juno'
-- import_playbook: playbooks/wireshark-installation.yml
+- import_playbook: playbooks/wireshark.yml
 - import_playbook: playbooks/yakuake.yml
 - import_playbook: playbooks/yubikey.yml
 - import_playbook: playbooks/zsh.yml
