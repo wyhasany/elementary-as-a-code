@@ -22,6 +22,7 @@
       - p7zip
       - lzip
       - lunzip
+      - cargo
     become: true
 
   - name: install exa if its binary does not exists
