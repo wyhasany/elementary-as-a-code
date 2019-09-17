@@ -7,7 +7,6 @@
     apt: name="{{packages}}" state=present
     vars:
       packages:
-      - cargo
       - python
       - python-pip
       - python3
