@@ -12,7 +12,7 @@
       - ca-certificates
       - curl
       - software-properties-common
-      - python-pip
+      - python3-pip
     become: true
 
   - name: Remove legacy Docker packages
@@ -67,4 +67,5 @@
   - name: Install docker-compose
     pip:
       name: docker-compose
+      executable: pip3
     become: true
